@@ -5,18 +5,18 @@ export const NavItems = [
     },
     {
         name: "Tech",
-        path: "/tech",
+        path: "#tech",
     },
     {
         name: "Projects",
-        path: "/projects",
+        path: "#projects",
     },
     {
         name: "About",
-        path: "/about",
+        path: "#about",
     },
     {
         name: "Contact",
-        path: "/contact",
+        path: "#contact",
     }
 ]
