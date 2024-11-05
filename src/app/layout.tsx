@@ -1,15 +1,35 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Providers } from "./providers";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
+
+const salsa = localFont({
+  src: "./fonts/Salsa-Regular.ttf",
+  variable: "--font-salsa",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+
+const mavenPro = localFont({
+  src: "./fonts/MavenPro-VariableFont_wght.ttf",
+  variable: "--font-maven-pro",
+  weight: "100 900",
+});
+
+const assistant = localFont({
+  src: "./fonts/Assistant-VariableFont_wght.ttf",
+  variable: "--font-assistant",
   weight: "100 900",
 });
 
@@ -26,9 +46,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${salsa.variable} ${mavenPro.variable} ${assistant.variable} antialiased`}
       >
-        {children}
+        <Providers>
+          {children}
+      </Providers>
       </body>
     </html>
   );
