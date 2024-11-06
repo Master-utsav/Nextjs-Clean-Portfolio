@@ -28,45 +28,45 @@ body {
           0 0 2px #0ff, 
           0 0 3px #00f, 
           1px 1px 2px #0ff, 
-          -1px 1px 3px #00f, 
+          /* -1px 1px 3px #00f, 
           1px -1px 2px #0ff, 
-          -1px 1px 3px #00f; 
+          -1px 1px 3px #00f;  */
   }
   25% {
       box-shadow: 
           -1px 1px 2px #0ff, 
           1px -1px 3px #00f, 
           -2px 2px 2px #0ff, 
-          1px -1px 3px #00f, 
+          /* 1px -1px 3px #00f, 
           -1px 1px 2px #0ff, 
-          1px -1px 3px #00f; 
+          1px -1px 3px #00f;  */
   }
   50% {
       box-shadow: 
           1px -1px 3px #00f, 
           -1px 1px 2px #0ff, 
           2px -2px 3px #00f, 
-          -1px 1px 3px #0ff, 
+          /* -1px 1px 3px #0ff, 
           1px -1px 2px #00f, 
-          -1px 1px 2px #0ff; 
+          -1px 1px 2px #0ff;  */
   }
   75% {
       box-shadow: 
           -1px 1px 2px #0ff, 
           1px -1px 3px #00f, 
           -2px 2px 2px #0ff, 
-          1px -1px 3px #00f, 
+          /* 1px -1px 3px #00f, 
           -1px 1px 2px #0ff, 
-          1px -1px 3px #00f; 
+          1px -1px 3px #00f;  */
   }
   100% {
       box-shadow: 
           0px 0px 2px #00f, 
           0px 0px 3px #0ff, 
           -1px 1px 3px #00f, 
-          1px -1px 3px #0ff, 
+          /* 1px -1px 3px #0ff, 
           -1px 1px 2px #00f, 
-          1px -1px 3px #00f; 
+          1px -1px 3px #00f;  */
   }
 }
 
@@ -84,8 +84,8 @@ body {
 
 .electric-lightning-effect:hover {
   animation: electricLightning 0.5s infinite alternate ease-in-out;
-  transition-delay: 1s;
-  box-shadow: 0 0 3px #00f, 0 0 2px #0ff;
+  transition-delay: 100ms;
+  box-shadow: 0 0 3px #00f, 0 0 5px #0ff;
 }
 
 .nav-item-effect{
@@ -95,7 +95,7 @@ body {
 .nav-item-effect:hover {
   color: transparent; 
   background-clip: text;
-  background: url("/electric-lightning-strike-gif.gif") no-repeat center; 
+  /* background: url("/electric-lightning-strike-gif.gif") no-repeat center;  */
   mix-blend-mode: luminosity; 
   background-size: cover; 
   transition: transform 0.3s ease;
@@ -105,11 +105,11 @@ body {
 
 .dark .nav-item-effect:hover {
   mix-blend-mode: difference; 
-  background: url("/electric-lightning-strike-gif.gif") no-repeat center; 
+  /* background: url("/electric-lightning-strike-gif.gif") no-repeat center;  */
   background-size: cover;
   -webkit-text-stroke: 1px #fff;
   transform: scale(1.2);
-}
+} 
 
 .nav-item-effect::after {
   content: '';
