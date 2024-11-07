@@ -9,7 +9,7 @@ import PersonalBadge from "./ui/PersonalBadge";
 const Navbar: React.FC = () => {
 
     return (
-        <nav className="max-w-7xl fixed top-0 mx-auto flex justify-between  items-center gap-12 content-center bg-black-200/10 drop-shadow-sm border-[1px] dark:border-blue-500/30 border-blue-800/30 p-2 rounded-md mt-2 ">
+        <nav className="max-w-7xl fixed top-0 mx-auto flex justify-between  items-center gap-12 content-center bg-white-600/30  dark:bg-black-200/10 drop-shadow-sm border-[1px] dark:border-blue-500/30 border-blue-800/30 p-2 rounded-md mt-2 ">
             <Link href={"/"} className="text-3xl font-bold ">
                 {/* <Image
                     className="object-cover rounded-full size-12 border-[1px] dark:border-blue-500 border-blue-800 electric-lightning-effect "

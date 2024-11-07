@@ -1,46 +1,196 @@
-import { Button } from '@nextui-org/react'
-import React from 'react'
-import { ExternalLink } from 'lucide-react'
+"use client";
+import { Button } from "@nextui-org/react";
+import React from "react";
+import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
-import Link from 'next/link'
-// import {Socials} from '@/constants/index'
-
-//?? tell me if anything else you want 
+import Link from "next/link";
+import { motion } from "framer-motion";
+import NormalTooltip from "./ui/NormalTooltip";
+import ScrollDown from "./ScollDown";
 
 const HeroSection = () => {
-  return (
-    <section className="max-h-[80%] max-w-5xl text-center flex justify-center flex-col space-y-4 items-center md:pt-24 pt-28 font-[family-name:var(--font-maven-pro)]">
-      <div className='flex flex-col gap-1 justify-center items-center'>
-        {/* //Todo : add your name and your description */}
-        <h1 className='text-5xl font-bold '>I am Utsav Jaiswal</h1>
-        <h1 className='text-5xl font-bold'>Lorem ipsum dolor sit, amet consectetur adipisic</h1>
-      </div>
-      <div className='flex flex-row gap-4 justify-center items-center'>
-        <Button variant='shadow' className='rounded-md dark:text-black text-white bg-black-200 dark:bg-white-600 hover:bg-black dark:hover:bg-white text-base '>Connect</Button>
-        <Button variant='bordered'  className='electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600 dark:hover:bg-black hover:bg-white text-base'>Resume <ExternalLink className='size-4'/></Button>
-      </div>
-      <div className='flex flex-row gap-4 justify-center items-center'> 
-          {/* {
-          Socials.map((item, i) => (
-            <Link href={item.path} key={i} className="nav-item-effect text-black dark:text-white text-base font-thin font-[family-name:var(--font-maven-pro)]">
-              <div>{item.icon}</div>
-            </Link>
-          ))
-          } */}
-           <Link href={"/"}  className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600 dark:hover:bg-black hover:bg-white text-base">
-           <FaGithub className="size-4"/>
-           </Link>
-           <Link href={"/"}  className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600 dark:hover:bg-black hover:bg-white text-base">
-           <FaLinkedinIn className="size-4"/>
-           </Link>
-           <Link href={"/"}  className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600 dark:hover:bg-black hover:bg-white text-base">
-           <BsTwitterX className="size-4"/>
-           </Link>
-      </div>
-    </section>
-  )
-}
 
-export default HeroSection
+  return (
+    <section className="min-h-screen max-w-5xl text-center flex justify-center flex-col space-y-4 items-center md:pt-24 pt-28 font-[family-name:var(--font-maven-pro)]">
+      <div className="flex flex-col gap-6 justify-center items-center p-6 overflow-hidden animate-fade-in">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.68, -0.6, 0.32, 1.6] }}
+          className="max-w-3xl text-5xl font-extrabold text-center transition-colors duration-500 ease-in-out dark:text-blue-300 text-blue-800 leading-tight font-[family-name:var(--font-accent)]"
+        >
+          Crafting{" "}
+          <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
+            <motion.div
+              className="absolute inset-0 bg-yellow-300/20  dark:bg-yellow-700/20 shadow-md rounded"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: 1,
+                delay: 0.3,
+                ease: [0.68, -0.6, 0.32, 1.6],
+              }}
+            />
+            <span className="relative z-10">Experiences</span>
+          </motion.span>{" "}
+          in{" "}
+          <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
+            <motion.div
+              className="absolute inset-0 bg-yellow-300/20 dark:bg-yellow-700/20 shadow-md rounded"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: 1,
+                delay: 0.5,
+                ease: [0.68, -0.6, 0.32, 1.6],
+              }}
+            />
+            <span className="relative z-10">Web</span>
+          </motion.span>
+          ,{" "}
+          <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
+            <motion.div
+              className="absolute inset-0 bg-yellow-300/20 dark:bg-yellow-700/20 shadow-md rounded"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: 1,
+                delay: 0.7,
+                ease: [0.68, -0.6, 0.32, 1.6],
+              }}
+            />
+            <span className="relative z-10">Mobile</span>
+          </motion.span>
+          , and{" "}
+          <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
+            <motion.div
+              className="absolute inset-0 bg-yellow-300/20 dark:bg-yellow-700/20 shadow-md rounded"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: 1,
+                delay: 0.9,
+                ease: [0.68, -0.6, 0.32, 1.6],
+              }}
+            />
+            <span className="relative z-10">Blockchain</span>
+          </motion.span>
+        </motion.h1>
+        <p className="text-lg text-center font-medium text-gray-800 dark:text-gray-200 max-w-2xl leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.3 }}
+          >
+            I’m{" "}
+            <span className="font-semibold text-blue-600 dark:text-blue-300">
+              Utsav Jaiswal
+            </span>
+            ,
+          </motion.span>{" "}
+          <motion.span
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          >
+            a Full Stack Developer with expertise in{" "}
+            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+              React.js
+            </span>
+            ,
+          </motion.span>{" "}
+          <motion.span
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.6 }}
+          >
+            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+              TypeScript
+            </span>
+            ,
+          </motion.span>{" "}
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.7 }}
+          >
+            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+              Node.js
+            </span>
+            , and
+          </motion.span>{" "}
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.8 }}
+          >
+            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+              Expo
+            </span>
+            .
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2 }}
+          >
+            {" "}
+            I build applications that <span className="italic">
+              connect
+            </span>, <span className="italic">inspire</span>, and{" "}
+            <span className="italic">push the boundaries</span> of what&apos;s
+            possible.
+          </motion.span>
+        </p>
+      </div>
+
+      <div className="flex flex-row gap-4 justify-center items-center font-[family-name:var(--font-assistant)]">
+        <Button
+          variant="shadow"
+          className="rounded-md dark:text-black text-white bg-black-200 dark:bg-white-700 hover:bg-black dark:hover:bg-white text-base transition-all delay-100 duration-500 ease-in-out"
+        >
+          Connect
+        </Button>
+        <Button
+          variant="bordered"
+          className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
+        >
+          Resume <ExternalLink className="size-4" />
+        </Button>
+      </div>
+      <div className="flex flex-row gap-4 justify-center items-center p-1">
+        <Link
+          href={"https://github.com/Master-utsav"}
+          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
+        >
+          <NormalTooltip text="github" placement="bottom">
+            <FaGithub className="size-4 dark:text-white text-black" />
+          </NormalTooltip>
+        </Link>
+        <Link
+          href={"/https://www.linkedin.com/in/master-utsav"}
+          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
+        >
+          <NormalTooltip text="linkedin" placement="bottom">
+            <FaLinkedinIn className="size-4 dark:text-white text-black" />
+          </NormalTooltip>
+        </Link>
+        <Link
+          href={"/"}
+          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
+        >
+          <NormalTooltip text="twitter" placement="bottom">
+            <BsTwitterX className="size-4 dark:text-white text-black" />
+          </NormalTooltip>
+        </Link>
+      </div>
+      <NormalTooltip text="scroller" placement="right">
+        <ScrollDown navigateTo="#tech" />
+      </NormalTooltip>
+    </section>
+  );
+};
+
+export default HeroSection;
