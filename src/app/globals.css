@@ -128,4 +128,80 @@ body {
   transform: translateX(-50%) scaleY(1); 
 }
 
+.scrollbar-custom {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+  height: 100%;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: linear-gradient(to right, #3182ce, #63b3ed); 
+  border-radius: 10px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  width: 6px;
+  background: linear-gradient(90deg, #2b6cb0, #3182ce); 
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px 4px rgba(43, 108, 176, 0.5), 0 0 15px 6px rgba(49, 130, 206, 0.5);
+  transition: box-shadow 0.3s ease, width 0.3s ease, background 0.3s ease;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  width: 8px;
+  background: linear-gradient(90deg, #63b3ed, #3182ce); 
+  box-shadow: 0 0 15px 8px rgba(49, 130, 206, 0.8), 0 0 25px 12px rgba(43, 108, 176, 0.8);
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+      box-shadow: 0 0 8px 4px rgba(43, 108, 176, 0.5), 0 0 15px 6px rgba(49, 130, 206, 0.5);
+  }
+  50% {
+      box-shadow: 0 0 12px 6px rgba(99, 179, 237, 0.8), 0 0 20px 10px rgba(49, 130, 206, 0.8);
+  }
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  animation: pulseGlow 2s infinite alternate ease-in-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  .scrollbar-custom::-webkit-scrollbar-track {
+      background: linear-gradient(to right, #1a202c, #2d3748); 
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #2b6cb0, #3182ce); 
+      box-shadow: 0 0 8px 4px rgba(43, 108, 176, 0.5), 0 0 15px 6px rgba(49, 130, 206, 0.5);
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(90deg, #63b3ed, #3182ce);
+      box-shadow: 0 0 15px 8px rgba(49, 130, 206, 0.8), 0 0 25px 12px rgba(43, 108, 176, 0.8);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .scrollbar-custom::-webkit-scrollbar-track {
+      background: linear-gradient(to right, #63b3ed, #3182ce); 
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #2b6cb0, #3182ce); 
+      box-shadow: 0 0 8px 4px rgba(43, 108, 176, 0.5), 0 0 15px 6px rgba(49, 130, 206, 0.5);
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(90deg, #63b3ed, #3182ce);
+      box-shadow: 0 0 15px 8px rgba(49, 130, 206, 0.8), 0 0 25px 12px rgba(43, 108, 176, 0.8);
+  }
+}
+
+
 

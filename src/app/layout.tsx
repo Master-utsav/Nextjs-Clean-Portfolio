@@ -44,9 +44,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${salsa.variable} ${mavenPro.variable} ${assistant.variable} antialiased`}
+        className={`${salsa.variable} ${mavenPro.variable} ${assistant.variable} antialiased scrollbar-custom`}
       >
         <Providers>
           {children}

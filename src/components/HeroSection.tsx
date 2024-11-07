@@ -13,7 +13,7 @@ import ScrollDown from "./ScollDown";
 const HeroSection = () => {
 
   return (
-    <section className="min-h-screen max-w-5xl text-center flex justify-center flex-col space-y-4 items-center md:pt-24 pt-28 font-[family-name:var(--font-maven-pro)]">
+    <section id="home" className="min-h-screen max-w-5xl text-center flex justify-center flex-col space-y-4 items-center md:pt-24 pt-28 font-[family-name:var(--font-maven-pro)]">
       <div className="flex flex-col gap-6 justify-center items-center p-6 overflow-hidden animate-fade-in">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -24,7 +24,7 @@ const HeroSection = () => {
           Crafting{" "}
           <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
             <motion.div
-              className="absolute inset-0 bg-yellow-300/20  dark:bg-yellow-700/20 shadow-md rounded"
+              className="absolute inset-0 bg-blue-500/15  dark:bg-blue-200/10 shadow-md rounded shadow-blue-800/5 dark:shadow-blue-600/5"
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{
@@ -38,7 +38,7 @@ const HeroSection = () => {
           in{" "}
           <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
             <motion.div
-              className="absolute inset-0 bg-yellow-300/20 dark:bg-yellow-700/20 shadow-md rounded"
+              className="absolute inset-0 bg-blue-500/15 dark:bg-blue-200/10 shadow-md rounded shadow-blue-800/5 dark:shadow-blue-600/5"
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{
@@ -52,7 +52,7 @@ const HeroSection = () => {
           ,{" "}
           <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
             <motion.div
-              className="absolute inset-0 bg-yellow-300/20 dark:bg-yellow-700/20 shadow-md rounded"
+              className="absolute inset-0 bg-blue-500/15 dark:bg-blue-200/10 shadow-md rounded shadow-blue-800/5 dark:shadow-blue-600/5"
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{
@@ -66,7 +66,7 @@ const HeroSection = () => {
           , and{" "}
           <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
             <motion.div
-              className="absolute inset-0 bg-yellow-300/20 dark:bg-yellow-700/20 shadow-md rounded"
+              className="absolute inset-0 bg-blue-500/15 dark:bg-blue-200/10 shadow-md rounded shadow-blue-800/5 dark:shadow-blue-600/5"
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{
@@ -186,7 +186,7 @@ const HeroSection = () => {
           </NormalTooltip>
         </Link>
       </div>
-      <NormalTooltip text="scroller" placement="right">
+      <NormalTooltip text="scroll down" placement="bottom">
         <ScrollDown navigateTo="#tech" />
       </NormalTooltip>
     </section>

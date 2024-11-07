@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import Navbar from "../components/Navbar";
+import TechSection from "@/components/TechSection";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <main className="max-w-7xl w-full flex flex-col gap-8 items-center">
         <Navbar />
         <HeroSection/>
+        <TechSection/>
       </main>
     </div>
   );

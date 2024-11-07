@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
 
   images: {
     remotePatterns : [{ protocol: "https", hostname: "res.cloudinary.com" }],
-    domains: ["res.cloudinary.com", "vercel.com", "nextjs.org"],
   },
 };
 
