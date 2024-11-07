@@ -28,8 +28,8 @@ body {
           0 0 2px #0ff, 
           0 0 3px #00f, 
           1px 1px 2px #0ff, 
-          /* -1px 1px 3px #00f, 
-          1px -1px 2px #0ff, 
+          -1px 1px 3px #00f, 
+          /* 1px -1px 2px #0ff, 
           -1px 1px 3px #00f;  */
   }
   25% {
@@ -37,8 +37,8 @@ body {
           -1px 1px 2px #0ff, 
           1px -1px 3px #00f, 
           -2px 2px 2px #0ff, 
-          /* 1px -1px 3px #00f, 
-          -1px 1px 2px #0ff, 
+           1px -1px 3px #00f, 
+          /*-1px 1px 2px #0ff, 
           1px -1px 3px #00f;  */
   }
   50% {
@@ -46,8 +46,8 @@ body {
           1px -1px 3px #00f, 
           -1px 1px 2px #0ff, 
           2px -2px 3px #00f, 
-          /* -1px 1px 3px #0ff, 
-          1px -1px 2px #00f, 
+           -1px 1px 3px #0ff, 
+          /*1px -1px 2px #00f, 
           -1px 1px 2px #0ff;  */
   }
   75% {
@@ -55,8 +55,8 @@ body {
           -1px 1px 2px #0ff, 
           1px -1px 3px #00f, 
           -2px 2px 2px #0ff, 
-          /* 1px -1px 3px #00f, 
-          -1px 1px 2px #0ff, 
+           1px -1px 3px #00f, 
+          /*-1px 1px 2px #0ff, 
           1px -1px 3px #00f;  */
   }
   100% {
@@ -64,8 +64,8 @@ body {
           0px 0px 2px #00f, 
           0px 0px 3px #0ff, 
           -1px 1px 3px #00f, 
-          /* 1px -1px 3px #0ff, 
-          -1px 1px 2px #00f, 
+          1px -1px 3px #0ff, 
+          /* -1px 1px 2px #00f, 
           1px -1px 3px #00f;  */
   }
 }
