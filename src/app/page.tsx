@@ -11,6 +11,8 @@ export default function Home() {
         <HeroSection/>
         <TechSection/>
         <ProjectSection/>
+        <HeroSection/>
+        <HeroSection/>
       </main>
     </div>
   );

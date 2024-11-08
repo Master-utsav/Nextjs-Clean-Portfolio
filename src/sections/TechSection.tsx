@@ -1,7 +1,6 @@
+import React from "react";
 import TechCards from "@/components/TechCards";
 import { Frameworks , Frontend , Backend} from "@/constants";
-import React from "react";
-
 
 const TechSection: React.FC = () => {
   return (

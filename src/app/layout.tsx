@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${salsa.variable} ${mavenPro.variable} ${assistant.variable} antialiased scrollbar-custom`}
+        className={`${salsa.variable} ${mavenPro.variable} ${assistant.variable} antialiased scrollbar-custom overflow-x-hidden`}
       >
         <Providers>
           {children}

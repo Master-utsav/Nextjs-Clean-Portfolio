@@ -28,6 +28,19 @@ body {
   .brightness-105 {
     filter: brightness(1.05);
   }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+  .hide-scrollbar {
+    @apply overflow-auto; /* To enable scrolling */
+    &::-webkit-scrollbar {
+      display: none; /* Hide scrollbar in WebKit browsers */
+    }
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+  }
 }
 
 @keyframes electricLightning {

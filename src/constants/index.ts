@@ -126,6 +126,207 @@ export const Backend = [
     },
 ];
 
+export const ProjectsData = [
+    {
+        title: "Course Yuga",
+        description: "Courses are Required to master any skill in this yuga, we offer you all the most advance and cost effective courses.",
+        imageSrc: "/images/course_yuga_thumbnail.jpg",
+        gitLink: "https://github.com/master-utsav/course-yuga",
+        liveLink: "https://course-yuga.vercel.app",
+        techStack: [
+            {
+                name: "React",
+                src: "/images/color_react.png",
+            },
+            {
+                name: "TypeScript",
+                src: "/images/typescript.png",
+            },
+            {
+                name: "Tailwind CSS",
+                src: "/images/tailwind.png",
+            },
+            {
+                name: "Framer Motion",
+                src: "/images/framer.png",
+            },
+            {
+                name: "Node.js",
+                src: "/images/node_js.png",
+            },
+            {
+                name: "Express",
+                src: "/images/express.png",
+            },
+            {
+                name: "MongoDB",
+                src: "/images/mongo_db.png",
+            },
+        ]
+    },
+    {
+        title: "ThreeJs Portfolio",
+        description: "Explore my portfolio and reach out for remote collaborations to build websites and apps tailored to your needs.",
+        imageSrc: "/images/threejs_portfolio.png",
+        gitLink: "https://github.com/Master-utsav/Portfolio",
+        liveLink: "https://master-utsav-portfolio.vercel.app",
+        techStack: [
+            {
+                name: "React",
+                src: "/images/color_react.png",
+            },
+            {
+                name: "TypeScript",
+                src: "/images/typescript.png",
+            },
+            {
+                name: "Tailwind CSS",
+                src: "/images/tailwind.png",
+            },
+            {
+                name: "Three.js",
+                src: "/images/three_js.png",
+            },
+            {
+                name: "Framer Motion",
+                src: "/images/framer.png",
+            },
+            {
+                name: "GSAP",
+                src: "/images/gsap.png",
+            },
+        ]
+    },
+    {
+        title: "KM Solar Energy",
+        description: "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",
+        imageSrc: "/images/km_solar_energy.png",
+        gitLink: "https://github.com/Master-utsav/KM-Solar-Energy",
+        liveLink: "https://km-solar-pannel.vercel.app",
+        techStack: [
+            {
+                name: "NextJs",
+                src: "/images/nextjs.png",
+            },
+            {
+                name: "TypeScript",
+                src: "/images/typescript.png",
+            },
+            {
+                name: "Tailwind CSS",
+                src: "/images/tailwind.png",
+            },
+            {
+                name: "Framer Motion",
+                src: "/images/framer.png",
+            },
+            {
+                name: "GSAP",
+                src: "/images/gsap.png",
+            },
+        ]
+    },
+    {
+        title: "Course Yuga",
+        description: "Courses are Required to master any skill in this yuga, we offer you all the most advance and cost effective courses.",
+        imageSrc: "/images/course_yuga_thumbnail.jpg",
+        gitLink: "https://github.com/master-utsav/course-yuga",
+        liveLink: "https://course-yuga.vercel.app",
+        techStack: [
+            {
+                name: "React",
+                src: "/images/color_react.png",
+            },
+            {
+                name: "TypeScript",
+                src: "/images/typescript.png",
+            },
+            {
+                name: "Tailwind CSS",
+                src: "/images/tailwind.png",
+            },
+            {
+                name: "Framer Motion",
+                src: "/images/framer.png",
+            },
+            {
+                name: "Node.js",
+                src: "/images/node_js.png",
+            },
+            {
+                name: "Express",
+                src: "/images/express.png",
+            },
+            {
+                name: "MongoDB",
+                src: "/images/mongo_db.png",
+            },
+        ]
+    },
+    {
+        title: "ThreeJs Portfolio",
+        description: "Explore my portfolio and reach out for remote collaborations to build websites and apps tailored to your needs.",
+        imageSrc: "/images/threejs_portfolio.png",
+        gitLink: "https://github.com/Master-utsav/Portfolio",
+        liveLink: "https://master-utsav-portfolio.vercel.app",
+        techStack: [
+            {
+                name: "React",
+                src: "/images/color_react.png",
+            },
+            {
+                name: "TypeScript",
+                src: "/images/typescript.png",
+            },
+            {
+                name: "Tailwind CSS",
+                src: "/images/tailwind.png",
+            },
+            {
+                name: "Three.js",
+                src: "/images/three_js.png",
+            },
+            {
+                name: "Framer Motion",
+                src: "/images/framer.png",
+            },
+            {
+                name: "GSAP",
+                src: "/images/gsap.png",
+            },
+        ]
+    },
+    {
+        title: "KM Solar Energy",
+        description: "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",
+        imageSrc: "/images/km_solar_energy.png",
+        gitLink: "https://github.com/Master-utsav/KM-Solar-Energy",
+        liveLink: "https://km-solar-pannel.vercel.app",
+        techStack: [
+            {
+                name: "NextJs",
+                src: "/images/nextjs.png",
+            },
+            {
+                name: "TypeScript",
+                src: "/images/typescript.png",
+            },
+            {
+                name: "Tailwind CSS",
+                src: "/images/tailwind.png",
+            },
+            {
+                name: "Framer Motion",
+                src: "/images/framer.png",
+            },
+            {
+                name: "GSAP",
+                src: "/images/gsap.png",
+            },
+        ]
+    },
+]
+
 
 
 
