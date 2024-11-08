@@ -21,6 +21,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer utilities {
+  .contrast-110 {
+    filter: contrast(1.1);
+  }
+  .brightness-105 {
+    filter: brightness(1.05);
+  }
+}
+
 @keyframes electricLightning {
   0% {
       box-shadow: 

@@ -44,18 +44,18 @@ export const Socials = [
 
 export const Frameworks = [
     {
-        name: "React DOM + Next.js",
+        name: "Next.js",
         src: "/images/nextjs.png",
         description: "Powerful React framework with server-side rendering and static site generation."
     },
     {
-        name: "Node.js + Express",
+        name: "Express.js",
         src: "/images/express.png",
         description: "Fast, minimalist backend framework for building robust server-side applications."
     },
     {
         name: "React Native + Expo",
-        src: "/images/expo.jpeg",
+        src: "/images/expo.png",
         description: "Cross-platform mobile framework with fast development and rich UI tools."
     },
 ];
@@ -63,7 +63,7 @@ export const Frameworks = [
 export const Frontend = [
     {
         name: "React",
-        src: "/images/react.png",
+        src: "/images/color_react.png",
         description: "A JavaScript library for building user interfaces with a focus on interactive web apps."
     },
     {
@@ -81,11 +81,11 @@ export const Frontend = [
         src: "/images/framer.png",
         description: "An animation library for React that creates smooth, declarative animations and interactions."
     },
-    // {
-    //     name: "GSAP",
-    //     src: "/images/gsap.png",
-    //     description: "A powerful JavaScript library for complex animations and rich visual effects with timelines."
-    // },    
+    {
+        name: "GSAP",
+        src: "/images/gsap.png",
+        description: "A powerful JavaScript library for complex animations and rich visual effects with timelines."
+    },    
     {
         name: "Three.js",
         src: "/images/three_js.png",
@@ -97,19 +97,37 @@ export const Backend = [
     {
         name: "Node.js",
         src: "/images/node_js.png",
-        description: "An open-source, cross-platform runtime environment for server-side JavaScript."
+        description: "A runtime allowing JavaScript to build fast, scalable server-side applications efficiently."
     },
     {
-        name: "Express",
-        src: "/images/express.png",
-        description: "Fast, minimalist backend framework for building robust server-side applications."
+        name: "MongoDB",
+        src: "/images/mongo_db.png",
+        description: "A NoSQL database that stores data in a flexible, JSON-like structure ideal for modern applications."
     },
     {
-        name: "TypeScript",
-        src: "/images/typescript.png",
-        description: "A typed superset of JavaScript that enhances code reliability and development efficiency."
+        name: "Redis",
+        src: "/images/redis.png",
+        description: "An in-memory data structure store, ideal for caching, real-time data, and task queuing needs."
     },
-]
+    // {
+    //     name: "Prisma",
+    //     src: "/images/prisma.png",
+    //     description: "A powerful ORM that makes database queries easier and safer for Node.js and TypeScript apps."
+    // },
+    // {
+    //     name: "PostgreSQL",
+    //     src: "/images/postgre.png",
+    //     description: "An advanced RDB offering data reliability and complex query support for developers."
+    // },
+    {
+        name: "Firebase",
+        src: "/images/firebase.png",
+        description: "A versatile Google-backed platform with real-time databases, authentication, and cloud services."
+    },
+];
+
+
+
 
 
 

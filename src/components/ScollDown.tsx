@@ -13,7 +13,7 @@ const ScrollDown: React.FC<ScrollDownProps> = ({navigateTo}) => {
   return (
     <Link
         href={navigateTo}
-        className="pt-12 flex flex-col  items-center space-y-1 h-28 relative"
+        className="sm:pt-12 pt-4 flex flex-col  items-center space-y-1 h-28 relative"
         // onMouseEnter={() => setShowTooltip(true)}
         // onMouseLeave={() => setShowTooltip(false)}
     >

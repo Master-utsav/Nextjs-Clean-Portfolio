@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@nextui-org/react";
 import React from "react";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
@@ -7,19 +6,22 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import NormalTooltip from "./ui/NormalTooltip";
-import ScrollDown from "./ScollDown";
+import NormalTooltip from "@/components/ui/NormalTooltip";
+import ScrollDown from "@/components/ScollDown";
+import { Button } from "@/components/ui/Button";
+
+const ExternalLinkIcon = () => { return (<ExternalLink className="size-4"/>) }
 
 const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen max-w-5xl text-center flex justify-center flex-col space-y-4 items-center md:pt-24 pt-28 font-[family-name:var(--font-maven-pro)]">
-      <div className="flex flex-col gap-6 justify-center items-center p-6 overflow-hidden animate-fade-in">
+      <div className="flex flex-col sm:gap-6 gap-2 justify-center items-center sm:p-6 p-1 overflow-hidden animate-fade-in">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.68, -0.6, 0.32, 1.6] }}
-          className="max-w-3xl text-5xl font-extrabold text-center transition-colors duration-500 ease-in-out dark:text-blue-300 text-blue-800 leading-tight font-[family-name:var(--font-accent)]"
+          className="sm:max-w-3xl w-full sm:text-5xl text-4xl font-extrabold text-center transition-colors duration-500 ease-in-out dark:text-blue-300 text-blue-800 leading-tight font-[family-name:var(--font-accent)]"
         >
           Crafting{" "}
           <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
@@ -78,7 +80,7 @@ const HeroSection = () => {
             <span className="relative z-10">Blockchain</span>
           </motion.span>
         </motion.h1>
-        <p className="text-lg text-center font-medium text-gray-800 dark:text-gray-200 max-w-2xl leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
+        <p className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,16 +150,18 @@ const HeroSection = () => {
 
       <div className="flex flex-row gap-4 justify-center items-center font-[family-name:var(--font-assistant)]">
         <Button
-          variant="shadow"
+          variant="gooeyRight"
           className="rounded-md dark:text-black text-white bg-black-200 dark:bg-white-700 hover:bg-black dark:hover:bg-white text-base transition-all delay-100 duration-500 ease-in-out"
         >
           Connect
         </Button>
         <Button
-          variant="bordered"
-          className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
+          variant="expandIcon"
+          className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50"
+          iconPlacement="hide-from-right"
+          Icon={ExternalLinkIcon} 
         >
-          Resume <ExternalLink className="size-4" />
+          Resume 
         </Button>
       </div>
       <div className="flex flex-row gap-4 justify-center items-center p-1">

@@ -5,6 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   
@@ -29,6 +30,15 @@ const config: Config = {
   				DEFAULT: '#FFFFFF'
   			},
       },
+    },
+    keyframes: {
+      "shine": {
+        from: { backgroundPosition: '200% 0' },
+        to: { backgroundPosition: '-200% 0' },
+      },
+    },
+    animation: {
+      "shine": "shine 8s ease-in-out infinite",
     },
   },
   darkMode: "class",
