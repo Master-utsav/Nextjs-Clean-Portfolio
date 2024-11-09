@@ -8,12 +8,23 @@ import { LoadingSection } from "@/sections/LoadingSection";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setMounted(true); // Set this to true once we’re sure theme is loaded
-  }, []);
+    setMounted(true); 
 
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+  
   if (!mounted) {
+    return <LoadingSection/>; 
+  }
+
+  if (loading) {
     return (
       <LoadingSection/>
     );
