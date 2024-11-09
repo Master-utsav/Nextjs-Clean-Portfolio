@@ -15,7 +15,7 @@ export default function Home() {
         <HeroSection/>
         <HeroSection/>
       </main>
-      <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20 backdrop-blur-xl rounded-lg bg-transparent"/>
+      <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20  rounded-lg bg-transparent"/>
     </div>
   );
 }
