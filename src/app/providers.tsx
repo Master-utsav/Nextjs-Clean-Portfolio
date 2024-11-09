@@ -23,10 +23,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
   if (!mounted || loading) return (
     <motion.div
       key="loading"
-      initial={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 1, y: 0}}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
+      className='px-4 bg-[#121212]'
     >
       <LoadingSection />
     </motion.div>
