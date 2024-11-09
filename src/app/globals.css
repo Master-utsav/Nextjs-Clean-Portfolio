@@ -5,14 +5,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --svg-text-color: #121212;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --svg-text-color: #f5f5f5;
   }
- 
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --svg-text-color: #121212;
+  }
 }
 
 body {
@@ -225,5 +234,85 @@ body {
   }
 }
 
+.svg-text-animate path {
+  fill: transparent;
+  stroke: var(--svg-text-color);
+  stroke-width: 2px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: introTextAnimate 2s ease-in-out 1 forwards;
+}
 
+@keyframes introTextAnimate {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  80%{
+    fill: transparent;
+  }
+  100%{
+    stroke-dashoffset: 0;
+    fill: var(--svg-text-color)
+  }
+}
+
+.my-name path {
+  fill: transparent;
+  stroke: var(--svg-text-color);
+  stroke-width: 2px;
+  stroke-dasharray: 25;
+  stroke-dashoffset: 25;
+  animation: nameTextAnimate 2s ease-in-out 1 forwards,
+             waveFloat 3s ease-in-out 1s infinite alternate; 
+}
+
+@keyframes nameTextAnimate {
+  0% {
+    stroke-dashoffset: 25;
+  }
+  80% {
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: var(--svg-text-color);
+  }
+}
+
+@keyframes waveFloat {
+  0% {
+    transform: translateY(0); 
+  }
+  20% {
+    transform: translateY(-5px); 
+  }
+  40%{
+    transform: translateY(-10px); 
+  }
+  60%{
+    transform: translateY(10px); 
+  }
+  80%{
+    transform: translateY(5px); 
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.my-name path:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.my-name path:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.my-name path:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.my-name path:nth-child(4) {
+  animation-delay: 0.2s;
+}
 

@@ -11,6 +11,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
+import MyName from "./MyName";
 
 const Navbar: React.FC = () => {
   const { scrollY } = useScroll();
@@ -41,12 +42,15 @@ const Navbar: React.FC = () => {
         transition={{
           duration: 0.2,
         }}
-        className="max-w-7xl fixed top-0 mx-auto flex justify-between  items-center gap-12 content-center bg-white-600/30  dark:bg-black-200/10 drop-shadow-sm border-[1px] dark:border-blue-500/30 border-blue-800/30 p-2 rounded-md mt-2 z-50 backdrop-blur-lg"
+        className="max-w-7xl max-sm:w-[90%] fixed top-0 mx-auto flex justify-between  items-center gap-12 content-center bg-white-600/30  dark:bg-black-200/10 drop-shadow-sm border-[1px] dark:border-blue-500/30 border-blue-800/30 p-2 rounded-md mt-2 z-50 backdrop-blur-lg"
       >
-        <Link href={"/"} className="text-3xl font-bold ">
+        <Link href={"/"} className="flex gap-3 text-3xl font-bold ">
           <PersonalBadge />
+          <div className="max-sm:flex items-center hidden">
+            <MyName className="w-20 h-10"/>
+          </div>
         </Link>
-        <ul className="flex gap-4">
+        <ul className="sm:flex gap-4 hidden">
           {NavItems.map((item, i) => (
             <li key={i}>
               <Link
