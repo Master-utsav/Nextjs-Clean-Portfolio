@@ -1,4 +1,3 @@
-import { Github, Linkedin, Twitter } from "lucide-react"
 
 export const NavItems = [
     {
@@ -21,25 +20,6 @@ export const NavItems = [
         name: "Contact",
         path: "#contact",
     }
-]
-
-export const Socials = [
-    {
-        name: "Github",
-        path: "https://github.com/master-utsav",
-        icon : Github 
-    },
-    {
-        name: "LinkedIn",
-        path: "https://www.linkedin.com/in/master-utsav",
-        icon: Linkedin 
-        
-    },
-    {
-        name: "Twitter",
-        path: "https://twitter.com/master_utsav01",
-        icon: Twitter
-    },
 ]
 
 export const Frameworks = [
@@ -126,8 +106,23 @@ export const Backend = [
     },
 ];
 
-export const ProjectsData = [
-    {
+export interface TechStackItem {
+    name: string;
+    src: string;
+  }
+  
+export interface Project {
+    id: number;
+    title: string;
+    description: string;
+    imageSrc: string;
+    gitLink: string;
+    liveLink: string;
+    techStack: TechStackItem[];
+  }
+
+export const ProjectsData: Project[] = [
+    {   id: 1,
         title: "Course Yuga",
         description: "Courses are Required to master any skill in this yuga, we offer you all the most advance and cost effective courses.",
         imageSrc: "/images/course_yuga_thumbnail.jpg",
@@ -164,7 +159,8 @@ export const ProjectsData = [
             },
         ]
     },
-    {
+    {   
+        id: 2,
         title: "ThreeJs Portfolio",
         description: "Explore my portfolio and reach out for remote collaborations to build websites and apps tailored to your needs.",
         imageSrc: "/images/threejs_portfolio.png",
@@ -198,6 +194,7 @@ export const ProjectsData = [
         ]
     },
     {
+        id: 3,
         title: "KM Solar Energy",
         description: "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",
         imageSrc: "/images/km_solar_energy.png",
@@ -227,6 +224,7 @@ export const ProjectsData = [
         ]
     },
     {
+        id: 4,
         title: "Course Yuga",
         description: "Courses are Required to master any skill in this yuga, we offer you all the most advance and cost effective courses.",
         imageSrc: "/images/course_yuga_thumbnail.jpg",
@@ -264,6 +262,7 @@ export const ProjectsData = [
         ]
     },
     {
+        id: 5,
         title: "ThreeJs Portfolio",
         description: "Explore my portfolio and reach out for remote collaborations to build websites and apps tailored to your needs.",
         imageSrc: "/images/threejs_portfolio.png",
@@ -297,6 +296,7 @@ export const ProjectsData = [
         ]
     },
     {
+        id: 6,
         title: "KM Solar Energy",
         description: "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",
         imageSrc: "/images/km_solar_energy.png",
@@ -326,7 +326,6 @@ export const ProjectsData = [
         ]
     },
 ]
-
 
 
 
