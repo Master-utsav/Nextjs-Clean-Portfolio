@@ -176,7 +176,7 @@ const HeroSection = () => {
           </NormalTooltip>
         </Link>
         <Link
-          href={"/https://www.linkedin.com/in/master-utsav"}
+          href={"https://www.linkedin.com/in/master-utsav"}
           className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
         >
           <NormalTooltip text="linkedin" placement="bottom">
@@ -184,7 +184,7 @@ const HeroSection = () => {
           </NormalTooltip>
         </Link>
         <Link
-          href={"/"}
+          href={"https://x.com/masterutsav01"}
           className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
         >
           <NormalTooltip text="twitter" placement="bottom">
