@@ -155,7 +155,7 @@ const ProjectSection: React.FC = () => {
       <div className="md:flex hidden">
         <ProjectBar />
       </div>
-      <div className="flex md:hidden justify-center items-center gap-2 flex-col">
+      <div className="flex md:hidden justify-center items-center gap-4 flex-col">
         {ProjectsData.map((project) => (
           <ProjectCards item={project} key={project.id} />
         ))}
