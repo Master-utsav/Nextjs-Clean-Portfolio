@@ -9,7 +9,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import NormalTooltip from "@/components/ui/NormalTooltip";
 import ScrollDown from "@/components/ScollDown";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
+
 
 const ExternalLinkIcon = () => { return (<ExternalLink className="size-4"/>) }
 

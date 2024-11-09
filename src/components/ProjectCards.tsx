@@ -2,7 +2,7 @@ import React from "react";
 import { Project  } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FaGithub } from "react-icons/fa";
 import { ExternalLink } from "lucide-react";
