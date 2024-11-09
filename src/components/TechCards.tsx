@@ -44,10 +44,10 @@ const TechCards: React.FC<TechCardsProps> = ({ itemArray, title }) => {
           <div
             key={idx}
             ref={idx === itemArray.length - 1 ? lastCardRef : null}
-            className="relative flex items-center sm:flex-row flex-col gap-2 p-4 border-[1px] dark:border-blue-500/30 border-blue-800/30 rounded-lg electric-lightning-effect"
+            className="relative flex items-center sm:flex-row flex-col gap-2 p-4 border-[1px] dark:border-blue-500/30 border-blue-800/30 rounded-lg electric-lightning-effect dark:bg-black-200/40 bg-white-800/40"
           >
             <Image
-              className={`sm:size-14 size-16 rounded-md dark:invert mix-blend-luminosity ${inGlow ? "dark:invert-0 mix-blend-darken dark:mix-blend-normal" : ""} p-1 transition-colors delay-100 contrast-110 brightness-105 z-10`}
+              className={`sm:size-14 size-16 rounded-md dark:invert ${inGlow ? "dark:invert-0 mix-blend-darken dark:mix-blend-normal" : "mix-blend-luminosity"} p-1 transition-colors delay-100 contrast-110 brightness-105 z-10`}
               height={200}
               width={200}
               quality={75}
@@ -56,7 +56,7 @@ const TechCards: React.FC<TechCardsProps> = ({ itemArray, title }) => {
               alt={item.name}
             />
             <Image
-              className={`absolute opacity-50 z-0 sm:size-14 size-16 rounded-md dark:invert mix-blend-luminosity ${inGlow ? "dark:invert-0 mix-blend-darken dark:mix-blend-normal opacity-80" : ""} p-1 transition-colors delay-100 contrast-110 brightness-105 blur-lg`}
+              className={`absolute opacity-50 z-0 sm:size-14 size-16 rounded-md dark:invert ${inGlow ? "dark:invert-0 mix-blend-darken dark:mix-blend-normal opacity-80" : "mix-blend-luminosity"} p-1 transition-colors delay-100 contrast-110 brightness-105 blur-lg`}
               height={200}
               width={200}
               quality={75}
