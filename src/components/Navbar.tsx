@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import React from "react";
-import { ModeToggle } from "./ui/ThemeBtn";
+import { ModeToggle } from "@/components/ui/ThemeBtn";
 import { NavItems } from "@/constants";
-import PersonalBadge from "./ui/PersonalBadge";
+import PersonalBadge from "@/components/ui/PersonalBadge";
 import {
   AnimatePresence,
   motion,
