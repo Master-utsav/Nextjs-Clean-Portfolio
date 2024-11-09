@@ -18,16 +18,24 @@ const ProjectCards: React.FC = () => {
       {ProjectsData.map((item, index) => (
         <motion.div
           key={index}
-          className="flex-shrink-0 w-80 md:w-96 shadow-md rounded-lg overflow-hidden electric-lightning-effect"
+          className="flex-shrink-0 w-80 md:w-96 shadow-md rounded-lg overflow-hidden electric-lightning-effect dark:bg-black-200 bg-white-800"
         >
-          <Card className="flex flex-col h-full justify-between border-[1px] border-blue-800/30 dark:border-blue-500/30 rounded-lg">
+          <Card className="flex flex-col h-full relative justify-between border-[1px] border-blue-800/30 dark:border-blue-500/30 rounded-lg">
             <Image
               src={item.imageSrc}
               alt={item.title}
               layout="responsive"
               width={400}
               height={250}
-              className="rounded-t-lg object-cover"
+              className="rounded-t-lg object-cover z-10"
+            />
+            <Image
+              src={item.imageSrc}
+              alt={item.title}
+              layout="responsive"
+              width={400}
+              height={250}
+              className="absolute inset-0 rounded-t-lg z-0 object-cover blur-xl"
             />
             <CardContent className="flex flex-col p-4 h-full justify-between">
               <div className="flex flex-col justify-between">
@@ -41,7 +49,7 @@ const ProjectCards: React.FC = () => {
                   {item.techStack.map((tech, techIdx) => (
                     <div
                       key={techIdx}
-                      className="flex items-center gap-1 bg-gray-200 dark:bg-gray-700 rounded-full px-2 py-1"
+                      className="flex items-center gap-1 rounded-full px-2 py-1 bg-transparent border-[1px] border-blue-800/30 dark:border-blue-500/30 "
                     >
                       <Image
                         src={tech.src}
