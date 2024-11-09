@@ -9,7 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef, useState } from "react";
-import ProjectCards from "../ProjectCards";
+import ProjectCards from "@/components/ProjectCards";
 import { ProjectsData } from "@/constants";
 
 export const FloatingDock = ({
