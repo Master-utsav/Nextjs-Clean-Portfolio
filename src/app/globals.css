@@ -252,23 +252,25 @@ body {
   }
   100%{
     stroke-dashoffset: 0;
-    fill: var(--svg-text-color)
+    fill: var(--svg-text-color);
   }
+
 }
 
 .my-name path {
   fill: transparent;
   stroke: var(--svg-text-color);
   stroke-width: 2px;
-  stroke-dasharray: 25;
-  stroke-dashoffset: 25;
-  animation: nameTextAnimate 2s ease-in-out 1 forwards,
-             waveFloat 3s ease-in-out 1s infinite alternate; 
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 3px var(--svg-text-color));
+  animation: nameTextAnimate 2s ease-in-out forwards,
+             waveFloat 2s ease-in-out 1s infinite alternate; 
 }
 
 @keyframes nameTextAnimate {
   0% {
-    stroke-dashoffset: 25;
+    stroke-dashoffset: 100;
   }
   80% {
     fill: transparent;
@@ -283,17 +285,14 @@ body {
   0% {
     transform: translateY(0); 
   }
-  20% {
-    transform: translateY(-5px); 
+  25% {
+    transform: translateY(-5px);
   }
-  40%{
-    transform: translateY(-10px); 
+  50% {
+    transform: translateY(-10px);
   }
-  60%{
-    transform: translateY(10px); 
-  }
-  80%{
-    transform: translateY(5px); 
+  75% {
+    transform: translateY(5px);
   }
   100% {
     transform: translateY(0);
@@ -305,14 +304,19 @@ body {
 }
 
 .my-name path:nth-child(2) {
-  animation-delay: 0.1s;
+  animation-delay: 0.15s;
 }
 
 .my-name path:nth-child(3) {
-  animation-delay: 0.2s;
+  animation-delay: 0.3s;
 }
 
 .my-name path:nth-child(4) {
-  animation-delay: 0.2s;
+  animation-delay: 0.45s;
 }
+
+.my-name path:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
 
