@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import TechSection from "@/sections/TechSection";
 import ProjectSection from "@/sections/ProjectSection";
 import MyName from "@/components/MyName";
+import AboutSection from "@/sections/AboutSection";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
         <HeroSection/>
         <TechSection/>
         <ProjectSection/>
-        <HeroSection/>
+        <AboutSection/>
         <HeroSection/>
       </main>
       <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20  rounded-lg bg-transparent"/>

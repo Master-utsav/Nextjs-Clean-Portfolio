@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
           animate={{ x: 0 }}
           exit={{ x: 600 }}
           transition={{
-            duration: 1.5,
+            duration: 1,
             ease: [0.85, 0, 0.15, 1],
           }}
           className="fixed sm:hidden flex-col w-full h-screen overflow-hidden justify-center items-center backdrop-blur-lg dark:bg-[#121212]/80 bg-[#f5f5f5]/80 z-30"
