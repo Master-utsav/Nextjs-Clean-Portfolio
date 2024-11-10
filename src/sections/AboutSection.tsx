@@ -83,7 +83,7 @@ const AboutSection: React.FC = () => {
       )}
 
       {isFloatingCardsOpen && (
-        <div className="absolute bg-transparent max-w-lg py-1 justify-center items-center flex flex-col gap-4">
+        <div className=" px-1 bg-transparent max-w-lg py-1 justify-center items-center flex flex-col gap-4">
           {AboutData.map((item, idx) => (
             <div
               key={idx}
@@ -115,7 +115,7 @@ const AboutSection: React.FC = () => {
               </Button>
             </div>
           ))}
-          <div className="w-full max-w-lg relative">
+          <div className="w-full max-w-lg relative flex justify-center items-center">
             <div className="absolute inset-0 flex items-center justify-center pulse-effect-collapse z-0" />
             <Button
               variant="gooeyRight"

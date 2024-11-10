@@ -355,9 +355,6 @@ body {
   }
 }
 
-
-
-
 @keyframes scale-as-per-wave {
   0%, 40% {
     transform: scale(1);
