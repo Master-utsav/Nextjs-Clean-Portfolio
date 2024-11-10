@@ -341,9 +341,21 @@ body {
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(65, 111, 240, 0.4) 40%, transparent 100%);
   border-radius: 10%;
-  animation: pulse-wave-outwards 3s infinite ease-out;
+  animation: pulse-wave-outwards-col 3s infinite ease-out;
   z-index: 0; 
 }
+@keyframes pulse-wave-outwards-col {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5); /* Adjust for desired size */
+    opacity: 0;
+  }
+}
+
+
 
 
 @keyframes scale-as-per-wave {
