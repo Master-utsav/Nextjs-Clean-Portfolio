@@ -6,25 +6,33 @@ import NormalTooltip from "@/components/ui/NormalTooltip";
 import { motion } from "framer-motion";
 import ProjectBar from "@/components/ProjectBar";
 import ProjectsContainer from "@/components/ProjectsContainer";
-
+import { useInView } from "framer-motion";
 const ProjectSection: React.FC = () => {
+  const sectionRef = React.useRef(null);
+  const titleRef = React.useRef(null);
+  const paragraphRef = React.useRef(null);
+
+  const titleInView = useInView(titleRef, { once: false, amount: 0.2 });
+  const paragraphInView = useInView(paragraphRef, { once: false, amount: 0.2 });
+
   return (
     <section
+      ref={sectionRef}      
       id="projects"
       className="min-h-screen max-w-6xl text-center flex justify-center flex-col pt-20 space-y-4 items-center font-[family-name:var(--font-maven-pro)]"
     >
-      <div className="flex flex-col sm:gap-6 gap-2 justify-center items-center sm:p-6 p-1 overflow-hidden animate-fade-in">
+      <div ref={titleRef} className="flex flex-col sm:gap-6 gap-2 justify-center items-center sm:p-6 p-1 overflow-hidden animate-fade-in">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.68, -0.6, 0.32, 1.6] }}
+          animate={titleInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.68, -0.6, 0.32, 1.6] }}
           className="sm:max-w-3xl w-full sm:text-5xl text-4xl font-extrabold text-center transition-colors duration-500 ease-in-out dark:text-blue-300 text-blue-800 leading-tight font-[family-name:var(--font-accent)] z-0"
         >
           <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
             <motion.div
               className="absolute inset-0 bg-blue-500/15 dark:bg-blue-200/10 shadow-md rounded shadow-blue-800/5 dark:shadow-blue-600/5"
               initial={{ width: 0 }}
-              animate={{ width: "100%" }}
+              animate={titleInView ? { width: "100%" }: {}}
               transition={{
                 duration: 1,
                 delay: 0.3,
@@ -38,21 +46,23 @@ const ProjectSection: React.FC = () => {
             <motion.div
               className="absolute inset-0 bg-blue-500/15 dark:bg-blue-200/10 shadow-md rounded shadow-blue-800/5 dark:shadow-blue-600/5"
               initial={{ width: 0 }}
-              animate={{ width: "100%" }}
+              animate={titleInView ? { width: "100%" }: {}}
               transition={{
                 duration: 1,
-                delay: 0.7,
+                delay: 0.5,
                 ease: [0.68, -0.6, 0.32, 1.6],
               }}
             />
             <span className="relative z-10">Stack</span>
           </motion.span>
         </motion.h1>
-        <p className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
+        <p 
+        ref={paragraphRef}
+        className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.3 }}
+            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            transition={{ duration: 1, delay: 0.8 }}
           >
             Discover powerful{" "}
             <span className="font-semibold text-blue-600 dark:text-blue-300">
@@ -62,8 +72,8 @@ const ProjectSection: React.FC = () => {
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.5 }}
+            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            transition={{ duration: 1, delay: 1 }}
           >
             blending the versatility of{" "}
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
@@ -77,8 +87,8 @@ const ProjectSection: React.FC = () => {
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.6 }}
+            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            transition={{ duration: 1, delay: 1.2 }}
           >
             enhanced with{" "}
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
@@ -88,8 +98,8 @@ const ProjectSection: React.FC = () => {
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.7 }}
+            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            transition={{ duration: 1, delay: 1.4 }}
           >
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Three.js
@@ -98,8 +108,8 @@ const ProjectSection: React.FC = () => {
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.8 }}
+            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            transition={{ duration: 1, delay: 1.6 }}
           >
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Framer Motion
@@ -108,10 +118,12 @@ const ProjectSection: React.FC = () => {
           </motion.span>
         </p>
 
-        <p className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
+        <p 
+        ref={paragraphRef}
+        className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 2 }}
           >
             On the backend, experience the reliability of{" "}
@@ -126,7 +138,7 @@ const ProjectSection: React.FC = () => {
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 2.2 }}
           >
             while utilizing{" "}
@@ -141,7 +153,7 @@ const ProjectSection: React.FC = () => {
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 2.4 }}
           >
             {" "}
