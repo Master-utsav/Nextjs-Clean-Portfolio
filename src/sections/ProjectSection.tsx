@@ -5,8 +5,7 @@ import ScrollDown from "@/components/ScollDown";
 import NormalTooltip from "@/components/ui/NormalTooltip";
 import { motion } from "framer-motion";
 import ProjectBar from "@/components/ProjectBar";
-import { ProjectsData } from "@/constants";
-import ProjectCards from "@/components/ProjectCards";
+import ProjectsContainer from "@/components/ProjectsContainer";
 
 const ProjectSection: React.FC = () => {
   return (
@@ -155,10 +154,8 @@ const ProjectSection: React.FC = () => {
       <div className="md:flex hidden">
         <ProjectBar />
       </div>
-      <div className="flex md:hidden justify-center items-center gap-4 flex-col">
-        {ProjectsData.map((project) => (
-          <ProjectCards item={project} key={project.id} />
-        ))}
+      <div className="flex md:hidden justify-center items-center flex-col bg-transparent">
+        <ProjectsContainer/>
       </div>
       <NormalTooltip text="scroll down" placement="bottom">
         <ScrollDown navigateTo="#about" />
