@@ -1,23 +1,24 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { AboutData } from "@/constants";
 import { motion, useInView } from "framer-motion";
 import React from "react";
 
 const AboutSection: React.FC = () => {
   const titleRef = React.useRef(null);
-
+  const [isFloatingCardsOpen, setisFloatingCardsOpen] = React.useState(false);
   const titleInView = useInView(titleRef, { once: false, amount: 0.2 });
 
   return (
     <section
       ref={titleRef}
       id="about"
-      className="min-h-screen max-w-6xl text-center flex justify-center flex-col pt-20 space-y-4 items-center font-[family-name:var(--font-maven-pro)]"
+      className="min-h-screen relative max-w-6xl text-center flex justify-center flex-col pt-20 space-y-4 items-center font-[family-name:var(--font-maven-pro)]"
     >
       <div
         ref={titleRef}
-        className="flex flex-col sm:gap-6 gap-2 justify-center items-center sm:p-6 p-1 overflow-hidden animate-fade-in"
+        className="flex flex-col sm:gap-6 gap-2 relative justify-center items-center sm:p-6 p-1 overflow-hidden animate-fade-in"
       >
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -60,24 +61,74 @@ const AboutSection: React.FC = () => {
           ???
         </motion.h1>
       </div>
-      <div className="relative w-32 h-32">
-    <div className="absolute inset-0 flex items-center justify-center pulse-effect" />
-      <Button
-        variant="gooeyRight"
-        className="w-32 h-32 scale-about-btn rounded-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 shadow-md transition-transform transform duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:from-blue-400 dark:via-blue-500 dark:to-indigo-600"
-      >
-        <span className="text-white font-bold text-sm font-[family-name:var(--font-assistant)]">
-          Want to Know
-        </span>
-        <span className="text-blue-950 font-[family-name:var(--font-salsa)] text-lg">
-          About
-        </span>
-        <span className="text-white font-bold text-sm font-[family-name:var(--font-assistant)] underline decoration-blue-300 dark:decoration-blue-500">
-          Master?
-        </span>
-      </Button>
-      </div>
-      
+      {!isFloatingCardsOpen && (
+        <div className="relative w-32 h-32">
+          <div className="absolute inset-0 flex items-center justify-center pulse-effect" />
+          <Button
+            variant="gooeyRight"
+            className="w-32 h-32 scale-about-btn rounded-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 shadow-md transition-transform transform duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:from-blue-400 dark:via-blue-500 dark:to-indigo-600"
+            onClick={() => setisFloatingCardsOpen((prev) => !prev)}
+          >
+            <span className="text-white font-bold text-sm font-[family-name:var(--font-assistant)]">
+              Want to Know
+            </span>
+            <span className="text-blue-950 font-[family-name:var(--font-salsa)] text-lg">
+              About
+            </span>
+            <span className="text-white font-bold text-sm font-[family-name:var(--font-assistant)] underline decoration-blue-300 dark:decoration-blue-500">
+              Master?
+            </span>
+          </Button>
+        </div>
+      )}
+
+      {isFloatingCardsOpen && (
+        <div className="absolute bg-transparent max-w-lg py-1 justify-center items-center flex flex-col gap-4">
+          {AboutData.map((item, idx) => (
+            <div
+              key={idx}
+              className="w-full flex flex-col sm:flex-row sm:gap-4 gap-2 justify-between items-center rounded-lg p-2 backdrop-blur-lg bg-white-700/60 dark:bg-black-600/60 shadow-lg relative border-[1px] dark:border-blue-500/30 border-blue-800/30 electric-lightning-effect"
+            >
+              <div className="max-sm:w-full w-1/4 text-sm text-gray-500 dark:text-gray-300 flex justify-center items-center sm:flex-col flex-row sm:gap-0 gap-3 font-[family-name:var(--font-assistant)]">
+                <div className="font-semibold max-sm:w-2/5 text-center">
+                  {item.startTime}
+                </div>
+                <div className="font-semibold max-sm:w-1/6 text-center">-</div>
+                <div className="font-semibold max-sm:w-2/5 text-center">
+                  {item.endTime}
+                </div>
+              </div>
+
+              <div className="sm:w-[1px] sm:h-10 w-[90%] h-[1px] bg-blue-800 dark:bg-blue-500/60" />
+
+              <h1 className="w-[60%] text-xl font-semibold dark:text-blue-300 text-blue-800 font-[family-name:var(--font-salsa)]">
+                {item.title}
+              </h1>
+
+              <Button
+                variant="gooeyRight"
+                className="sm:w-14 sm:h-14 w-[90%] rounded-full flex items-center justify-center bg-gradient-to-r dark:from-blue-500 from-blue-800 dark:to-blue-800 to-blue-500 shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-500"
+              >
+                <span className="text-white font-[family-name:var(--font-accent)] sm:text-sm text-base">
+                  Details
+                </span>
+              </Button>
+            </div>
+          ))}
+          <div className="w-full max-w-xs relative">
+            <div className="absolute inset-0 flex items-center justify-center pulse-effect-collapse z-0" />
+            <Button
+              variant="gooeyRight"
+              className="w-full max-w-xs flex items-center justify-center rounded-lg p-3 dark:bg-black-200 bg-[#f5f5f5] shadow-md transition-transform transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 scale-collapse-btn z-10"
+              onClick={() => setisFloatingCardsOpen((prev) => !prev)}
+            >
+              <span className="text-black dark:text-white font-[family-name:var(--font-accent)] text-base">
+                Collapse all
+              </span>
+            </Button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -328,6 +328,106 @@ export const ProjectsData: Project[] = [
 ]
 
 
-
-
-
+export const AboutData = [
+    {
+      id: 1,
+      startTime: "January 2020",
+      endTime: "June 2020",
+      title: "Front-End Development",
+      content: [
+        {
+          name: "HTML & CSS",
+          logo: "/images/color_react.png",
+          description: "Learned the basics of structuring and styling web pages using HTML5 and CSS3."
+        },
+        {
+          name: "JavaScript",
+          logo: "/iamges/expo.png",
+          description: "Gained a solid understanding of JavaScript fundamentals and DOM manipulation."
+        },
+        {
+          name: "Responsive Design",
+          logo: "/images/node_js.png",
+          description: "Practiced making web pages responsive for various screen sizes and devices."
+        }
+      ]
+    },
+    {
+      id: 2,
+      startTime: "July 2020",
+      endTime: "December 2020",
+      title: "JavaScript Frameworks",
+      content: [
+        {
+          name: "React",
+          logo: "/images/expo.png",
+          description: "Developed interactive UIs using components, hooks, and state management with React."
+        },
+        {
+          name: "Redux",
+          logo: "/images/node_js.png",
+          description: "Learned to manage application state using Redux for efficient state sharing."
+        }
+      ]
+    },
+    {
+      id: 3,
+      startTime: "January 2021",
+      endTime: "June 2021",
+      title: "Back-End Development",
+      content: [
+        {
+          name: "Node.js",
+          logo: "/images/node_js.png",
+          description: "Built server-side applications and REST APIs using Node.js."
+        },
+        {
+          name: "Express",
+          logo: "/images/express.png",
+          description: "Utilized Express framework to simplify routing and middleware handling in Node.js."
+        }
+      ]
+    },
+    {
+      id: 4,
+      startTime: "July 2021",
+      endTime: "December 2021",
+      title: "Database Management",
+      content: [
+        {
+          name: "MongoDB",
+          logo: "/images/mongodb_logo.png",
+          description: "Gained experience with NoSQL databases and implemented data storage using MongoDB."
+        },
+        {
+          name: "SQL",
+          logo: "/images/node_js.png",
+          description: "Learned the basics of relational databases and SQL for structured data management."
+        }
+      ]
+    },
+    {
+      id: 5,
+      startTime: "January 2022",
+      endTime: "Present",
+      title: "Advanced Topics",
+      content: [
+        {
+          name: "TypeScript",
+          logo: "/images/typescript.png",
+          description: "Enhanced JavaScript skills by adding type safety and working with TypeScript."
+        },
+        {
+          name: "GraphQL",
+          logo: "/images/node_js.png",
+          description: "Explored GraphQL for efficient data querying and worked on server-side integrations."
+        },
+        {
+          name: "Testing",
+          logo: "/images/node_js.png",
+          description: "Practiced writing unit and integration tests to ensure code reliability."
+        }
+      ]
+    }
+  ];
+  
