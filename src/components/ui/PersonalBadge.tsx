@@ -9,7 +9,7 @@ import {Badge, Avatar} from "@nextui-org/react";
         <Avatar
           radius="full"
           className="electric-lightning-effect border-[1px] dark:border-blue-500 border-blue-800"
-          src="https://res.cloudinary.com/course-yuga/image/upload/v1729615601/userImages/ofe64eafmsstzlspi8op.png"
+          src="/images/my_picture_logo.jpg"
         />
       </Badge>
       

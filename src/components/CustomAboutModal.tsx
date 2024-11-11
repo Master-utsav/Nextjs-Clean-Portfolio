@@ -48,7 +48,7 @@ const CustomAboutModal = ({
                     height={100}
                     src={item.logo}
                     alt={item.name}
-                    className="sm:size-16  size-12 object-cover rounded-lg p-1 z-10"
+                    className="sm:size-14  size-12 object-cover rounded-lg p-1 z-10"
                     />
                   <Image
                     width={100}

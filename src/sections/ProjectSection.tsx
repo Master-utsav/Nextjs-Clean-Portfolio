@@ -62,7 +62,7 @@ const ProjectSection: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: 1, delay :0.2 }}
           >
             Discover powerful{" "}
             <span className="font-semibold text-blue-600 dark:text-blue-300">
@@ -73,7 +73,7 @@ const ProjectSection: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 40 }}
             animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
           >
             blending the versatility of{" "}
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
@@ -88,7 +88,7 @@ const ProjectSection: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 60 }}
             animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
-            transition={{ duration: 1, delay: 1.2 }}
+            transition={{ duration: 1, delay: 0.6 }}
           >
             enhanced with{" "}
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
@@ -99,7 +99,7 @@ const ProjectSection: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
-            transition={{ duration: 1, delay: 1.4 }}
+            transition={{ duration: 1, delay: 0.8 }}
           >
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Three.js
@@ -109,7 +109,7 @@ const ProjectSection: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
-            transition={{ duration: 1, delay: 1.6 }}
+            transition={{ duration: 1, delay: 1 }}
           >
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Framer Motion
@@ -124,7 +124,7 @@ const ProjectSection: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
-            transition={{ duration: 1, delay: 2 }}
+            transition={{ duration: 1, delay: 1 }}
           >
             On the backend, experience the reliability of{" "}
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
@@ -139,7 +139,7 @@ const ProjectSection: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
-            transition={{ duration: 1, delay: 2.2 }}
+            transition={{ duration: 1, delay: 1.2 }}
           >
             while utilizing{" "}
             <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
@@ -154,7 +154,7 @@ const ProjectSection: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
-            transition={{ duration: 1, delay: 2.4 }}
+            transition={{ duration: 1, delay: 1.4 }}
           >
             {" "}
             I build projects that <span className="italic">engage</span>,{" "}

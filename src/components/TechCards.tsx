@@ -59,7 +59,6 @@ const TechCards: React.FC<TechCardsProps> = ({ itemArray, title }) => {
               className={`absolute opacity-50 z-0 sm:size-14 size-16 rounded-md dark:invert ${inGlow ? "dark:invert-0 mix-blend-darken dark:mix-blend-normal opacity-80" : "mix-blend-luminosity"} p-1 transition-colors delay-100 contrast-110 brightness-105 blur-lg`}
               height={200}
               width={200}
-              quality={75}
               priority
               src={item.src}
               alt={item.name}
