@@ -3,8 +3,8 @@ import ContactText from "@/components/ContactText";
 import { LampContainer } from "@/components/ui/LampContainer";
 import { motion, useInView } from "framer-motion";
 import React, { useState, useEffect } from "react";
-import HeroSection from "./HeroSection";
 import MobilePhone from "@/components/ui/MobilePhone";
+import CallComponenet from "@/components/CallComponenet";
 
 const ContactSection = () => {
   const titleRef = React.useRef(null);
@@ -13,7 +13,7 @@ const ContactSection = () => {
 
   useEffect(() => {
     if (titleInView) {
-      setTimeout(() => setShowMobilePhone(true), 2000); 
+      setTimeout(() => setShowMobilePhone(true), 2000);
     } else {
       setShowMobilePhone(false);
     }
@@ -39,22 +39,22 @@ const ContactSection = () => {
         }}
         className="w-full min-h-screen overflow-hidden relative text-center flex sm:hidden justify-center flex-col"
       >
-      <motion.div
-        initial={{ opacity: 0.5, y: 100 }}
-        animate={!showMobilePhone ? { opacity: 1, y: 0 } : { opacity: 0 }}
-        exit={{opacity: 0 , y : -500}}
-        transition={{
-          delay: 0.5,
-          duration: 1,
-          ease: "easeInOut",
-        }}
-        className="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-      >
-      <ContactText titleInView={titleInView} />
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0.5, y: 100 }}
+          animate={!showMobilePhone ? { opacity: 1, y: 0 } : { opacity: 0 }}
+          exit={{ opacity: 0, y: -500 }}
+          transition={{
+            delay: 0.5,
+            duration: 1,
+            ease: "easeInOut",
+          }}
+          className="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        >
+          <ContactText titleInView={titleInView} />
+        </motion.div>
         {showMobilePhone && (
-          <MobilePhone className="relative" isInView={titleInView}>
-            <HeroSection />
+          <MobilePhone className="relative" isInView={titleInView} isClicked={false}>
+            <CallComponenet />
           </MobilePhone>
         )}
       </motion.div>
@@ -77,7 +77,7 @@ const ContactSection = () => {
           <motion.div
             initial={{ opacity: 0.5, y: 100 }}
             animate={!showMobilePhone ? { opacity: 1, y: 0 } : { opacity: 0 }}
-            exit={{opacity: 0 , y : -500}}
+            exit={{ opacity: 0, y: -500 }}
             transition={{
               delay: 0.5,
               duration: 1,
@@ -89,8 +89,8 @@ const ContactSection = () => {
           </motion.div>
 
           {showMobilePhone && (
-            <MobilePhone className="relative" isInView={titleInView}>
-              <HeroSection />
+            <MobilePhone className="relative" isInView={titleInView} isClicked={false}>
+              <CallComponenet />
             </MobilePhone>
           )}
         </LampContainer>

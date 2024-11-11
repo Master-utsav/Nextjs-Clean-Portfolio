@@ -1,9 +1,9 @@
 import {Badge, Avatar} from "@nextui-org/react";
+import {cn} from "@/lib/utils"
 
- const PersonalBadge = () => {
+ const PersonalBadge = ({className} : {className? : string}) => {
   return (
-    <div className="flex gap-5 items-center">
-     
+    <div className={cn("flex gap-5 items-center" , className)}>
       <Badge content="" color="primary" shape="circle" placement="bottom-right" className="animate-pulse border-[1px]
        dark:border-black-200 border-white-700">
         <Avatar
