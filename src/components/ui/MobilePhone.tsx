@@ -13,15 +13,15 @@ const MobilePhone = ({
 }) => {
   return (
     <motion.div
-      initial={{ x: 2000, rotate: "170deg" }}
-      animate={isInView ? { x: 0, rotate: 0 } : { x: 2000, rotate: "170deg" }}
+      initial={{ x: 2000, rotate: "170deg" , height: "0rem"}}
+      animate={isInView ? { x: 0, rotate: 0 , height: "34rem"} : { x: 2000, rotate: "170deg" , height: "0rem" }}
       transition={{
         delay: 1,
-        duration: 2.4,
+        duration: 2,
         ease: [0.68, -0.55, 0.27, 1.55],
       }}
       className={cn(
-        "max-w-[22rem] h-[34rem] overflow-hidden relative mx-auto border-4 border-[#6C6C6C] p-2 md:p-3 bg-[#222222] rounded-[30px] shadow-2xl",
+        "max-w-[22rem] overflow-hidden relative mx-auto border-4 border-[#6C6C6C] p-2 md:p-3 bg-[#222222] rounded-[30px] shadow-2xl",
         className
       )}
     >
