@@ -5,10 +5,55 @@ import { AboutData } from "@/constants";
 import { motion, useInView } from "framer-motion";
 import React from "react";
 
+interface ModalContent {
+  startTimeline: string;
+  endTimeline: string;
+  title: string;
+  content: {
+    name: string;
+    logo: string;
+    description: string;
+  }[];
+}
+
 const AboutSection: React.FC = () => {
   const titleRef = React.useRef(null);
   const [isFloatingCardsOpen, setisFloatingCardsOpen] = React.useState(false);
   const titleInView = useInView(titleRef, { once: false, amount: 0.2 });
+  const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
+  const [currentModalContent, setCurrentModalContent] = React.useState<ModalContent | null>(null);
+  
+  React.useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+    return () => document.body.classList.remove("no-scroll");
+  }, [isModalOpen]);
+
+  const handleOpenModalClick = (id: number) => {
+    setIsModalOpen((prev) => !prev);
+    const clickedAboutData = AboutData.find((item) => item.id === id);
+
+    if (clickedAboutData) {
+      setCurrentModalContent({
+        startTimeline: clickedAboutData.startTime,
+        endTimeline: clickedAboutData.endTime,
+        title: clickedAboutData.title,
+        content: clickedAboutData.content.map((item) => ({
+          name: item.name,
+          logo: item.logo,
+          description: item.description,
+        })),
+      });
+    }
+  };
+
+  function handleClosingModal() {
+    setIsModalOpen((prev) => !prev);
+    setCurrentModalContent(null);
+  }
 
   return (
     <section
@@ -67,7 +112,7 @@ const AboutSection: React.FC = () => {
           <Button
             variant="gooeyRight"
             className="w-32 h-32 scale-about-btn rounded-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 shadow-md transition-transform transform duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:from-blue-400 dark:via-blue-500 dark:to-indigo-600"
-            onClick={() => setisFloatingCardsOpen((prev) => !prev)}
+            onClick={() => {setisFloatingCardsOpen((prev) => !prev)}}
           >
             <span className="text-white font-bold text-sm font-[family-name:var(--font-assistant)]">
               Want to Know
@@ -105,22 +150,47 @@ const AboutSection: React.FC = () => {
                 {item.title}
               </h1>
 
-              <Button
-                variant="gooeyRight"
-                className="sm:w-14 sm:h-14 w-[90%] rounded-full flex items-center justify-center bg-gradient-to-r dark:from-blue-500 from-blue-800 dark:to-blue-800 to-blue-500 shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-500"
-              >
-                <span className="text-white font-[family-name:var(--font-accent)] sm:text-sm text-base">
-                  Details
-                </span>
-              </Button>
+              <div>
+                {/* Button to open modal */}
+                <Button
+                  variant="gooeyRight"
+                  className="sm:w-14 sm:h-14 w-[90%] rounded-full flex items-center justify-center bg-gradient-to-r dark:from-blue-500 from-blue-800 dark:to-blue-800 to-blue-500 shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-500"
+                  onClick={() => handleOpenModalClick(item.id)}
+                >
+                  <span className="text-white font-[family-name:var(--font-accent)] sm:text-sm text-base">
+                    Details
+                  </span>
+                </Button>
+              </div>
             </div>
           ))}
+
+          {isModalOpen && currentModalContent &&
+            <div className="h-screen fixed top-0 w-full flex justify-center items-center bg-[#f5f5f5]/40 dark:bg-[#121212]/40 backdrop-blur-lg p-8 rounded-lg shadow-lg z-20">
+              <div className="flex flex-col gap-1 justify-center items-center dark:bg-black-200 bg-white-700 z-10">
+              {currentModalContent.content.map((contentData, idx) => (
+                <div key={idx} className="flex flex-col gap-1  dark:bg-black-200 bg-white-700 z-10">
+                    <h1 className="text-xl font-semibold">
+                      {contentData.name}
+                    </h1>
+                  </div>
+                ))}
+                  <Button
+                    color="danger"
+                    variant="shine"
+                    onClick={handleClosingModal}
+                  >
+                    Close
+                  </Button>
+                </div>
+            </div>
+          }
           <div className="w-full max-w-lg relative flex justify-center items-center">
             <div className="absolute inset-0 flex items-center justify-center pulse-effect-collapse z-0" />
             <Button
               variant="gooeyRight"
               className="w-full max-w-xs flex items-center justify-center rounded-lg p-3 dark:bg-black-200 bg-[#f5f5f5] shadow-md transition-transform transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 scale-collapse-btn z-10"
-              onClick={() => setisFloatingCardsOpen((prev) => !prev)}
+              onClick={() => {setisFloatingCardsOpen((prev) => !prev)}}
             >
               <span className="text-black dark:text-white font-[family-name:var(--font-accent)] text-base">
                 Collapse all
