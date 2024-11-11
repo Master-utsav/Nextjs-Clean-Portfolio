@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { AboutData } from "@/constants";
 import { motion, useInView } from "framer-motion";
 import React from "react";
+import Image from "next/image"
 
 interface ModalContent {
   startTimeline: string;
@@ -167,14 +168,45 @@ const AboutSection: React.FC = () => {
 
           {isModalOpen && currentModalContent &&
             <div className="h-screen fixed top-0 w-full flex justify-center items-center bg-[#f5f5f5]/40 dark:bg-[#121212]/40 backdrop-blur-lg p-8 rounded-lg shadow-lg z-20">
-              <div className="flex flex-col gap-1 justify-center items-center dark:bg-black-200 bg-white-700 z-10">
-              {currentModalContent.content.map((contentData, idx) => (
-                <div key={idx} className="flex flex-col gap-1  dark:bg-black-200 bg-white-700 z-10">
-                    <h1 className="text-xl font-semibold">
-                      {contentData.name}
-                    </h1>
-                  </div>
-                ))}
+              <div className="max-w-lg p-2 rounded-lg flex flex-col gap-1 justify-center items-center backdrop-blur-lg dark:bg-black-200/80 bg-white-800/50 border-[1px] dark:border-blue-500/30 border-blue-800/30 electric-lightning-effect z-10 ">
+                <div className="flex flex-col gap-4 z-10 ">
+                    <div className="w-full text-base sm:text-xl text-gray-500 dark:text-gray-300 flex justify-center items-center flex-col sm:flex-row sm:gap-3 font-[family-name:var(--font-assistant)] ">
+                        <div className="font-semibold max-sm:w-2/5 text-center">
+                          {currentModalContent.startTimeline}
+                        </div>
+                        <div className="font-semibold max-sm:w-1/6 text-center">-</div>
+                        <div className="font-semibold max-sm:w-2/5 text-center">
+                          {currentModalContent.endTimeline}
+                        </div>
+                    </div>
+                    {currentModalContent.content.map((item, idx) => (
+                      <div key={idx} className="w-full text-base dark:bg-black-300/50 bg-white-800  rounded-lg p-1">
+                        <div className="flex gap-2 items-center relative">
+                          <Image
+                          width={100}
+                          height={100}
+                          src={item.logo}
+                          alt={item.name}
+                          className="size-16 object-cover rounded-lg p-1 z-10"
+                          />
+                          <Image
+                          width={100}
+                          height={100}
+                          src={item.logo}
+                          alt={item.name}
+                          className="absolute size-16 object-cover rounded-lg p-1 blur-lg z-0"
+                          />
+                           <div className="w-[1px] h-16 bg-blue-800 dark:bg-blue-500/60" />
+                           <h1 className="text-xl text-center font-semibold dark:text-blue-300 text-blue-800 font-[family-name:var(--font-salsa)]">
+                              {item.name}
+                            </h1>
+                        </div>
+                        <p className="font-[family-name:var(--font-accent)] dark:text-white-700 text-black-300">
+                          {item.description}
+                        </p>
+                      </div>
+                    ))}
+                    </div>
                   <Button
                     color="danger"
                     variant="shine"
