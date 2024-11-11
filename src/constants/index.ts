@@ -426,6 +426,21 @@ export const AboutData = [
           name: "Testing",
           logo: "/images/node_js.png",
           description: "Practiced writing unit and integration tests to ensure code reliability."
+        },
+        {
+          name: "TypeScript",
+          logo: "/images/typescript.png",
+          description: "Enhanced JavaScript skills by adding type safety and working with TypeScript."
+        },
+        {
+          name: "GraphQL",
+          logo: "/images/node_js.png",
+          description: "Explored GraphQL for efficient data querying and worked on server-side integrations."
+        },
+        {
+          name: "Testing",
+          logo: "/images/node_js.png",
+          description: "Practiced writing unit and integration tests to ensure code reliability."
         }
       ]
     }
