@@ -6,7 +6,7 @@ import React from "react";
 
 const ContactSection = () => {
   const titleRef = React.useRef(null);
-  const titleInView = useInView(titleRef, { once: false, amount: 0.2 });
+  const titleInView = useInView(titleRef, { once: false, amount: 0.4 });
 
   return (
     <section
@@ -30,7 +30,7 @@ const ContactSection = () => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: -300 }}
+        initial={{ opacity: 0, y: -100 }}
         animate={titleInView ? { y: 0, opacity: 1 } : {}}
         transition={{
           delay: 0,
