@@ -45,33 +45,25 @@ const ContactSection = () => {
         }}
         className="relative h-full sm:w-full text-center sm:flex hidden justify-center flex-col"
       >
-        <LampContainer className="flex flex-col items-center justify-center py-10 px-5 sm:px-10">
-          <motion.div
-            initial={{ opacity: 0.5, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 1,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-          >
-            <ContactText titleInView={titleInView} />
-          </motion.div>
+        <LampContainer className="flex flex-col items-center justify-center py-10 px-5 sm:px-10 relative">
+          <>
+            <motion.div
+              initial={{ opacity: 0.5, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 1,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+            >
+              <ContactText titleInView={titleInView} />
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{
-              delay: 1.2,
-              duration: 1,
-              ease: "easeInOut",
-            }}
-            className="relative mt-8"
-          ></motion.div>
-          <MobilePhone className="" isInView={titleInView}>
-            <HeroSection />
-          </MobilePhone>
+            <MobilePhone className="relative" isInView={titleInView}>
+              <HeroSection />
+            </MobilePhone>
+          </>
         </LampContainer>
       </motion.div>
     </section>
