@@ -64,7 +64,7 @@ const AboutSection: React.FC = () => {
     <section
       ref={titleRef}
       id="about"
-      className={`min-h-screen relative max-w-6xl text-center flex justify-center flex-col pt-20 space-y-4 items-center font-[family-name:var(--font-maven-pro)]`}
+      className={`min-h-screen relative max-w-6xl text-center flex justify-center flex-col py-8 space-y-4 items-center font-[family-name:var(--font-maven-pro)]`}
     >
       <div
         ref={titleRef}

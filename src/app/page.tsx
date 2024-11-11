@@ -4,6 +4,8 @@ import TechSection from "@/sections/TechSection";
 import ProjectSection from "@/sections/ProjectSection";
 import MyName from "@/components/MyName";
 import AboutSection from "@/sections/AboutSection";
+import ContactSection from "@/sections/ContactSection";
+
 
 export default function Home() {
   return (
@@ -14,7 +16,7 @@ export default function Home() {
         <TechSection/>
         <ProjectSection/>
         <AboutSection/>
-        <HeroSection/>
+        <ContactSection/>
       </main>
       <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20  rounded-lg bg-transparent"/>
     </div>
