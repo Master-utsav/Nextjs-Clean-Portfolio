@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import HeroSection from "./HeroSection";
 
 const ContactSection = () => {
   const titleRef = React.useRef(null);
