@@ -14,7 +14,7 @@ const ContactSection = () => {
     <section
       id="contact"
       ref={titleRef}
-      className={`min-h-screen relative  w-full text-center flex justify-center flex-col sm:py-8 space-y-4 items-center font-[family-name:var(--font-maven-pro)]`}
+      className={`min-h-screen relative w-full text-center flex justify-center flex-col sm:py-8 space-y-4 items-center font-[family-name:var(--font-maven-pro)]`}
     >
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -26,7 +26,7 @@ const ContactSection = () => {
           stiffness: 120,
           damping: 12,
         }}
-        className="relative text-center flex sm:hidden justify-center flex-col"
+        className="w-full overflow-hidden relative text-center flex sm:hidden justify-center flex-col"
       >
         <ContactText titleInView={titleInView} />
         <MobilePhone className="" isInView={titleInView}>
@@ -46,7 +46,6 @@ const ContactSection = () => {
         className="relative h-full sm:w-full text-center sm:flex hidden justify-center flex-col"
       >
         <LampContainer className="flex flex-col items-center justify-center py-10 px-5 sm:px-10 relative">
-          <>
             <motion.div
               initial={{ opacity: 0.5, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -59,11 +58,10 @@ const ContactSection = () => {
             >
               <ContactText titleInView={titleInView} />
             </motion.div>
-
+            
             <MobilePhone className="relative" isInView={titleInView}>
               <HeroSection />
             </MobilePhone>
-          </>
         </LampContainer>
       </motion.div>
     </section>
