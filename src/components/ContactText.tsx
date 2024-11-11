@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 
-
 const ContactText = ({titleInView} : {titleInView : boolean}) => {
   return (
    
