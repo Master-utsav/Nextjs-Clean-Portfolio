@@ -11,7 +11,6 @@ import NormalTooltip from "@/components/ui/NormalTooltip";
 import ScrollDown from "@/components/ScollDown";
 import { Button } from "@/components/ui/button";
 import { IoIosMail } from "react-icons/io";
-import { gmailLink, resumeLink } from "@/lib/service";
 
 const ExternalLinkIcon = () => {
   return <ExternalLink className="size-4" />;
@@ -21,9 +20,13 @@ const MailIcon = () => {
 };
 
 const HeroSection = () => {
-  const handleMailClick = () => {
-    window.location.href = gmailLink(); 
-  };
+  const email = process.env.NEXT_PUBLIC_GMAIL!;
+  const subject = "Message for Master Utsav";
+  const body = "Hello, I'm interested in your services.";
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
+  const gmailLink = `mailto:${email}?subject=${encodedSubject}&body=${encodedBody}`;
+
   return (
     <section
       id="home"
@@ -162,18 +165,18 @@ const HeroSection = () => {
       </div>
 
       <div className="flex flex-row gap-4 justify-center items-center font-[family-name:var(--font-assistant)]">
-       
+        <Link href={gmailLink}>
           <Button
             variant="expandIcon"
             Icon={MailIcon}
             iconPlacement="left"
-            onClick={handleMailClick}
             className="rounded-md dark:text-black text-white bg-black-200 dark:bg-white-700 hover:bg-black dark:hover:bg-white text-base transition-all delay-100 duration-500 ease-in-out"
           >
             Connect
           </Button>
-   
-        <Link href={resumeLink()} passHref legacyBehavior>
+        </Link>
+
+        <Link href={"/portfolio.pdf"} passHref legacyBehavior>
           <a target="_blank" rel="noopener noreferrer">
             <Button
               variant="expandIcon"
