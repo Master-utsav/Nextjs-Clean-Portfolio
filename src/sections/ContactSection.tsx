@@ -78,7 +78,6 @@ const ContactSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={titleInView ? { y: 0, opacity: 1 } : {}}
-            exit={{ opacity: 0 }}
             transition={{
               delay: 0,
               duration: 1,
@@ -86,18 +85,17 @@ const ContactSection = () => {
               stiffness: 120,
               damping: 12,
             }}
-            className="w-full h-full relative items-center overflow-hidden flex sm:hidden justify-center flex-col"
+            className="w-full min-h-screen relative items-center overflow-hidden flex sm:hidden justify-center flex-col"
           >
             <motion.div
               initial={{ opacity: 0.5, y: 100 }}
-              animate={!showMobilePhone ? { opacity: 1, y: 0 } : { opacity: 0}}
-              exit={{ opacity: 0, y: 100 }}
+              animate={showMobilePhone ? { opacity: 0 , y: 100 , height : 0} : titleInView ? { opacity: 1, y: 0} : { opacity: 0.5, y: 100 }}
               transition={{
                 delay: 0.5,
                 duration: 1,
                 ease: "easeInOut",
               }}
-              className="bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+              className={`bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl `}
             >
               <ContactText titleInView={titleInView} />
             </motion.div>
