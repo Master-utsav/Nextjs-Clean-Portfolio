@@ -98,7 +98,7 @@ const CallAcceptPopUp = () => {
           directly{" "}
           <Link
             href={gmail}
-            passHref 
+            target="_blank"
             className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
           >
             mail

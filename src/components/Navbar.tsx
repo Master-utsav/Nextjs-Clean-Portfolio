@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
                   hidden: { opacity: 0, x: 200 },
                   visible: { opacity: 1, x: 0 },
                 }}
-                transition={{ ease: [0.85, 0, 0.15, 1], duration: 2 }}
+                transition={{ ease: [0.85, 0, 0.15, 1], duration: 1.5 }}
               >
                 <Link
                   href={item.path}

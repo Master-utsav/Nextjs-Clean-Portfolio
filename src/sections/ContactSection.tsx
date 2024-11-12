@@ -39,7 +39,7 @@ const ContactSection = () => {
   const handleClickCheck = (data: "ACCEPT" | "REJECT") => {
     setTimeout(() => {
       setResponse(data);
-    }, 2000)
+    }, 1200)
     setIsClicked(true);
   };
 
@@ -53,7 +53,7 @@ const ContactSection = () => {
     <section
       id="contact"
       ref={titleRef}
-      className="min-h-screen w-full relative text-center flex justify-center flex-col sm:py-8 space-y-4 items-center font-[family-name:var(--font-maven-pro)]"
+      className="min-h-screen w-full relative overflow-hidden text-center flex justify-center flex-col sm:py-8 space-y-4 items-center font-[family-name:var(--font-maven-pro)]"
     >
       {/* Conditional rendering for response */}
       {response ? (
@@ -62,7 +62,7 @@ const ContactSection = () => {
           animate={titleInView ? { scale: 1 } : {scale : 0}}
           exit={{ opacity: 0 }}
           transition={{
-            delay: 2,
+            delay: 1,
             duration: 1,
             type: "spring",
             stiffness: 120,
@@ -90,8 +90,8 @@ const ContactSection = () => {
           >
             <motion.div
               initial={{ opacity: 0.5, y: 100 }}
-              animate={!showMobilePhone ? { opacity: 1, y: 0 } : { opacity: 0 }}
-              exit={{ opacity: 0, y: -500 }}
+              animate={!showMobilePhone ? { opacity: 1, y: 0 } : { opacity: 0}}
+              exit={{ opacity: 0, y: 100 }}
               transition={{
                 delay: 0.5,
                 duration: 1,
@@ -101,6 +101,7 @@ const ContactSection = () => {
             >
               <ContactText titleInView={titleInView} />
             </motion.div>
+   
             {showMobilePhone && (
               <MobilePhone
                 className="relative"
