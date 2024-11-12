@@ -334,6 +334,28 @@ body {
   animation: pulse-wave-outwards 1.8s infinite ease-out;
   z-index: 0; 
 }
+
+.pulse-effect-form-btn {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 40%, transparent 100%);
+  border-radius: 50%;
+  animation: pulse-wave-send-btn 2.4s infinite ease-out;
+  z-index: 0; 
+}
+
+@keyframes pulse-wave-send-btn {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2); /* Adjust for desired size */
+    opacity: 0;
+  }
+}
+
 .pulse-effect-collapse {
   width: 100%;
   height: 100%;
@@ -344,6 +366,7 @@ body {
   animation: pulse-wave-outwards-col 3s infinite ease-out;
   z-index: 0; 
 }
+
 @keyframes pulse-wave-outwards-col {
   0% {
     transform: scale(1);

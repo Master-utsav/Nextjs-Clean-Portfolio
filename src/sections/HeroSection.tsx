@@ -10,14 +10,22 @@ import { motion } from "framer-motion";
 import NormalTooltip from "@/components/ui/NormalTooltip";
 import ScrollDown from "@/components/ScollDown";
 import { Button } from "@/components/ui/button";
+import { IoIosMail } from "react-icons/io";
+import { gmailLink, resumeLink } from "@/lib/service";
 
-
-const ExternalLinkIcon = () => { return (<ExternalLink className="size-4"/>) }
+const ExternalLinkIcon = () => {
+  return <ExternalLink className="size-4" />;
+};
+const MailIcon = () => {
+  return <IoIosMail className="size-6 dark:text-black-200 text-white-800" />;
+};
 
 const HeroSection = () => {
-
   return (
-    <section id="home" className="min-h-screen max-w-5xl text-center flex justify-center flex-col space-y-4 items-center md:pt-24 pt-28 font-[family-name:var(--font-maven-pro)]">
+    <section
+      id="home"
+      className="min-h-screen max-w-5xl text-center flex justify-center flex-col space-y-4 items-center md:pt-24 pt-28 font-[family-name:var(--font-maven-pro)]"
+    >
       <div className="flex flex-col sm:gap-6 gap-2 justify-center items-center sm:p-6 p-1 overflow-hidden animate-fade-in">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -151,20 +159,28 @@ const HeroSection = () => {
       </div>
 
       <div className="flex flex-row gap-4 justify-center items-center font-[family-name:var(--font-assistant)]">
-        <Button
-          variant="gooeyRight"
-          className="rounded-md dark:text-black text-white bg-black-200 dark:bg-white-700 hover:bg-black dark:hover:bg-white text-base transition-all delay-100 duration-500 ease-in-out"
-        >
-          Connect
-        </Button>
-        <Button
-          variant="expandIcon"
-          className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50"
-          iconPlacement="hide-from-right"
-          Icon={ExternalLinkIcon} 
-        >
-          Resume 
-        </Button>
+        <Link href={gmailLink()}>
+          <Button
+            variant="expandIcon"
+            Icon={MailIcon}
+            iconPlacement="left"
+            className="rounded-md dark:text-black text-white bg-black-200 dark:bg-white-700 hover:bg-black dark:hover:bg-white text-base transition-all delay-100 duration-500 ease-in-out"
+          >
+            Connect
+          </Button>
+        </Link>
+        <Link href={resumeLink()} passHref legacyBehavior>
+          <a target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="expandIcon"
+              className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50"
+              iconPlacement="hide-from-right"
+              Icon={ExternalLinkIcon}
+            >
+              Resume
+            </Button>
+          </a>
+        </Link>
       </div>
       <div className="flex flex-row gap-4 justify-center items-center p-1">
         <Link
