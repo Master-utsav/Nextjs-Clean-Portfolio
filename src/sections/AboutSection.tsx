@@ -168,7 +168,7 @@ const AboutSection: React.FC = () => {
             />
           ): ""}
 
-          <Link href={"/#about"} className="w-full max-w-lg relative flex justify-center items-center">
+          <Link href={"/#about"} className="w-full overflow-hidden max-w-lg relative flex justify-center items-center">
             <div className="absolute inset-0 flex items-center justify-center pulse-effect-collapse z-0" />
             <Button
               variant="gooeyRight"
