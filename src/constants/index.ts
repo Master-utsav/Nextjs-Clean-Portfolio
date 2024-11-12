@@ -338,7 +338,12 @@ export const AboutData = [
         {
           name: "My Game Zone",
           logo: "/images/xbox.jpg",
-          description: "When, I was in 6th std. I was obsessed with video games, bcoz my father has a video game parlour, in that there was a game named URBAN in play-station, only a single fighter has a tag of MASTER among all other fighter. So, here's how MASTER become my profile since 2012. In Call of Duty (x-box 360), clash of clans, call of duty mobile, my all social handles and now My Portfolio is master utsav. Isn't it cool!!! "
+          description: "When, I was in 6th std. I was obsessed with video games, bcoz my father has a video game parlour, in that there was a game named URBAN in play-station, only a single fighter has a tag of MASTER among all other fighter."
+        },
+        {
+          name: "Master Utsav",
+          logo: "/images/my_picture_logo.jpg",
+          description: "So, here's how MASTER become my profile since 2012. In Call of Duty (x-box 360), clash of clans, call of duty mobile, my all social handles and now My Portfolio is master utsav. Isn't it cool!!!"
         },
       ]
     },
@@ -361,7 +366,7 @@ export const AboutData = [
         { 
           name: "Programming",
           logo: "/images/programming.jpg",
-          description: "In while, I explore about programming, first langauage i learn is C by making notes and code in mobile phone. And after that i got my first laptop and i learned Python Old days."
+          description: "In while, I explore about programming, first langauage I learn is C by making notes and code in mobile phone. And after that I got my first laptop and I learned Python Old days."
         },
       ]
     },
@@ -374,7 +379,7 @@ export const AboutData = [
         {
           name: "Start over from C",
           logo: "/images/c.png",
-          description: "I learned basics of C, I remember that feeling when i made my first simple calulator. That was awesome, then i learn more about C until i learned about malloc and calloc - 'bullet hits my brain', just kidding then i switch to C++."
+          description: "I learned basics of C, I remember that feeling when I made my first simple calulator. That was awesome, then I learn more about C until I learned about malloc and calloc - 'bullet hits my brain', just kidding then I switched to C++."
         },
         {
           name: "Choosing C++ over JAVA",
@@ -384,17 +389,17 @@ export const AboutData = [
         {
           name: "Skeleton of Web Page",
           logo: "/images/html.png",
-          description: "I want to create something which others can see and use that, which have some interactions, so i choose web development, beacuse youtube have so many thing related to web dev. I learned HTML."
+          description: "I want to create something which others can see and use that, which have some interactions, so I choose web development, because youtube have so many thing related to web dev. I learned HTML."
         },
         {
           name: "Man without muscles ~ utsav",
           logo: "/images/css.png",
-          description: "As i already have a knowledge about many properties of CSS, because i learned Editing. So it's too smooth learning curve for me to understand CSS."
+          description: "As I already have a knowledge about many properties of CSS, because I learned Editing. So it's too smooth learning curve for me to understand CSS."
         },
         {
-          name: "is CSS easy to write?",
+          name: "Is CSS easy to write?",
           logo: "/images/tailwind.png",
-          description: "Writing css is too time taking and lengthy, so i explore the most handy way to write the css, i found tailwindCSS and now in every tsx component i write tailwind classes. And it support so my libraries for components."
+          description: "Writing css is too time taking and lengthy, so I explore the most handy way to write the css, I found tailwindCSS and now in every tsx component I write tailwind classes. And it support so my libraries for components."
         },
       ]
     },
@@ -407,17 +412,17 @@ export const AboutData = [
         {
           name: "DSA with C++",
           logo: "/images/cpp.png",
-          description: "Since, i already know C++, i continued my journey with learning data structures and algorithms, until the 2D dynamic programming and graph comes, after that i was like '***cho ab nahi karna, ho gaya mera'"
+          description: "Since, I already know C++, I continued my journey with learning data structures and algorithms, until the 2D dynamic programming and graph comes, after that I was like '***cho ab nahi karna, ho gaya mera'"
         },
         {
           name: "Ufff JavaScript",
           logo: "/images/javascript.png",
-          description: "I continued my web dev journey along with the DSA. I learned JavaScript, i don't want to talk about this langauge. Be quite TypeScript is listening."
+          description: "I continued my web dev journey along with the DSA. I learned JavaScript, I don't want to talk about this langauge. Be quite TypeScript is listening."
         },
         {
           name: "Flying kick to Node JS",
           logo: "/images/node_js.png",
-          description: "I learned about NPM, i create my own npm package, creating server from nodejs directly, learned about http/https."
+          description: "I learned about NPM, I create my own npm package, creating server from nodejs directly, learned about http/https."
         },
         {
           name: "Flying kiss to Express",
@@ -445,7 +450,7 @@ export const AboutData = [
         {
           name: "TypeScript: any (lol...)",
           logo: "/images/typescript.png",
-          description: "Enhanced JavaScript skills by adding type safety and working with TypeScript. The only reason, why i told you to be quite for appreciating javaScript. After learning typescript i rarely used javaScript, all my latest projects are in TypeScript"
+          description: "Enhanced JavaScript skills by adding type safety and working with TypeScript. The only reason, why I told you to be quite for appreciating javaScript. After learning typescript I rarely used javaScript, all my latest projects are in TypeScript."
         },
         {
           name: "Backend + Frontend ~ NextJs",
@@ -465,7 +470,7 @@ export const AboutData = [
         {
           name: "Only for Professionals ~ ThreeJS",
           logo: "/images/three_js.png",
-          description: "I re-create a ThreeJs portfolio inspired from JsMastery and along with that I learned all about threeJs, i can say alot about threeJs but i recommend you to learn that ThreeJs from JsMastery ThreeJs portfolio"
+          description: "I re-create a ThreeJs portfolio inspired from JsMastery and along with that I learned all about threeJs, I can say alot about threeJs but my recommendation for you to learn ThreeJs from JsMastery ThreeJs portfolio"
         },
       ]
     },
@@ -478,12 +483,12 @@ export const AboutData = [
           {
             name: "React Native framework EXPO",
             logo: "/images/expo.png",
-            description: "After getting so much knowledge about web devlopment and beacuse expo is routing framework built on top of react-native, its really easy for me to build an app, so i designed and then i build Reciepe App from strach no-tutorials just reading docs and using AI to understand the react-native components."
+            description: "After getting so much knowledge about web devlopment and beacuse expo is routing framework built on top of react-native, its really easy for me to build an app, so I designed and then build Reciepe App from scratch no-tutorials just reading docs and using AI to understand the react-native components."
           },
           {
             name: "Blockchain + Decentralized app",
             logo: "/images/dapp.png",
-            description: "Learned about finance, blockchains, cryptography, keys, solana, wallets, tokens and many more. Currently, I am learning Eth."
+            description: "Learned about finance, blockchains, cryptography, keys, solana, wallets, tokens and many more. Currently, I am learning Ethereum"
           },
           {
             name: "All in one place ~ Firebase",
@@ -493,7 +498,7 @@ export const AboutData = [
           {
             name: "Redis",
             logo: "/images/redis.png",
-            description: "An in-memory data structure store, ideal for caching, real-time data, and task queuing needs."
+            description: "An in-memory data structure store, ideal for caching, real-time data, and task queuing needs. Still remain to implemnet."
           }
         ]
     }
