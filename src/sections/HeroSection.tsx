@@ -21,6 +21,9 @@ const MailIcon = () => {
 };
 
 const HeroSection = () => {
+  const handleMailClick = () => {
+    window.location.href = gmailLink(); 
+  };
   return (
     <section
       id="home"
@@ -159,16 +162,17 @@ const HeroSection = () => {
       </div>
 
       <div className="flex flex-row gap-4 justify-center items-center font-[family-name:var(--font-assistant)]">
-        <Link href={gmailLink()}>
+       
           <Button
             variant="expandIcon"
             Icon={MailIcon}
             iconPlacement="left"
+            onClick={handleMailClick}
             className="rounded-md dark:text-black text-white bg-black-200 dark:bg-white-700 hover:bg-black dark:hover:bg-white text-base transition-all delay-100 duration-500 ease-in-out"
           >
             Connect
           </Button>
-        </Link>
+   
         <Link href={resumeLink()} passHref legacyBehavior>
           <a target="_blank" rel="noopener noreferrer">
             <Button
