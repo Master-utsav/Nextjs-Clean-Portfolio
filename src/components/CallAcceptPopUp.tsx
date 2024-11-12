@@ -4,23 +4,17 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import FeedbackForm from "@/components/FeedbackForm";
 import Link from "next/link";
-
+import { gmailLink } from "@/lib/service";
 import ThankingText from "@/components/ThankingText";
 
 const CallAcceptPopUp = () => {
-
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  const email = process.env.NEXT_PUBLIC_GMAIL!;
-  const subject = "Message for Master Utsav";
-  const body = "Hello, I'm interested in your services.";
-  const encodedSubject = encodeURIComponent(subject);
-  const encodedBody = encodeURIComponent(body);
-  const gmailLink = `mailto:${email}?subject=${encodedSubject}&body=${encodedBody}`;
 
   function handleSubmitFunction(val: boolean) {
     setIsSubmitted(val);
   }
 
+  const gmail: string = gmailLink();
   return !isSubmitted ? (
     <motion.div
       initial={{ scale: 0.3, opacity: 0.6 }}
@@ -103,7 +97,8 @@ const CallAcceptPopUp = () => {
         >
           directly{" "}
           <Link
-            href={gmailLink}
+            href={gmail}
+            passHref 
             className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
           >
             mail
