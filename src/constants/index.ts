@@ -228,7 +228,7 @@ export const ProjectsData: Project[] = [
         title: "Master's Reciepe an Expo App",
         description: "Basic Mobile App where you find the recipe, of your favourite dishes.",
         imageSrc: "/images/course_yuga_thumbnail.jpg",
-        gitLink: "https://github.com/master-utsav/course-yuga",
+        gitLink: "https://github.com/Master-utsav/Master-Recipe-Expo-React-Native",
         liveLink: "https://course-yuga.vercel.app",
         techStack: [
             {
@@ -240,34 +240,18 @@ export const ProjectsData: Project[] = [
                 src: "/images/typescript.png",
             },
             {
-                name: "Tailwind CSS",
-                src: "/images/tailwind.png",
-            },
-            {
-                name: "Framer Motion",
-                src: "/images/framer.png",
-            },
-            {
-                name: "Node.js",
-                src: "/images/node_js.png",
-            },
-            {
-                name: "Express",
-                src: "/images/express.png",
-            },
-            {
-                name: "MongoDB",
-                src: "/images/mongo_db.png",
+                name: "Expo",
+                src: "/images/expo.png",
             },
         ]
     },
     {
         id: 5,
         title: "Kronoskill ~ Skill learning platform",
-        description: "A platform where you search or select any any skill and learn that from the best youtube playlist available",
-        imageSrc: "/images/threejs_portfolio.png",
-        gitLink: "https://github.com/Master-utsav/Portfolio",
-        liveLink: "https://master-utsav-portfolio.vercel.app",
+        description: "A platform where you search or select any any skill and learn that from the best youtube playlist available. Site is not complete as of production level",
+        imageSrc: "/images/kronoskill_banner.png",
+        gitLink: "https://github.com/Master-utsav/KronoSkill",
+        liveLink: "https://kronoskill.vercel.app",
         techStack: [
             {
                 name: "React",
@@ -282,16 +266,8 @@ export const ProjectsData: Project[] = [
                 src: "/images/tailwind.png",
             },
             {
-                name: "Three.js",
-                src: "/images/three_js.png",
-            },
-            {
-                name: "Framer Motion",
-                src: "/images/framer.png",
-            },
-            {
-                name: "GSAP",
-                src: "/images/gsap.png",
+                name: "NextJS",
+                src: "/images/nextjs.png",
             },
         ]
     },
