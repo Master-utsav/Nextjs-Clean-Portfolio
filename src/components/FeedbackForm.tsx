@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-
 const feedbackSchema = z.object({
   email: z.string().email("Invalid email address"),
   feedback: z.string().min(10, "minimum 10 characters required"),
@@ -16,9 +15,13 @@ const feedbackSchema = z.object({
 
 type FeedbackFormData = z.infer<typeof feedbackSchema>;
 
-const FeedbackForm = ({onSubmitted} : {onSubmitted : (val: boolean) => void}) => {
+const FeedbackForm = ({
+  onSubmitted,
+}: {
+  onSubmitted: (val: boolean) => void;
+}) => {
   const { theme } = useTheme();
-  
+
   const {
     register,
     handleSubmit,
@@ -27,7 +30,7 @@ const FeedbackForm = ({onSubmitted} : {onSubmitted : (val: boolean) => void}) =>
   } = useForm<FeedbackFormData>({
     resolver: zodResolver(feedbackSchema),
   });
-   
+
   const onSubmit = (data: FeedbackFormData) => {
     console.log("Form submitted with data:", data);
     onSubmitted(true);
@@ -36,32 +39,43 @@ const FeedbackForm = ({onSubmitted} : {onSubmitted : (val: boolean) => void}) =>
 
   return (
     <motion.div
-      initial={{ y: 200 , rotate : 5 , opacity: 0.5}}
-      animate={{ y: 0  , rotate : 0 , opacity: 1}}
-      transition={{ delay: 0.2, ease: "easeOut"}}
+      initial={{ y: 200, rotate: 5, opacity: 0.5 }}
+      animate={{ y: 0, rotate: 0, opacity: 1 }}
+      transition={{ delay: 0.2, ease: "easeOut" }}
       className="w-full justify-center items-center flex flex-col gap-3 font-[family-name:var(--font-assistant)]"
     >
       <div className="w-full relative">
-      <Input
-        {...register("email")}
-        type="email"
-        variant="underlined"
-        label="Email"
-        color={theme === "dark" ? "primary" : "default"}
-      />
-       {errors && errors.email && errors.email.message ? <p className="absolute text-sm bottom-0 right-0 text-end text-red-800 dark:text-red-500">{errors.email.message}</p> : ""}
+        <Input
+          {...register("email")}
+          type="email"
+          variant="underlined"
+          label="Email"
+          color={theme === "dark" ? "primary" : "default"}
+        />
+        {errors && errors.email && errors.email.message ? (
+          <p className="absolute text-sm bottom-0 right-0 text-end text-red-800 dark:text-red-500">
+            {errors.email.message}
+          </p>
+        ) : (
+          ""
+        )}
       </div>
-
 
       <div className="w-full flex gap-1 justify-center items-end">
         <div className="w-full relative">
-            <Textarea
+          <Textarea
             {...register("feedback")}
             variant="underlined"
             label="Feedback"
             color={theme === "dark" ? "primary" : "default"}
-            />
-            {errors && errors.feedback && errors.feedback.message ? <p className="absolute text-sm bottom-0 right-0 text-end text-red-800 dark:text-red-500">{errors.feedback.message}</p> : ""}
+          />
+          {errors && errors.feedback && errors.feedback.message ? (
+            <p className="absolute text-sm bottom-0 right-0 text-end text-red-800 dark:text-red-500">
+              {errors.feedback.message}
+            </p>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className="relative w-10 h-10 flex justify-center items-center rounded-full">

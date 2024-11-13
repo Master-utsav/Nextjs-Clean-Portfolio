@@ -4,8 +4,15 @@ import React from "react";
 import { BsTwitterX } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import NormalTooltip from "@/components/ui/NormalTooltip";
+import { Button } from "@/components/ui/button";
+import { IoIosMail } from "react-icons/io";
+import { gmailLink } from "@/lib/service";
 
 const ThankingText = () => {
+  function handleMailClick() {
+    window.location.href = gmailLink();
+  }
+
   return (
     <section className="h-fit max-w-5xl text-center flex justify-center flex-col space-y-4 items-center md:pt-24 pt-28 font-[family-name:var(--font-maven-pro)]">
       <div className="flex flex-col sm:gap-6 gap-2 justify-center items-center sm:p-6 p-1 overflow-hidden animate-fade-in">
@@ -105,6 +112,14 @@ const ThankingText = () => {
             <FaLinkedinIn className="size-4 dark:text-white text-black" />
           </NormalTooltip>
         </Link>
+        <Button
+          onClick={handleMailClick}
+          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
+        >
+          <NormalTooltip text="mail" placement="bottom">
+            <IoIosMail className="size-6  dark:text-white text-black" />
+          </NormalTooltip>
+        </Button>
         <Link
           href={"https://x.com/masterutsav01"}
           className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
@@ -121,6 +136,7 @@ const ThankingText = () => {
             <FaInstagram className="size-4 dark:text-white text-black" />
           </NormalTooltip>
         </Link>
+        
       </div>
     </section>
   );

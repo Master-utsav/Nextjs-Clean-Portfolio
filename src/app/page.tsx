@@ -5,6 +5,7 @@ import ProjectSection from "@/sections/ProjectSection";
 import MyName from "@/components/MyName";
 import AboutSection from "@/sections/AboutSection";
 import ContactSection from "@/sections/ContactSection";
+import FooterSection from "@/sections/FooterSection";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <ProjectSection/>
         <AboutSection/>
         <ContactSection/>
+        <FooterSection/>
       </main>
       <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20  rounded-lg bg-transparent"/>
     </div>
