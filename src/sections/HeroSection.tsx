@@ -12,6 +12,8 @@ import ScrollDown from "@/components/ScollDown";
 import { Button } from "@/components/ui/button";
 import { IoIosMail } from "react-icons/io";
 import { gmailLink, resumeLink } from "@/lib/service";
+import { LinkHoverPreview } from "@/components/ui/LinkHoverPreview";
+import {TechLinks} from "@/constants"
 
 const ExternalLinkIcon = () => {
   return <ExternalLink className="size-4" />;
@@ -95,7 +97,7 @@ const HeroSection = () => {
             <span className="relative z-10">Blockchain</span>
           </motion.span>
         </motion.h1>
-        <p className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
+        <div className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,9 +115,9 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 1.5 }}
           >
             a Full Stack Developer with expertise in{" "}
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.reactjs} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               React.js
-            </span>
+            </LinkHoverPreview>
             ,
           </motion.span>{" "}
           <motion.span
@@ -123,9 +125,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.6 }}
           >
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.typescript} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               TypeScript
-            </span>
+            </LinkHoverPreview>
             ,
           </motion.span>{" "}
           <motion.span
@@ -133,9 +135,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.7 }}
           >
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.nodejs} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Node.js
-            </span>
+            </LinkHoverPreview>
             , and
           </motion.span>{" "}
           <motion.span
@@ -143,9 +145,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.8 }}
           >
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.expo} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Expo
-            </span>
+            </LinkHoverPreview>
             .
           </motion.span>
           <motion.span
@@ -160,7 +162,7 @@ const HeroSection = () => {
             <span className="italic">push the boundaries</span> of what&apos;s
             possible.
           </motion.span>
-        </p>
+        </div>
       </div>
 
       <div className="flex flex-row gap-4 justify-center items-center font-[family-name:var(--font-assistant)]">

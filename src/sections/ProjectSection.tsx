@@ -7,13 +7,15 @@ import { motion } from "framer-motion";
 import ProjectBar from "@/components/ProjectBar";
 import ProjectsContainer from "@/components/ProjectsContainer";
 import { useInView } from "framer-motion";
+import { LinkHoverPreview } from "@/components/ui/LinkHoverPreview";
+import { TechLinks } from "@/constants";
 const ProjectSection: React.FC = () => {
   const sectionRef = React.useRef(null);
   const titleRef = React.useRef(null);
-  const paragraphRef = React.useRef(null);
+  // const paragraphRef = React.useRef(null);
 
   const titleInView = useInView(titleRef, { once: false, amount: 0.2 });
-  const paragraphInView = useInView(paragraphRef, { once: false, amount: 0.2 });
+  // const paraInView = useInView(paragraphRef, { once: false, amount: 0.2 });
 
   return (
     <section
@@ -56,12 +58,12 @@ const ProjectSection: React.FC = () => {
             <span className="relative z-10">Stack</span>
           </motion.span>
         </motion.h1>
-        <p 
-        ref={paragraphRef}
+        <div
+        // ref={paragraphRef}
         className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            animate={titleInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay :0.2 }}
           >
             Discover powerful{" "}
@@ -72,88 +74,88 @@ const ProjectSection: React.FC = () => {
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 40 }}
-            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            animate={titleInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 0.4 }}
           >
             blending the versatility of{" "}
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.nextjs} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Next.js
-            </span>{" "}
+            </LinkHoverPreview>{" "}
             and the dynamism of{" "}
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.reactjs} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               React
-            </span>
+            </LinkHoverPreview>
             ,
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 60 }}
-            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            animate={titleInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 0.6 }}
           >
             enhanced with{" "}
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.typescript} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               TypeScript
-            </span>
+            </LinkHoverPreview>
             ,
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            animate={titleInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.threejs} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Three.js
-            </span>
+            </LinkHoverPreview>
             , and the fluidity of{" "}
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            animate={titleInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 1 }}
           >
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.framer} className="whitespace-nowrap underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Framer Motion
-            </span>{" "}
+            </LinkHoverPreview>{" "}
             animations.
           </motion.span>
-        </p>
+        </div>
 
-        <p 
-        ref={paragraphRef}
+        <div
+        // ref={paragraphRef}
         className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed mt-3 font-[family-name:var(--font-assistant)]">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            animate={titleInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 1 }}
           >
             On the backend, experience the reliability of{" "}
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.nodejs} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Node.js
-            </span>{" "}
+            </LinkHoverPreview>{" "}
             with{" "}
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.mongodb} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               MongoDB
-            </span>{" "}
+            </LinkHoverPreview>{" "}
             for seamless data management,
           </motion.span>{" "}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            animate={titleInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 1.2 }}
           >
             while utilizing{" "}
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.redis} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Redis
-            </span>{" "}
+            </LinkHoverPreview>{" "}
             for caching and{" "}
-            <span className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
+            <LinkHoverPreview url={TechLinks.firebase} className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold">
               Firebase
-            </span>{" "}
+            </LinkHoverPreview>{" "}
             for authentication.
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
-            animate={paragraphInView ? { opacity: 1, y: 0 }: {}}
+            animate={titleInView ? { opacity: 1, y: 0 }: {}}
             transition={{ duration: 1, delay: 1.4 }}
           >
             {" "}
@@ -161,7 +163,7 @@ const ProjectSection: React.FC = () => {
             <span className="italic">inspire</span>, and{" "}
             <span className="italic">elevate the user experience</span>.
           </motion.span>
-        </p>
+        </div>
       </div>
       <div className="md:flex hidden">
         <ProjectBar />

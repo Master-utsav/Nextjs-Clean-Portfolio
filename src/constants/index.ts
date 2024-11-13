@@ -504,3 +504,17 @@ export const AboutData = [
     }
   ];
   
+export const TechLinks = {
+  reactjs : "https://legacy.reactjs.org/docs/getting-started.html",
+  typescript : "https://www.typescriptlang.org/docs",
+  expo: "https://docs.expo.dev",
+  nodejs: "https://nodejs.org/docs/latest/api/documentation.html#about-this-documentation",
+  nextjs: "https://nextjs.org/docs",
+  express: "https://expressjs.com/en/starter/installing.html",
+  threejs: "https://threejs.org/docs/#manual/en/introduction/Installation",
+  framer: "https://motion.dev/docs/react-quick-start",
+  mongodb: "https://www.mongodb.com/docs",
+  redis: "https://redis.io/docs/latest",
+  firebase: "https://firebase.google.com/docs/guides"
+
+}
