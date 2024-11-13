@@ -1,7 +1,7 @@
 # Master Utsav
 
-![Portfolio Banner]("/images/my_picture_logo.jpg)
-![Live Domain]("https://masterutsav.in)
+![Portfolio Banner](/public/images/my_picture_logo.jpg)
+![Live Domain](https://masterutsav.in)
 
 Hello! 👋 I’m **Utsav Jaiswal**, a Full Stack Developer with expertise in **React.js**, **TypeScript**, **Node.js**, and **Expo**. I build applications that connect, inspire, and push the boundaries of what's possible.
 
@@ -12,35 +12,35 @@ Hello! 👋 I’m **Utsav Jaiswal**, a Full Stack Developer with expertise in **
 ### Home 🏠
 An introduction to who I am, my skills, and what I bring to the table as a developer.
 
-![Home Section](home-image-link-here)
+![Home Section](/public/images/my_picture_logo.jpg)
 
 ---
 
 ### Tech 🛠️
 An overview of the technologies and tools I specialize in, including my favorite frameworks, libraries, and development environments.
 
-![Tech Section](tech-image-link-here)
+![Tech Section](/public/images/my_picture_logo.jpg)
 
 ---
 
 ### Projects 🚀
 A showcase of my favorite projects. Each project is a testament to my journey as a developer and the challenges I've embraced to improve my skills.
 
-![Projects Section](projects-image-link-here)
+![Projects Section](/public/images/my_picture_logo.jpg)
 
 ---
 
 ### About 👤
 More about me—my journey, inspirations, and what drives me to keep creating and innovating in the world of tech.
 
-![About Section](about-image-link-here)
+![About Section](/public/images/my_picture_logo.jpg)
 
 ---
 
 ### Contact 📬
 Let’s connect! You can reach out to me for potential collaborations, questions, or just a friendly hello.
 
-![Contact Section](contact-image-link-here)
+![Contact Section](/public/images/my_picture_logo.jpg)
 
 ---
 
