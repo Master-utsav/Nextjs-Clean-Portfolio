@@ -225,8 +225,8 @@ export const ProjectsData: Project[] = [
     },
     {
         id: 4,
-        title: "Course Yuga",
-        description: "Courses are Required to master any skill in this yuga, we offer you all the most advance and cost effective courses.",
+        title: "Master's Reciepe an Expo App",
+        description: "Basic Mobile App where you find the recipe, of your favourite dishes.",
         imageSrc: "/images/course_yuga_thumbnail.jpg",
         gitLink: "https://github.com/master-utsav/course-yuga",
         liveLink: "https://course-yuga.vercel.app",
@@ -263,8 +263,8 @@ export const ProjectsData: Project[] = [
     },
     {
         id: 5,
-        title: "ThreeJs Portfolio",
-        description: "Explore my portfolio and reach out for remote collaborations to build websites and apps tailored to your needs.",
+        title: "Kronoskill ~ Skill learning platform",
+        description: "A platform where you search or select any any skill and learn that from the best youtube playlist available",
         imageSrc: "/images/threejs_portfolio.png",
         gitLink: "https://github.com/Master-utsav/Portfolio",
         liveLink: "https://master-utsav-portfolio.vercel.app",
@@ -295,36 +295,36 @@ export const ProjectsData: Project[] = [
             },
         ]
     },
-    {
-        id: 6,
-        title: "KM Solar Energy",
-        description: "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",
-        imageSrc: "/images/km_solar_energy.png",
-        gitLink: "https://github.com/Master-utsav/KM-Solar-Energy",
-        liveLink: "https://km-solar-pannel.vercel.app",
-        techStack: [
-            {
-                name: "NextJs",
-                src: "/images/nextjs.png",
-            },
-            {
-                name: "TypeScript",
-                src: "/images/typescript.png",
-            },
-            {
-                name: "Tailwind CSS",
-                src: "/images/tailwind.png",
-            },
-            {
-                name: "Framer Motion",
-                src: "/images/framer.png",
-            },
-            {
-                name: "GSAP",
-                src: "/images/gsap.png",
-            },
-        ]
-    },
+    // {
+    //     id: 6,
+    //     title: "KM Solar Energy",
+    //     description: "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",
+    //     imageSrc: "/images/km_solar_energy.png",
+    //     gitLink: "https://github.com/Master-utsav/KM-Solar-Energy",
+    //     liveLink: "https://km-solar-pannel.vercel.app",
+    //     techStack: [
+    //         {
+    //             name: "NextJs",
+    //             src: "/images/nextjs.png",
+    //         },
+    //         {
+    //             name: "TypeScript",
+    //             src: "/images/typescript.png",
+    //         },
+    //         {
+    //             name: "Tailwind CSS",
+    //             src: "/images/tailwind.png",
+    //         },
+    //         {
+    //             name: "Framer Motion",
+    //             src: "/images/framer.png",
+    //         },
+    //         {
+    //             name: "GSAP",
+    //             src: "/images/gsap.png",
+    //         },
+    //     ]
+    // },
 ]
 
 
@@ -406,7 +406,7 @@ export const AboutData = [
     {
       id: 4,
       startTime: "August 2023",
-      endTime: "December 2024",
+      endTime: "December 2023",
       title: "DSA or Web Development",
       content: [
         {
@@ -430,7 +430,7 @@ export const AboutData = [
           description: "I love the modular structure of express and ease they provide to maintain the whole backend is awesome. I learned local authentication, google | github authentication without using any third party, authorization, headers, tokens, cookie, session, and many more..."
         },
         {
-          name: "i never used MySql in porjects",
+          name: "i never used MySql in projects",
           logo: "/images/mysql.png",
           description: "I dont know why, but I think before NO-SQL first I should have to learn SQL, so I makes notes which have now, so much dust on it..."
         },

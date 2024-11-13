@@ -22,11 +22,11 @@ const ProjectBar = () => {
       title: "ThreeJs Portfolio",
       icon: (
         <Image
-          src="/images/my_picture_logo.jpg"
+          src="/images/threejs_portfolio_logo.png"
           width={100}
           height={100}
           alt="threejs-portfolio Logo"
-          className="size-12 object-cover p-0 rounded-full"
+          className="size-12 object-cover p-0 rounded-full dark:invert"
         />
       ),
     },
@@ -45,43 +45,43 @@ const ProjectBar = () => {
     },
     {
       id: 4,
-      title: "Course Yuga",
+      title: "Master's Reciepe an Expo App",
       icon: (
         <Image
-          src="/images/course_yuga_logo.png"
+          src="/images/master_reciepe.png"
           width={100}
           height={100}
-          alt="course-yuga Logo"
+          alt="master-reciepe Logo"
           className="size-12 object-cover p-0 rounded-full"
         />
       ),
     },
     {
       id: 5,
-      title: "ThreeJs Portfolio",
+      title: "Kronoskill ~ Skill learning platform",
       icon: (
         <Image
-          src="/images/my_picture_logo.jpg"
+          src="/images/kronoskill.png"
           width={100}
           height={100}
-          alt="threejs-portfolio Logo"
+          alt="kronoskill Logo"
           className="size-12 object-cover p-0 rounded-full"
         />
       ),
     },
-    {
-      id: 6,
-      title: "KM Solar Energy",
-      icon: (
-        <Image
-          src="/images/km_solar_energy_logo.png"
-          width={100}
-          height={100}
-          alt="km-solar-energy Logo"
-          className="size-12 object-cover p-0 rounded-full"
-        />
-      ),
-    },
+    // {
+    //   id: 6,
+    //   title: "KM Solar Energy",
+    //   icon: (
+    //     <Image
+    //       src="/images/km_solar_energy_logo.png"
+    //       width={100}
+    //       height={100}
+    //       alt="km-solar-energy Logo"
+    //       className="size-12 object-cover p-0 rounded-full"
+    //     />
+    //   ),
+    // },
   ];
   return (
     <div className="flex items-end justify-end h-[8rem] w-full">

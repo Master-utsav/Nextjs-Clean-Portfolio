@@ -7,10 +7,13 @@ import MobilePhone from "@/components/ui/MobilePhone";
 import CallComponent from "@/components/CallComponenet";
 import CallAcceptPopUp from "@/components/CallAcceptPopUp";
 import CallRejectPopUp from "@/components/CallRejectPopUp";
+import { useMediaQuery } from "react-responsive";
 
 const ContactSection = () => {
   const titleRef = React.useRef(null);
-  const titleInView = useInView(titleRef, { once: false, amount: 0.1 });
+  const isSmallScreen = useMediaQuery({maxWidth: 768});
+  const inViewAmount = isSmallScreen ? 0.4 : 0.2;
+  const titleInView = useInView(titleRef, { once: false, amount: inViewAmount });
   const [showMobilePhone, setShowMobilePhone] = useState(false);
   const [response, setResponse] = useState<"ACCEPT" | "REJECT" | null>(null);
   const [isClicked, setIsClicked] = useState(false);
