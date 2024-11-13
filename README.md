@@ -3,7 +3,7 @@
 ![Portfolio Banner](/public/images/my_picture_logo.jpg)
 
 ---
-- **LinkedIn:** - [https://masterutsav.in]
+- **Live On** - [https://masterutsav.in]
 
 Hello! 👋 I’m **Utsav Jaiswal**, a Full Stack Developer with expertise in **React.js**, **TypeScript**, **Node.js**, and **Expo**. I build applications that connect, inspire, and push the boundaries of what's possible.
 
