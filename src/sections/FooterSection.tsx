@@ -19,7 +19,7 @@ const FooterSection = () => {
       transition={{delay: 0.2, duration : 0.5, type: "spring", stiffness : 120, damping: 12}}
       className='font-[family-name:var(--font-assistant) dark:text-white-700 text-black-600 text-sm text-center'
       >
-        © 2024 Master Utsav | All right reserved
+        © 2024 Master Utsav | All Rights Reserved
       </motion.p>
       <motion.span
       initial={{y: 100 , opacity: 0}}
