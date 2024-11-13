@@ -343,7 +343,7 @@ export const AboutData = [
         {
           name: "Master Utsav",
           logo: "/images/my_picture_logo.jpg",
-          description: "So, here's how MASTER become my profile since 2012. In Call of Duty (x-box 360), clash of clans, call of duty mobile, my all social handles and now My Portfolio is master utsav. Isn't it cool!!!"
+          description: "So, here's how MASTER become my profile since 2014. In Call of Duty (x-box 360), clash of clans, call of duty mobile, my all social handles and now My Portfolio is master utsav. Isn't it cool!!!"
         },
       ]
     },
