@@ -13,6 +13,7 @@ const ProjectBar = () => {
           width={100}
           height={100}
           alt="course-yuga Logo"
+          loading="eager"
           className="size-12 object-cover p-0 rounded-full"
         />
       ),
@@ -25,6 +26,7 @@ const ProjectBar = () => {
           src="/images/threejs_portfolio_logo.png"
           width={100}
           height={100}
+          loading="eager"
           alt="threejs-portfolio Logo"
           className="size-12 object-cover p-0 rounded-full dark:invert"
         />
@@ -38,6 +40,7 @@ const ProjectBar = () => {
           src="/images/km_solar_energy_logo.png"
           width={100}
           height={100}
+          loading="eager"
           alt="km-solar-energy Logo"
           className="size-12 object-cover p-0 rounded-full"
         />
@@ -51,6 +54,7 @@ const ProjectBar = () => {
           src="/images/master_reciepe.png"
           width={100}
           height={100}
+          loading="eager"
           alt="master-reciepe Logo"
           className="size-12 object-cover p-0 rounded-full"
         />
@@ -64,6 +68,7 @@ const ProjectBar = () => {
           src="/images/kronoskill.png"
           width={100}
           height={100}
+          loading="eager"
           alt="kronoskill Logo"
           className="size-12 object-cover p-0 rounded-full"
         />

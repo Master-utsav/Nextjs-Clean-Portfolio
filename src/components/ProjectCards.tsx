@@ -16,8 +16,7 @@ interface ProjectCardsProps {
 const ProjectCards: React.FC<ProjectCardsProps> = ({item}) => {
   return (
           <Card className="min-w-[40vw] dark:bg-black-200/30 bg-white-800/40 flex flex-col h-full relative justify-between border-[1px] border-blue-800/30 dark:border-blue-500/30 rounded-lg backdrop-blur-3xl">
-            {(item.id === 4 || item.id === 3 )? (
-              <>
+            {(item.id === 4 || item.id === 3 ) ? (
                 <video 
                 autoPlay
                 loop
@@ -27,16 +26,6 @@ const ProjectCards: React.FC<ProjectCardsProps> = ({item}) => {
                 >
                   <source src={item.imageSrc} type="video/mp4"/>
                 </video>
-                <video 
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 blur-xl aspect-video rounded-t-lg object-cover -z-10"
-                >
-                  <source src={item.imageSrc} type="video/mp4"/>
-                </video>
-              </>
             ) : (
               <>
                 <Image
@@ -45,12 +34,14 @@ const ProjectCards: React.FC<ProjectCardsProps> = ({item}) => {
                 layout="responsive"
                 width={400}
                 height={250}
+                loading="eager"
                 className="rounded-t-lg object-cover z-30"
                 />
                 <Image
                 src={item.imageSrc}
                 alt={item.title}
                 layout="responsive"
+                loading="eager"
                 width={400}
                 height={250}
                 className="absolute inset-0 rounded-t-lg -z-10 object-cover blur-xl"
