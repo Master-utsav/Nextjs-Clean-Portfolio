@@ -13,8 +13,8 @@ import { Button } from "@/components/ui/button";
 import { IoIosMail } from "react-icons/io";
 import { gmailLink, resumeLink } from "@/lib/service";
 import { LinkHoverPreview } from "@/components/ui/LinkHoverPreview";
-import { IoLocationOutline } from "react-icons/io5";
 import {TechLinks} from "@/constants"
+import LocationPopUp from "@/components/ui/LocationPopUp";
 
 const ExternalLinkIcon = () => {
   return <ExternalLink className="size-4" />;
@@ -208,13 +208,7 @@ const HeroSection = () => {
             <FaLinkedinIn className="size-4 dark:text-white text-black" />
           </NormalTooltip>
         </Link>
-        <Button
-          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
-        >
-          <NormalTooltip text="Indore, India" placement="bottom">
-            <IoLocationOutline className="size-6  dark:text-white text-black" />
-          </NormalTooltip>
-        </Button>
+        <LocationPopUp/>
         <Link
           href={"https://x.com/masterutsav01"}
           className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
