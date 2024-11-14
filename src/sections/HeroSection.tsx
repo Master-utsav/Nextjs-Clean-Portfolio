@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import Link from "next/link";
@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { IoIosMail } from "react-icons/io";
 import { gmailLink, resumeLink } from "@/lib/service";
 import { LinkHoverPreview } from "@/components/ui/LinkHoverPreview";
+import { IoLocationOutline } from "react-icons/io5";
 import {TechLinks} from "@/constants"
 
 const ExternalLinkIcon = () => {
@@ -207,6 +208,13 @@ const HeroSection = () => {
             <FaLinkedinIn className="size-4 dark:text-white text-black" />
           </NormalTooltip>
         </Link>
+        <Button
+          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
+        >
+          <NormalTooltip text="Indore, India" placement="bottom">
+            <IoLocationOutline className="size-6  dark:text-white text-black" />
+          </NormalTooltip>
+        </Button>
         <Link
           href={"https://x.com/masterutsav01"}
           className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
@@ -215,14 +223,14 @@ const HeroSection = () => {
             <BsTwitterX className="size-4 dark:text-white text-black" />
           </NormalTooltip>
         </Link>
-        {/* <Link
+        <Link
           href={"https://www.instagram.com/master_utsav"}
           className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
         >
           <NormalTooltip text="instagram" placement="bottom">
             <FaInstagram className="size-4 dark:text-white text-black" />
           </NormalTooltip>
-        </Link> */}
+        </Link>
       </div>
       <NormalTooltip text="scroll down" placement="bottom">
         <ScrollDown navigateTo="#tech" />
