@@ -41,7 +41,6 @@ const ProjectCards: React.FC<ProjectCardsProps> = ({item}) => {
                 src={item.imageSrc}
                 alt={item.title}
                 layout="responsive"
-                loading="eager"
                 width={400}
                 height={250}
                 className="absolute inset-0 rounded-t-lg -z-10 object-cover blur-xl"
