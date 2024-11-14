@@ -16,22 +16,36 @@ interface ProjectCardsProps {
 const ProjectCards: React.FC<ProjectCardsProps> = ({item}) => {
   return (
           <Card className="min-w-[40vw] dark:bg-black-200/30 bg-white-800/40 flex flex-col h-full relative justify-between border-[1px] border-blue-800/30 dark:border-blue-500/30 rounded-lg backdrop-blur-3xl">
-            <Image
+            {item.id === 4 ? (
+              <video 
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="aspect-video rounded-t-lg object-cover z-30"
+              >
+                <source src={item.imageSrc} type="video/mp4"/>
+              </video>
+            ) : (
+              <>
+              <Image
               src={item.imageSrc}
               alt={item.title}
               layout="responsive"
               width={400}
               height={250}
               className="rounded-t-lg object-cover z-30"
-            />
-            <Image
+              />
+              <Image
               src={item.imageSrc}
               alt={item.title}
               layout="responsive"
               width={400}
               height={250}
               className="absolute inset-0 rounded-t-lg -z-10 object-cover blur-xl"
-            />
+              />
+              </>
+            )}
             <CardContent className="w-full relative flex flex-col p-4 h-full justify-between overflow-hidden ">
               <div className="w-full text-center flex flex-col justify-between">
                 <h3 className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r dark:from-blue-300 from-blue-800 dark:to-blue-800 to-blue-300 font-[family-name:var(--font-salsa)] mb-2">
