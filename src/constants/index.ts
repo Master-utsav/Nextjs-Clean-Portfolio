@@ -197,7 +197,7 @@ export const ProjectsData: Project[] = [
         id: 3,
         title: "KM Solar Energy",
         description: "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",
-        imageSrc: "/images/km_solar_energy.png",
+        imageSrc: "/video/video-km-solar-energy.mp4",
         gitLink: "https://github.com/Master-utsav/KM-Solar-Energy",
         liveLink: "https://km-solar-pannel.vercel.app",
         techStack: [
@@ -314,14 +314,15 @@ export const AboutData = [
         {
           name: "My Game Zone",
           logo: "/images/xbox.jpg",
-          description: "When, I was in 6th std. I was obsessed with video games, bcoz my father has a video game parlour, in that there was a game named URBAN in play-station, only a single fighter has a tag of MASTER among all other fighter."
+          description: "When I was in 6th std, I was obsessed with video games because my father had a video game parlour. In it, there was a game named URBAN on PlayStation, where only a single fighter had the tag of MASTER among all other fighters."
         },
         {
           name: "Master Utsav",
           logo: "/images/my_picture_logo.jpg",
-          description: "So, here's how MASTER become my profile since 2014. In Call of Duty (x-box 360), clash of clans, call of duty mobile, my all social handles and now My Portfolio is master utsav. Isn't it cool!!!"
+          description: "So, here's how MASTER became my profile since 2014. In Call of Duty (Xbox 360), Clash of Clans, Call of Duty Mobile, all my social handles, and now my portfolio, I am known as Master Utsav. Isn't it cool!"
         },
       ]
+      
     },
     {
       id: 2,
@@ -332,19 +333,20 @@ export const AboutData = [
         {
           name: "JEE Aspirant",
           logo: "/images/nta.jpeg",
-          description: "Already choosed PCM, then I think if I had to study for boards then, why not go for little advance. After two years I realised it not little to too much advance, well I become a dropper and in that year I explore more about programming and many more."
+          description: "Already chose PCM, then I thought if I had to study for boards, why not go for a little advance? After two years, I realized it was not a little but too much advance. Well, I became a dropper, and in that year, I explored more about programming and many more things."
         },
         {
           name: "Editing",
           logo: "/images/adobe.png",
-          description: "In that drop year, I started my youtube channel @muj_music, learned premiere pro, after effects, photoshop and just exploring the designs and try to recreate and re-imagined some videos and all."
+          description: "In that drop year, I started my YouTube channel @muj_music, learned Premiere Pro, After Effects, Photoshop, and just explored designs, trying to recreate and re-imagine some videos and all."
         },
         { 
           name: "Programming",
           logo: "/images/programming.jpg",
-          description: "In while, I explore about programming, first langauage I learn is C by making notes and code in mobile phone. And after that I got my first laptop and I learned Python Old days."
+          description: "Meanwhile, I explored programming. The first language I learned was C by making notes and coding on a mobile phone. After that, I got my first laptop and learned Python in the old days."
         },
       ]
+      
     },
     {
       id: 3,
@@ -355,29 +357,29 @@ export const AboutData = [
         {
           name: "Start over from C",
           logo: "/images/c.png",
-          description: "I learned basics of C, I remember that feeling when I made my first simple calulator. That was awesome, then I learn more about C until I learned about malloc and calloc - 'bullet hits my brain', just kidding then I switched to C++."
+          description: "I learned the basics of C. I remember the feeling when I made my first simple calculator. That was awesome! Then I learned more about C until I encountered malloc and calloc — 'bullet hits my brain,' just kidding. Then I switched to C++."
         },
         {
           name: "Choosing C++ over JAVA",
           logo: "/images/cpp.png",
-          description: "Only reason of learning C++ is of my backgound C. And the hype that you have to learn DSA in C++ and JAVA. I learned C++ all the way to OOPS and then STL. I didn't learned DSA yet."
+          description: "The only reason for learning C++ was my background in C and the hype around learning DSA in C++ and JAVA. I learned C++ all the way to OOP and then STL. I haven't learned DSA yet."
         },
         {
           name: "Skeleton of Web Page",
           logo: "/images/html.png",
-          description: "I want to create something which others can see and use that, which have some interactions, so I choose web development, because youtube have so many thing related to web dev. I learned HTML."
+          description: "I wanted to create something that others can see and use, with some interactions, so I chose web development. YouTube has so many resources related to web dev. I learned HTML."
         },
         {
           name: "Man without muscles ~ utsav",
           logo: "/images/css.png",
-          description: "As I already have a knowledge about many properties of CSS, because I learned Editing. So it's too smooth learning curve for me to understand CSS."
+          description: "I already had knowledge of many properties of CSS because I learned editing, so it was a smooth learning curve for me to understand CSS."
         },
         {
           name: "Is CSS easy to write?",
           logo: "/images/tailwind.png",
-          description: "Writing css is too time taking and lengthy, so I explore the most handy way to write the css, I found tailwindCSS and now in every tsx component I write tailwind classes. And it support so my libraries for components."
+          description: "Writing CSS is very time-consuming and lengthy, so I explored a more convenient way to write CSS. I found TailwindCSS, and now in every TSX component, I write Tailwind classes. It supports many libraries for components."
         },
-      ]
+      ]      
     },
     {
       id: 4,
@@ -388,34 +390,34 @@ export const AboutData = [
         {
           name: "DSA with C++",
           logo: "/images/cpp.png",
-          description: "Since, I already know C++, I continued my journey with learning data structures and algorithms, until the 2D dynamic programming and graph comes, after that I was like '***cho ab nahi karna, ho gaya mera'"
+          description: "Since I already knew C++, I continued my journey with learning data structures and algorithms, until 2D dynamic programming and graphs came. After that, I was like '***cho ab nahi karna, ho gaya mera.'"
         },
         {
           name: "Ufff JavaScript",
           logo: "/images/javascript.png",
-          description: "I continued my web dev journey along with the DSA. I learned JavaScript, I don't want to talk about this langauge. Be quite TypeScript is listening."
+          description: "I continued my web dev journey along with DSA. I learned JavaScript, but I don't want to talk about this language. Be quiet, TypeScript is listening."
         },
         {
           name: "Flying kick to Node JS",
           logo: "/images/node_js.png",
-          description: "I learned about NPM, I create my own npm package, creating server from nodejs directly, learned about http/https."
+          description: "I learned about NPM, created my own npm package, created a server directly from Node.js, and learned about HTTP/HTTPS."
         },
         {
           name: "Flying kiss to Express",
           logo: "/images/express.png",
-          description: "I love the modular structure of express and ease they provide to maintain the whole backend is awesome. I learned local authentication, google | github authentication without using any third party, authorization, headers, tokens, cookie, session, and many more..."
+          description: "I love the modular structure of Express and the ease it provides in maintaining the whole backend. It’s awesome. I learned local authentication, Google | GitHub authentication without using any third-party tools, authorization, headers, tokens, cookies, sessions, and many more..."
         },
         {
-          name: "i never used MySql in projects",
+          name: "I never used MySQL in projects",
           logo: "/images/mysql.png",
-          description: "I dont know why, but I think before NO-SQL first I should have to learn SQL, so I makes notes which have now, so much dust on it..."
+          description: "I don’t know why, but I think I should learn SQL before NO-SQL. So I made notes, which now have so much dust on them..."
         },
         {
-          name: "GOAT no-sql MONGO DB",
+          name: "GOAT NoSQL MongoDB",
           logo: "/images/mongo_db.png",
-          description: "First I learned MongoDB on shell ~mongosh and then I learn mongoose to connect it from my express server."
+          description: "First, I learned MongoDB in the shell ~mongosh, and then I learned Mongoose to connect it to my Express server."
         },
-      ]
+      ]      
     },
     {
       id: 5,
@@ -426,29 +428,29 @@ export const AboutData = [
         {
           name: "TypeScript: any (lol...)",
           logo: "/images/typescript.png",
-          description: "Enhanced JavaScript skills by adding type safety and working with TypeScript. The only reason, why I told you to be quite for appreciating javaScript. After learning typescript I rarely used javaScript, all my latest projects are in TypeScript."
+          description: "I enhanced my JavaScript skills by adding type safety and working with TypeScript. The only reason I told you to be quiet about appreciating JavaScript. After learning TypeScript, I rarely used JavaScript; all my latest projects are in TypeScript."
         },
         {
           name: "Backend + Frontend ~ NextJs",
           logo: "/images/nextjs.png",
-          description: "I learned the nextjs routing system, SEO, client side and server side rendering and many more. I build my first NextJs project named as Kronoskill."
+          description: "I learned the Next.js routing system, SEO, client-side and server-side rendering, and much more. I built my first Next.js project called Kronoskill."
         },
         {
           name: "<motion.p> Framer Motion </motion.p>",
           logo: "/images/framer.png",
-          description: "Obsessed from smooth animations from the time of video editing, I learned framer motion for animating that cool texts and elements, as you see here in this portfolio of mine."
+          description: "Obsessed with smooth animations from the time of video editing, I learned Framer Motion to animate cool texts and elements, as you see here in this portfolio of mine."
         },
         {
           name: "Animate anything ~ GSAP",
           logo: "/images/gsap.png",
-          description: "JavaScript ok no js only TypeScript, library that lets you do whatever you want to do with the elements, you can select element via ids or in react via ref. Animate that by creating gsap.timeline()"
+          description: "JavaScript? No, js only TypeScript. GSAP is a library that lets you do whatever you want with elements. You can select elements via IDs or in React via refs. Animate them by creating gsap.timeline()."
         },
         {
           name: "Only for Professionals ~ ThreeJS",
           logo: "/images/three_js.png",
-          description: "I re-create a ThreeJs portfolio inspired from JsMastery and along with that I learned all about threeJs, I can say alot about threeJs but my recommendation for you to learn ThreeJs from JsMastery ThreeJs portfolio"
+          description: "I recreated a Three.js portfolio inspired by JsMastery, and along with that, I learned all about Three.js. I can say a lot about Three.js, but my recommendation for you is to learn Three.js from the JsMastery Three.js portfolio."
         },
-      ]
+      ]      
     },
     {
         id: 6,
@@ -459,24 +461,24 @@ export const AboutData = [
           {
             name: "React Native framework EXPO",
             logo: "/images/expo.png",
-            description: "After getting so much knowledge about web devlopment and beacuse expo is routing framework built on top of react-native, its really easy for me to build an app, so I designed and then build Reciepe App from scratch no-tutorials just reading docs and using AI to understand the react-native components."
+            description: "After gaining so much knowledge about web development and because Expo is a routing framework built on top of React Native, it was really easy for me to build an app. I designed and built a Recipe App from scratch with no tutorials—just reading the docs and using AI to understand the React Native components."
           },
           {
             name: "Blockchain + Decentralized app",
             logo: "/images/dapp.png",
-            description: "Learned about finance, blockchains, cryptography, keys, solana, wallets, tokens and many more. Currently, I am learning Ethereum"
+            description: "I learned about finance, blockchains, cryptography, keys, Solana, wallets, tokens, and many more. Currently, I am learning Ethereum."
           },
           {
             name: "All in one place ~ Firebase",
             logo: "/images/firebase.png",
-            description: "Still remain to learn completely and implementing the auth, storage."
+            description: "Still need to learn completely and implement auth and storage."
           },
           {
             name: "Redis",
             logo: "/images/redis.png",
-            description: "An in-memory data structure store, ideal for caching, real-time data, and task queuing needs. Still remain to implemnet."
+            description: "An in-memory data structure store, ideal for caching, real-time data, and task queuing needs. Still need to implement."
           }
-        ]
+        ]        
     }
   ];
   
