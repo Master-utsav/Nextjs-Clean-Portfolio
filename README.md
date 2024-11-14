@@ -3,7 +3,7 @@
 ![Portfolio Banner](/public/images/my_picture_logo.jpg)
 
 ---
-- **Live On** - [https://masterutsav.in]
+**Live On** - [https://masterutsav.in]
 
 Hello! 👋 I’m **Utsav Jaiswal**, a Full Stack Developer with expertise in **React.js**, **TypeScript**, **Node.js**, and **Expo**. I build applications that connect, inspire, and push the boundaries of what's possible.
 
@@ -51,5 +51,5 @@ Let’s connect! You can reach out to me for potential collaborations, questions
 - **GitHub:** [https://github.com/Master-utsav]
 - **Email:** [masterutsav.in@gmail.com]
 
-## License
-This project is licensed under an "All Rights Reserved" license. Unauthorized copying, distribution, or modification of this work is strictly prohibited. For inquiries regarding permissions, please contact Master Utsav at [masterutsav.in@gmail.com].
+# License
+This project is proprietary software. Unauthorized use, reproduction, or distribution is prohibited.

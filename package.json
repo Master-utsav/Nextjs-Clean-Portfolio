@@ -1,5 +1,6 @@
 {
   "name": "next-clean-portfolio",
+  "author": "utsav jaiswal",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "license" : "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/master-utsav/Nextjs-Clean-Portfolio.git"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

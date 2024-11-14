@@ -1,7 +1,5 @@
-All Rights Reserved
+Copyright (c) 2024 Utsav Jaiswal. All Rights Reserved.
 
-Copyright (c) 2024 Master Utsav
+This software and associated documentation files (the "Software") are proprietary to Utsav Jaiswal and are protected by applicable intellectual property laws. Unauthorized use, copying, modification, or distribution of this software is strictly prohibited without prior written consent.
 
-All rights reserved. This work is the intellectual property of the author. Unauthorized copying, distribution, or modification of this work, via any medium, is strictly prohibited unless permission is granted by the author.
-
-For inquiries regarding permissions, please contact Master Utsav at [masterutsav.in@gmail.com].
+For inquiries regarding permissions, please contact [masterutsav.in@gmail.com].
