@@ -16,7 +16,7 @@ interface ProjectCardsProps {
 const ProjectCards: React.FC<ProjectCardsProps> = ({item}) => {
   return (
           <Card className="min-w-[40vw] dark:bg-black-200/30 bg-white-800/40 flex flex-col h-full relative justify-between border-[1px] border-blue-800/30 dark:border-blue-500/30 rounded-lg backdrop-blur-3xl">
-            {(item.id === 4 || item.id === 3 ) ? (
+            {(item.id === 3 || item.id === 5 ) ? (
                 <video 
                 autoPlay
                 loop

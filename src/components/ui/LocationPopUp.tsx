@@ -16,6 +16,7 @@ const LocationPopUp = () => {
     <>
       <Button
         onClick={onOpen}
+        variant={"gooeyLeft"}
         className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
       >
         <NormalTooltip text="Indore, India" placement="bottom">
@@ -52,10 +53,10 @@ const LocationPopUp = () => {
           <ModalBody className="">
             <div className="flex w-full gap-2 justify-start items-center">
               <IoLocationOutline className="size-6 dark:text-white text-black" />
-              <span className="text-base font-medium font-[family-name:var(--font-salsa)]">
+              <span className="text-base font-medium font-[family-name:var(--font-salsa)] text-black dark:text-white">
                 Indore,
               </span>
-            <span className="text-lg  font-semibold font-[family-name:var(--font-assistant)]">
+            <span className="text-lg  font-semibold font-[family-name:var(--font-assistant)] text-black dark:text-white">
               India
             </span>
             </div>

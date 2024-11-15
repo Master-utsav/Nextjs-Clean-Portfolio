@@ -34,20 +34,6 @@ const ProjectBar = () => {
     },
     {
       id: 3,
-      title: "KM Solar Energy",
-      icon: (
-        <Image
-          src="/images/km_solar_energy_logo.png"
-          width={100}
-          height={100}
-          loading="eager"
-          alt="km-solar-energy Logo"
-          className="size-12 object-cover p-0 rounded-full"
-        />
-      ),
-    },
-    {
-      id: 4,
       title: "Master's Reciepe an Expo App",
       icon: (
         <Image
@@ -61,7 +47,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 5,
+      id: 4,
       title: "Kronoskill ~ Skill learning platform",
       icon: (
         <Image
@@ -74,6 +60,21 @@ const ProjectBar = () => {
         />
       ),
     },
+    {
+      id: 5,
+      title: "KM Solar Energy",
+      icon: (
+        <Image
+          src="/images/km_solar_energy_logo.png"
+          width={100}
+          height={100}
+          loading="eager"
+          alt="km-solar-energy Logo"
+          className="size-12 object-cover p-0 rounded-full"
+        />
+      ),
+    },
+   
     // {
     //   id: 6,
     //   title: "KM Solar Energy",
