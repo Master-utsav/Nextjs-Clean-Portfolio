@@ -210,12 +210,12 @@ export const ProjectsData: Project[] = [
   },
   {
     id: 3,
-    title: "Master's Reciepe an Expo App",
+    title: "Master's Recipe an Expo App",
     description:
       "Basic Mobile App where you find the recipe, of your favourite dishes.",
     imageSrc: "/video/video-reciepe-app.mp4",
     gitLink: "https://github.com/Master-utsav/Master-Recipe-Expo-React-Native",
-    liveLink: "https://course-yuga.vercel.app",
+    liveLink: "https://masterutsav.in",
     techStack: [
       {
         name: "React",

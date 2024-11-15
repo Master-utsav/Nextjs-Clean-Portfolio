@@ -34,7 +34,7 @@ const ProjectBar = () => {
     },
     {
       id: 3,
-      title: "Master's Reciepe an Expo App",
+      title: "Master's Recipe an Expo App",
       icon: (
         <Image
           src="/images/master_reciepe.png"
