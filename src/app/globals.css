@@ -14,7 +14,7 @@
   }
 }
 
-html.lenis, html.lenis body {
+/* html.lenis, html.lenis body {
   height: auto;
 }
 
@@ -32,7 +32,7 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-smooth iframe {
   pointer-events: none;
-}
+} */
 
 body {
   color: var(--foreground);
@@ -170,7 +170,7 @@ body {
 }
 
 .scrollbar-custom {
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
 }
 

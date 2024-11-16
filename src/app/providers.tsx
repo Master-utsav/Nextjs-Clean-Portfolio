@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/context/ThemeProvider";
 import { NextUIProvider } from "@nextui-org/react";
 import { LoadingSection } from "@/sections/LoadingSection";
 import { motion, AnimatePresence } from "framer-motion";
-import Lenis from "lenis";
+// import Lenis from "lenis";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
@@ -18,23 +18,23 @@ export function Providers({ children }: { children: React.ReactNode }) {
       setLoading(false);
     }, 2000);
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-      smoothWheel: true,
-    });
+    // const lenis = new Lenis({
+    //   duration: 1.2,
+    //   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+    //   smoothWheel: true,
+    // });
 
     // Request animation frame loop for Lenis
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    // function raf(time: number) {
+    //   lenis.raf(time);
+    //   requestAnimationFrame(raf);
+    // }
+    // requestAnimationFrame(raf);
 
     // Clean up timer and Lenis instance on component unmount
     return () => {
       clearTimeout(timer);
-      lenis.destroy();
+      // lenis.destroy();
     };
   }, []);
 

@@ -35,7 +35,7 @@ const CustomAboutModal = ({
                 {currentModalContent.endTimeline}
               </div>
             </div>
-            <div className="h-4/5 relative overflow-y-scroll bg-transparent scrollbar-custom reounded-lg space-y-2 px-1">
+            <div className="h-4/5 relative overflow-y-scroll backdrop-blur-lg bg-transparent scrollbar-custom rounded-lg space-y-2 px-1">
             {/* <div className="h-4/5 fixed inset-0 bg-gradient-to-t from-black-200/70 via-transparent to-black-200/70 to- z-10"/> */}
             {currentModalContent.content.map((item, idx) => (
                 <div
