@@ -10,5 +10,5 @@ export function gmailLink(){
 }
 
 export function resumeLink(){
-    return "/portfolio.pdf"
+    return "/resume.pdf"
 }
