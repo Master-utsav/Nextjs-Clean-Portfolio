@@ -5,12 +5,10 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 
 export default function Ppt() {
-  console.log("inside ppt comp");
-
   const ExternalLinkIcon = () => {
     return <ExternalLink className="size-4" />;
   };
-  
+
   return (
     <section className="min-h-screen w-full flex justify-center items-center">
       <Link href={pptLink()} passHref legacyBehavior>
