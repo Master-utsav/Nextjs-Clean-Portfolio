@@ -12,3 +12,7 @@ export function gmailLink(){
 export function resumeLink(){
     return "/resume.pdf"
 }
+
+export function pptLink(){
+    return "/minor-project-course-yuga-dark-mode.pptx"
+}

@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "license" : "UNLICENSED",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/master-utsav/Nextjs-Clean-Portfolio.git"
