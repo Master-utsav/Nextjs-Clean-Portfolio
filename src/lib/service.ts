@@ -14,5 +14,5 @@ export function resumeLink(){
 }
 
 export function pptLink(){
-    return "/minor-project-course-yuga-dark-mode.pptx"
+    return "/minor-project-course-yuga-dark-mode-new.pptx"
 }

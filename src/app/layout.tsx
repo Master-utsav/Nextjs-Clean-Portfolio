@@ -2,18 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
-// import { Analytics } from '@vercel/analytics/next';
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
 
 const salsa = localFont({
   src: "./fonts/Salsa-Regular.ttf",
@@ -34,8 +22,24 @@ const assistant = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Master utsav",
+  title: "Master Utsav",
   description: "I’m Utsav Jaiswal, a Full Stack Developer with expertise in React.js, TypeScript, Node.js, and Expo. I build applications that connect, inspire, and push the boundaries of what's possible.",
+  keywords: ["utsav", "utsav jaiswal", "full stack developer", "react.js developer"],
+  openGraph: {
+    title: "Master Utsav - Full Stack Developer",
+    description:
+      "Discover Utsav Jaiswal, a Full Stack Developer with expertise in React.js, TypeScript, Node.js, and Expo. I build innovative applications that connect and inspire.",
+    url: "https://masterutsav.in", 
+    images: [
+      {
+        url: "https://masterutsav.in/images/my_picture_logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Utsav Jaiswal - Full Stack Developer",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -50,7 +54,6 @@ export default function RootLayout({
       >
         <Providers>
           {children}
-          {/* <Analytics/> */}
       </Providers>
       </body>
     </html>
