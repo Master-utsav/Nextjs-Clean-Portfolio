@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   title: "Master Utsav",
   description: "I’m Utsav Jaiswal, a Full Stack Developer with expertise in React.js, TypeScript, Node.js, and Expo. I build applications that connect, inspire, and push the boundaries of what's possible.",
   keywords: ["utsav", "utsav jaiswal", "full stack developer", "react.js developer"],
+  
+  // OG) is a protocol used to standardize the way websites represent their content when shared on social media platforms or other external websites.
   openGraph: {
     title: "Master Utsav - Full Stack Developer",
     description:
