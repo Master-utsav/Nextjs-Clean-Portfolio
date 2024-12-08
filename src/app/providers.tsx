@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/context/ThemeProvider";
 import { NextUIProvider } from "@nextui-org/react";
 import { LoadingSection } from "@/sections/LoadingSection";
 import { motion, AnimatePresence } from "framer-motion";
+import Head from "next/head";
 // import Lenis from "lenis";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -20,7 +21,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
     // const lenis = new Lenis({
     //   duration: 1.2,
-    //   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+    //   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     //   smoothWheel: true,
     // });
 
@@ -40,32 +41,42 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   if (!mounted || loading)
     return (
-      <motion.div
-        key="loading"
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
-        className="px-4 bg-[#121212]"
-      >
-        <LoadingSection />
-      </motion.div>
+      <>
+        <Head>
+          <title>Loading - Master Utsav</title>
+          <meta
+            name="description"
+            content="Loading the content. Please wait as the application initializes."
+          />
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
+        <motion.div
+          key="loading"
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="px-4 bg-[#121212]"
+        >
+          <LoadingSection />
+        </motion.div>
+      </>
     );
 
   return (
-    <NextUIProvider>
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <AnimatePresence>
-          <motion.div
-            key="content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {children}
-          </motion.div>
-        </AnimatePresence>
-      </ThemeProvider>
-    </NextUIProvider>
+      <NextUIProvider>
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+          <AnimatePresence>
+            <motion.div
+              key="content"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              {children}
+            </motion.div>
+          </AnimatePresence>
+        </ThemeProvider>
+      </NextUIProvider>
   );
 }
