@@ -136,6 +136,45 @@ export interface Project {
 export const ProjectsData: Project[] = [
   {
     id: 1,
+    title: "My Brain",
+    description:
+      "Transform your notes, images, and ideas into beautifully organized cards. My-Brain lets you create, share, and discover like never before—powered by cutting-edge AI.",
+    imageSrc: "/images/my_brain_thumbnail.jpg",
+    gitLink: "https://github.com/master-utsav/my-brain",
+    liveLink: "https://myb-app.vercel.app",
+    techStack: [
+      {
+        name: "React",
+        src: "/images/color_react.png",
+      },
+      {
+        name: "TypeScript",
+        src: "/images/typescript.png",
+      },
+      {
+        name: "Tailwind CSS",
+        src: "/images/tailwind.png",
+      },
+      {
+        name: "Framer Motion",
+        src: "/images/framer.png",
+      },
+      {
+        name: "Node.js",
+        src: "/images/node_js.png",
+      },
+      {
+        name: "Express",
+        src: "/images/express.png",
+      },
+      {
+        name: "MongoDB",
+        src: "/images/mongo_db.png",
+      },
+    ],
+  },
+  {
+    id: 2,
     title: "Course Yuga",
     description:
       "Courses are Required to master any skill in this yuga, we offer you all the most advance and cost effective courses.",
@@ -174,7 +213,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "ThreeJs Portfolio",
     description:
       "Explore my portfolio and reach out for remote collaborations to build websites and apps tailored to your needs.",
@@ -209,7 +248,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Master's Recipe an Expo App",
     description:
       "Basic Mobile App where you find the recipe, of your favourite dishes.",
@@ -232,7 +271,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Kronoskill ~ Skill learning platform",
     description:
       "A platform where you search or select any any skill and learn that from the best youtube playlist available. Site is not complete as of production level",
@@ -259,7 +298,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "KM Solar Energy",
     description:
       "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",

@@ -6,6 +6,20 @@ const ProjectBar = () => {
   const links = [
     {
       id: 1,
+      title: "My Brain",
+      icon: (
+        <Image
+          src="/images/my_brain_logo.png"
+          width={100}
+          height={100}
+          alt="my-brain Logo"
+          loading="eager"
+          className="size-12 object-cover p-0 rounded-full"
+        />
+      ),
+    },
+    {
+      id: 2,
       title: "Course Yuga",
       icon: (
         <Image
@@ -19,7 +33,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 2,
+      id: 3,
       title: "ThreeJs Portfolio",
       icon: (
         <Image
@@ -33,7 +47,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 3,
+      id: 4,
       title: "Master's Recipe an Expo App",
       icon: (
         <Image
@@ -47,7 +61,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 4,
+      id: 5,
       title: "Kronoskill ~ Skill learning platform",
       icon: (
         <Image
@@ -61,7 +75,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 5,
+      id: 6,
       title: "KM Solar Energy",
       icon: (
         <Image
