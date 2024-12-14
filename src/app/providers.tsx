@@ -6,6 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { LoadingSection } from "@/sections/LoadingSection";
 import { motion, AnimatePresence } from "framer-motion";
 import Head from "next/head";
+import HeroSection from "@/sections/HeroSection";
 // import Lenis from "lenis";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -59,6 +60,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
           className="px-4 bg-[#121212]"
         >
           <LoadingSection />
+          <div className="hidden">
+            <HeroSection/>
+          </div>
         </motion.div>
       </>
     );
