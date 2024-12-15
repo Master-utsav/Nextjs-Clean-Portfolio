@@ -11,6 +11,9 @@ import { ModeToggle } from "@/components/ui/ThemeBtn";
 import { useTheme } from "@/context/ThemeProvider";
 import { IoSend } from "react-icons/io5";
 import axios from "axios"
+import  BackButton  from "@/components/ui/BackButton";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type signupFormInputs = z.infer<typeof signupSchema>;
 
@@ -23,6 +26,7 @@ export default function SignPage() {
     resolver: zodResolver(signupSchema),
   });
   const {theme} = useTheme();
+  const router = useRouter();
 
   const onSubmit = async (data: signupFormInputs) => {
     console.log(data);
@@ -48,8 +52,14 @@ export default function SignPage() {
         exit={{ scale: 0.9, y: 100 }}
         transition={{ duration: 0.5 }}
         className="bg-white/5 backdrop-blur-sm dark:bg-black/5 p-8 rounded-lg shadow-md w-full max-w-md electric-lightning-effect
-        ransition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
+        ransition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 relative"
       >
+        <div className="absolute top-2 right-2">
+          <ModeToggle/>
+        </div>
+        <div className="absolute top-2 left-2">
+          <BackButton onBtnClick={() => router.push("/posts")}/>
+        </div>
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,7 +83,7 @@ export default function SignPage() {
         </motion.h1>
 
         {/* Username Field */}
-        <div className="mb-4">
+        <div className="mb-2">
           <Input
             variant="underlined"
             type="text"
@@ -93,7 +103,7 @@ export default function SignPage() {
         </div>
 
         {/* Email Field */}
-        <div className="mb-4">
+        <div className="mb-2">
           <Input
             variant="underlined"
             type="email"
@@ -111,7 +121,7 @@ export default function SignPage() {
         </div>
 
         {/* Password Field */}
-        <div className="mb-6">
+        <div className="mb-2">
           <Input
             variant="underlined"
             type="password"
@@ -131,19 +141,23 @@ export default function SignPage() {
         </div>
 
         {/* Submit Button */}
-        <Button
-          variant={"expandIcon"}
-          type="submit"
-          iconPlacement="right"
-          className="w-full bg-blue-600/30 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition disabled:opacity-30"
-          disabled={isSubmitting}
-          onClick={handleSubmit(onSubmit)}
-          Icon={IoSend}
-        >
-          {isSubmitting ? "signing in..." : "Sign up"}
-        </Button>
+        <div className="flex flex-col gap-2">
+          <Link href={"/posts/login"} className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]">
+                  {"Already have an account?"}
+                </Link>
+          <Button
+            variant={"expandIcon"}
+            type="submit"
+            iconPlacement="right"
+            className="w-full dark:bg-blue-600/50  bg-blue-600/60  text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:hover:bg-blue-700 transition disabled:opacity-30"
+            disabled={isSubmitting}
+            onClick={handleSubmit(onSubmit)}
+            Icon={IoSend}
+          >
+            {isSubmitting ? "signing in..." : "Sign up"}
+          </Button>
+        </div>
       </motion.div>
-      <ModeToggle/>
     </section>
   );
 }

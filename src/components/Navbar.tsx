@@ -122,7 +122,7 @@ const Navbar: React.FC = () => {
               >
                 <Link
                   href={item.path}
-                  className="nav-item-effect text-5xl text-[#121212] dark:text-[#f5f5f5] font-thin font-[family-name:var(--font-salsa)]"
+                  className="nav-item-effect text-4xl text-[#121212] dark:text-[#f5f5f5] font-thin font-[family-name:var(--font-salsa)]"
                   onClick={handleLinkClick} 
                 >
                   {item.name}

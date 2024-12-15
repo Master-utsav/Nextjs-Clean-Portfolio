@@ -20,6 +20,8 @@ import { IoSend } from "react-icons/io5";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import CloseButton from "@/components/ui/CloseButton";
+import Link from "next/link";
 
 type loginFormInputs = z.infer<typeof loginSchema>;
 
@@ -60,10 +62,12 @@ export default function LoginModal() {
           isOpen={isOpen}
           onOpenChange={() => {
             setIsOpen(!isOpen);
-            router.back();
+            router.push("/posts");
           }}
           placement="center"
           className="rounded-lg electric-lightning-effect bg-white/80 backdrop-blur-xl dark:bg-black/10 sm:p-8 p-3 shadow-md w-full max-w-md  transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 overflow-hidden relative"
+          closeButton={CloseButton}
+          classNames={{closeButton: "dark:hover:bg-transparent hover:bg-transparent dark:bg-transparent bg-transparent"}}
         >
           <ModalContent>
             <div className="absolute top-2 left-2">
@@ -94,7 +98,7 @@ export default function LoginModal() {
             </ModalHeader>
 
             <ModalBody>
-              <div className="mb-4">
+              <div className="mb-2">
                 <Input
                   variant="underlined"
                   type="text"
@@ -114,7 +118,7 @@ export default function LoginModal() {
               </div>
 
               {/* Password Field */}
-              <div className="mb-6">
+              <div className="mb-2">
                 <Input
                   variant="underlined"
                   type="password"
@@ -134,12 +138,15 @@ export default function LoginModal() {
               </div>
             </ModalBody>
 
-            <ModalFooter>
+            <ModalFooter className="flex flex-col gap-2">
+            <Link href={"/posts/signup"} className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]">
+                {"Don't have an account?"}
+              </Link>
               <Button
                 variant={"expandIcon"}
                 type="submit"
                 iconPlacement="right"
-                className="w-full dark:bg-blue-600/30  bg-blue-600/60  text-white py-2 px-4 rounded-md hover:bg-blue-700 transition disabled:opacity-30"
+                className="w-full dark:bg-blue-600/50  bg-blue-600/60  text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:hover:bg-blue-700 transition disabled:opacity-30"
                 disabled={isSubmitting}
                 onClick={handleSubmit(onSubmit)}
                 Icon={IoSend}

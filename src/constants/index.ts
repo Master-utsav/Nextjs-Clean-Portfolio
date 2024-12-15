@@ -12,6 +12,10 @@ export const NavItems = [
     path: "#projects",
   },
   {
+    name: "Posts",
+    path: "/posts",
+  },
+  {
     name: "About",
     path: "#about",
   },
