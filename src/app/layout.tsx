@@ -54,7 +54,7 @@ export default function RootLayout({
       <body
         className={`${salsa.variable} ${mavenPro.variable} ${assistant.variable} antialiased scrollbar-custom overflow-x-hidden`}
       >
-        <Providers>
+      <Providers>
           {children}
       </Providers>
       </body>
