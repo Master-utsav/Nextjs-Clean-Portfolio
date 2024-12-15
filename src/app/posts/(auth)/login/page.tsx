@@ -124,7 +124,7 @@ export default function LoginPage() {
         <div className="flex flex-col gap-2">
           <Link href={"/posts/login"}  className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]">
                   {"Don't have an account?"}
-                </Link>
+          </Link>
         <Button
           variant={"expandIcon"}
           type="submit"
