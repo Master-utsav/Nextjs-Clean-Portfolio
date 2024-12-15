@@ -61,7 +61,7 @@ export default function LoginModal() {
         <Modal
           isOpen={isOpen}
           onOpenChange={() => {
-            setIsOpen(!isOpen);
+            setIsOpen(!isOpen)
             router.push("/posts");
           }}
           placement="center"

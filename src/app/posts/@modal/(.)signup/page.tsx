@@ -62,8 +62,8 @@ export default function SignModal() {
           defaultOpen
           isOpen={isOpen}
           onOpenChange={() => {
-            setIsOpen(!isOpen);
-            router.push("/posts");
+            setIsOpen(!isOpen)
+            router.back();
           }}
           placement="center"
           className="rounded-lg electric-lightning-effect bg-white/80 backdrop-blur-xl dark:bg-black/10 sm:p-8 p-3 shadow-md w-full max-w-md  transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 overflow-hidden"
