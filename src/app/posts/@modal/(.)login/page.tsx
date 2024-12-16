@@ -98,7 +98,7 @@ export default function LoginModal() {
             </ModalHeader>
 
             <ModalBody>
-              <div className="mb-2">
+              <div className="mb-4">
                 <Input
                   variant="underlined"
                   type="text"

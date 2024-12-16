@@ -21,7 +21,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import CloseButton from "@/components/ui/CloseButton";
-import Link from "next/link";
+// import Link from "next/link";
 
 type signupFormInputs = z.infer<typeof signupSchema>;
 
@@ -99,7 +99,7 @@ export default function SignModal() {
             </ModalHeader>
 
             <ModalBody>
-              <div className="mb-2">
+              <div className="mb-4">
                 <Input
                   variant="underlined"
                   type="text"
@@ -118,7 +118,7 @@ export default function SignModal() {
                 )}
               </div>
 
-              <div className="mb-2">
+              <div className="mb-4">
                 <Input
                   variant="underlined"
                   type="email"
@@ -158,9 +158,9 @@ export default function SignModal() {
             </ModalBody>
 
             <ModalFooter className="flex flex-col gap-2">
-            <Link href={"/posts/login"}  className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]">
+            {/* <Link href={"/posts/login"}  className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]">
                 {"Already have an account?"}
-              </Link>
+              </Link> */}
               <Button
                 variant={"expandIcon"}
                 type="submit"
