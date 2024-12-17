@@ -56,11 +56,12 @@ const PostsNavbar: React.FC = () => {
               Home
             </Button>
             <Button
-            variant="gooeyLeft"
-            className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
-            >
-            <FaHome className="size-5"/>
-            </Button>
+              variant="expandIcon"
+              className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
+              Icon={FaHome}
+              iconButtonName="Home"
+              iconPlacement="fixed-icon"
+            ></Button>
           </Link>
           <Link href={"/posts/login"}>
             <Button
@@ -72,11 +73,12 @@ const PostsNavbar: React.FC = () => {
               Login
             </Button>
             <Button
-            variant="gooeyLeft"
-            className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
-            >
-            <AiOutlineLogin className="size-5"/>
-            </Button>
+              variant="expandIcon"
+              className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
+              Icon={AiOutlineLogin}
+              iconButtonName="Login"
+              iconPlacement="fixed-icon"
+            ></Button>
           </Link>
           <ModeToggle />
         </div>

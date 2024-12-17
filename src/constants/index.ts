@@ -1,3 +1,9 @@
+import { MdOutlineArticle } from "react-icons/md";
+import { FaRegNoteSticky } from "react-icons/fa6";
+import { GiMicrophone } from "react-icons/gi";
+import { BsChatRightQuote } from "react-icons/bs";
+import { BsVectorPen } from "react-icons/bs";
+
 export const NavItems = [
   {
     name: "Home",
@@ -24,6 +30,34 @@ export const NavItems = [
     path: "#contact",
   },
 ];
+
+export const PostsSecondNavItems = [
+  {
+    name: "article",
+    target : "/posts/article",
+    icon : MdOutlineArticle ,
+  },
+  {
+    name: "notes",
+    target : "/posts/notes",
+    icon : FaRegNoteSticky ,
+  },
+  {
+    name: "poetry",
+    target : "/posts/poetry",
+    icon : GiMicrophone ,
+  },
+  {
+    name: "quote",
+    target : "/posts/quote",
+    icon : BsChatRightQuote ,
+  },
+  {
+    name: "story",
+    target : "/posts/story",
+    icon : BsVectorPen ,
+  },
+]
 
 export const Frameworks = [
   {
@@ -579,4 +613,12 @@ export const TechLinks = {
   mongodb: "https://www.mongodb.com/docs",
   redis: "https://redis.io/docs/latest",
   firebase: "https://firebase.google.com/docs/guides",
+};
+
+export const PostsLinks = {
+  poetry: "https://masterutsav.in/posts/poetry",
+  notes: "https://masterutsav.in/posts/notes",
+  quote: "https://masterutsav.in/posts/quote",
+  story: "https://masterutsav.in/posts/story",
+  article: "https://masterutsav.in/posts/article",
 };

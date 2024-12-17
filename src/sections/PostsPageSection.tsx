@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import NormalTooltip from "@/components/ui/NormalTooltip";
 import ScrollDown from "@/components/ScollDown";
 import { LinkHoverPreview } from "@/components/ui/LinkHoverPreview";
-import { TechLinks } from "@/constants";
+import { PostsLinks } from "@/constants";
 import LocationPopUp from "@/components/ui/LocationPopUp";
 
 const PostsPageSection = () => {
@@ -89,7 +89,7 @@ const PostsPageSection = () => {
           >
             insights meet{" "}
             <LinkHoverPreview
-              url={TechLinks.reactjs}
+              url={PostsLinks.article}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
             >
               poetic
@@ -103,7 +103,7 @@ const PostsPageSection = () => {
           >
             Explore thought-provoking{" "}
             <LinkHoverPreview
-              url={TechLinks.typescript}
+              url={PostsLinks.article}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
             >
               articles 
@@ -117,7 +117,7 @@ const PostsPageSection = () => {
           >
             heartfelt {" "}
             <LinkHoverPreview
-              url={TechLinks.nodejs}
+              url={PostsLinks.poetry}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
             >
               poetry
@@ -130,7 +130,7 @@ const PostsPageSection = () => {
             transition={{ duration: 1, delay: 1.8 }}
           >captivating  {" "}
             <LinkHoverPreview
-              url={TechLinks.expo}
+              url={PostsLinks.story}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
             >
               stories
@@ -144,7 +144,7 @@ const PostsPageSection = () => {
           >profound {" "}
             and{" "}
             <LinkHoverPreview
-              url={TechLinks.nodejs}
+              url={PostsLinks.quote}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
             >
               quotes
@@ -166,7 +166,7 @@ const PostsPageSection = () => {
             <span className="italic">
             {" "}
               <LinkHoverPreview
-                url={TechLinks.nodejs}
+                url={PostsLinks.notes}
                 className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
               >
                 notes 

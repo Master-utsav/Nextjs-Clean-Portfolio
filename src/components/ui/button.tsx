@@ -50,12 +50,14 @@ const buttonVariants = cva(
 
 interface IconProps {
   Icon: React.ElementType;
-  iconPlacement: "left" | "right" | "hide-from-right";
+  iconPlacement: "left" | "right" | "hide-from-right" | "fixed-icon";
+  iconButtonName?: string;
 }
 
 interface IconRefProps {
   Icon?: never;
   iconPlacement?: undefined;
+  iconButtonName? : never;
 }
 
 export interface ButtonProps
@@ -78,6 +80,7 @@ const Button = React.forwardRef<
       asChild = false,
       Icon,
       iconPlacement,
+      iconButtonName,
       ...props
     },
     ref
@@ -104,6 +107,14 @@ const Button = React.forwardRef<
           <div className="w-0 translate-x-[25%] pr-4 opacity-100 transition-all duration-200 group-hover:w-0 group-hover:translate-x-0 group-hover:pr-0 group-hover:opacity-0">
             <Icon />
           </div>
+        )}
+        {Icon && iconPlacement === "fixed-icon" && (
+          <div className="w-fit opacity-100 transition-all duration-200 group relative">
+          <Icon />
+          <span className="absolute hidden group-hover:flex justify-center items-center font-sans backdrop-blur-xl dark:bg-black/20 bg-white/20 border-[1px] text-black dark:text-white px-2 py-1 rounded-md text-sm shadow-lg -bottom-10 left-1/2 transform -translate-x-1/2 z-50 dark:border-blue-500/30 border-blue-800/30">
+            {iconButtonName}
+          </span>
+        </div>
         )}
       </Comp>
     );
