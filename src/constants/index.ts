@@ -34,30 +34,30 @@ export const NavItems = [
 export const PostsSecondNavItems = [
   {
     name: "article",
-    target : "/posts/article",
-    icon : MdOutlineArticle ,
+    target: "/posts/article",
+    icon: MdOutlineArticle,
   },
   {
     name: "notes",
-    target : "/posts/notes",
-    icon : FaRegNoteSticky ,
+    target: "/posts/notes",
+    icon: FaRegNoteSticky,
   },
   {
     name: "poetry",
-    target : "/posts/poetry",
-    icon : GiMicrophone ,
+    target: "/posts/poetry",
+    icon: GiMicrophone,
   },
   {
     name: "quote",
-    target : "/posts/quote",
-    icon : BsChatRightQuote ,
+    target: "/posts/quote",
+    icon: BsChatRightQuote,
   },
   {
     name: "story",
-    target : "/posts/story",
-    icon : BsVectorPen ,
+    target: "/posts/story",
+    icon: BsVectorPen,
   },
-]
+];
 
 export const Frameworks = [
   {
@@ -154,6 +154,15 @@ export const Backend = [
     description:
       "A versatile Google-backed platform with real-time databases, authentication, and cloud services.",
   },
+];
+
+export const blogCardImageUrl = [
+  "https://images.ctfassets.net/k42vp4yl2q3q/4L0AO4abO0PkUrghNorEpi/bd80de15858197e86b8b6f7ffca3cd8f/AI_Blog_Post_Generator.jpg?w=1792&h=1024&q=50&fm=webp",
+  "https://cdn.prod.website-files.com/61620f12e76c36d88622ad22/62c7e9f6debd3c37eba85626_MAIN%20Blogpost%20How%20to%20write%20a%20blogpost%20with%20Jasper.jpg",
+  "https://landen.imgix.net/blog_wsUYqIvIgIieZgkz/assets/EODSkeanwHsAiTXB.jpg?w=880",
+  "https://cdn.prod.website-files.com/5f7ece8a7da656e8a25402bc/6361645301c6343647118ddc_blog-posts.png",
+  "https://cdn.prod.website-files.com/655741af3f04e006606d26ad/66fbe27fe148c7f914e9ec42_72670fd5-c8c1-4026-964c-3b2de4ad884dmastering-modern-branding-how-to-make-logos-with-ai-effortlessly-193475.webp",
+  "https://cdn.prod.website-files.com/622611a2b23d0e6b270fba81/62be2a4705fdd442e26e8cba_how-to-ai-write-google-friendly-blog-post.jpg"
 ];
 
 export interface TechStackItem {

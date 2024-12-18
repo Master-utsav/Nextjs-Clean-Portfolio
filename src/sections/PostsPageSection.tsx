@@ -1,16 +1,12 @@
 "use client";
 
 import React from "react";
-import { FaGithub, FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { BsTwitterX } from "react-icons/bs";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import NormalTooltip from "@/components/ui/NormalTooltip";
 import ScrollDown from "@/components/ScollDown";
 import { LinkHoverPreview } from "@/components/ui/LinkHoverPreview";
-import { PostsLinks } from "@/constants";
-import LocationPopUp from "@/components/ui/LocationPopUp";
+import { PostsLinks, PostsSecondNavItems } from "@/constants";
 
 const PostsPageSection = () => {
   return (
@@ -188,42 +184,20 @@ const PostsPageSection = () => {
       </div>
 
       <div className="flex flex-row gap-4 justify-center items-center p-1">
-        <Link
-          href={"https://github.com/Master-utsav"}
-          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
-        >
-          <NormalTooltip text="github" placement="bottom">
-            <FaGithub className="size-4 dark:text-white text-black" />
-          </NormalTooltip>
-        </Link>
-        <Link
-          href={"https://www.linkedin.com/in/master-utsav"}
-          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
-        >
-          <NormalTooltip text="linkedin" placement="bottom">
-            <FaLinkedinIn className="size-4 dark:text-white text-black" />
-          </NormalTooltip>
-        </Link>
-        <LocationPopUp />
-        <Link
-          href={"https://x.com/masterutsav01"}
-          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
-        >
-          <NormalTooltip text="twitter" placement="bottom">
-            <BsTwitterX className="size-4 dark:text-white text-black" />
-          </NormalTooltip>
-        </Link>
-        <Link
-          href={"https://www.instagram.com/master_utsav"}
-          className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30"
-        >
-          <NormalTooltip text="instagram" placement="bottom">
-            <FaInstagram className="size-4 dark:text-white text-black" />
-          </NormalTooltip>
-        </Link>
+        {PostsSecondNavItems.map((item , idx) => (
+          <Link
+            key={idx}
+            href={item.target}
+            className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30  "
+          >
+            <NormalTooltip text={item.name} placement="bottom">
+              <item.icon className="size-5 dark:text-white text-black"/>
+            </NormalTooltip>
+          </Link>
+        ))}
       </div>
       <NormalTooltip text="scroll down" placement="bottom">
-        <ScrollDown navigateTo="#tech" />
+        <ScrollDown navigateTo="#posts" />
       </NormalTooltip>
     </section>
   );

@@ -14,17 +14,20 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
+  id       String @id @default(cuid())
   username String
   email    String @unique
+  role     String @default("USER")
   password String
   posts    Post[]
 }
 
-model Post{
-  id       Int    @id @default(autoincrement())
-  title    String
-  content  String
-  userId   Int
-  user     User   @relation(fields: [id], references: [id])
+model Post {
+  id          String @id @default(cuid())
+  title       String
+  content     String
+  description String
+  contentType String
+  userId      String
+  user        User   @relation(fields: [id], references: [id])
 }

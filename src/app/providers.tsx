@@ -7,6 +7,7 @@ import { LoadingSection } from "@/sections/LoadingSection";
 import { motion, AnimatePresence } from "framer-motion";
 import Head from "next/head";
 import HeroSection from "@/sections/HeroSection";
+import PostsPageSection from "@/sections/PostsPageSection";
 // import Lenis from "lenis";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -59,9 +60,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
           transition={{ duration: 0.5 }}
           className="px-4 bg-[#121212]"
         >
-          <LoadingSection />
+        {!location.pathname.startsWith("/posts") ? <LoadingSection /> : null }  
           <div className="hidden">
             <HeroSection/>
+            <PostsPageSection/>
           </div>
         </motion.div>
       </>
