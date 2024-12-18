@@ -13,9 +13,12 @@ import PostsPageSection from "@/sections/PostsPageSection";
 export function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [islocation, setIsLocation] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    
+    setIsLocation(location.pathname.startsWith("/posts"))
 
     const timer = setTimeout(() => {
       setLoading(false);
@@ -60,7 +63,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           transition={{ duration: 0.5 }}
           className="px-4 bg-[#121212]"
         >
-        {!location.pathname.startsWith("/posts") ? <LoadingSection /> : null }  
+        {!islocation ? <LoadingSection /> : null }  
           <div className="hidden">
             <HeroSection/>
             <PostsPageSection/>
