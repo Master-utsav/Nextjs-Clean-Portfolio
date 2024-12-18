@@ -63,7 +63,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           transition={{ duration: 0.5 }}
           className="px-4 bg-[#121212]"
         >
-        {!islocation ? <LoadingSection /> : null }  
+        {!islocation ? <LoadingSection /> : <LoadingSection /> }  
           <div className="hidden">
             <HeroSection/>
             <PostsPageSection/>
