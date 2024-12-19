@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
 
     if (!identity || !password) {
       return NextResponse.json(
-        { message: "All fields are required" },
+        { success: false, message: "All fields are required" },
         { status: 400 }
       );
     }
@@ -80,13 +80,13 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json(
-      { message: "User found successfully", user },
+      { success: true, message: "User found successfully", user },
       { status: 200 }
     );
   } catch (error) {
     console.error("Error logging in user:", error);
     return NextResponse.json(
-      { message: "Internal Server Error" },
+      { success: false, message: "Internal Server Error" },
       { status: 500 }
     );
   }
