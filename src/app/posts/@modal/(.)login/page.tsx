@@ -46,6 +46,10 @@ export default function LoginModal() {
         },
       });
       console.log(response.data);
+      if(response.data.success){
+        setIsOpen(!isOpen)
+        router.push("/posts/login")
+      }
     } catch (error) {
       console.error("Error logging in:", error);
     }

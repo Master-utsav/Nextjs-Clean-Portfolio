@@ -29,7 +29,7 @@ type LinkPreviewProps = {
 export const LinkHoverPreview = ({
   children,
   url,
-  actualUrl = url,
+  actualUrl,
   className,
   width = 200,
   height = 125,
@@ -103,7 +103,7 @@ export const LinkHoverPreview = ({
         <HoverCardPrimitive.Trigger
           onMouseMove={handleMouseMove}
           className={cn("text-black dark:text-white z-50", className)}
-          href={url}
+          href={actualUrl ? actualUrl : url}
         >
           {children}
         </HoverCardPrimitive.Trigger>
@@ -135,7 +135,7 @@ export const LinkHoverPreview = ({
                 }}
               >
                 <Link
-                  href={actualUrl}
+                  href={actualUrl ? actualUrl : url}
                   target="_blank"
                   className="block p-[2px] bg-[#f5f5f5]/30 dark:bg-[#121212]/30 backdrop-blur-lg shadow rounded-xl hover:border-neutral-200 electric-lightning-effect relative border-[1px] dark:border-blue-500/30 border-blue-800/30"
                   style={{ fontSize: 0 }}

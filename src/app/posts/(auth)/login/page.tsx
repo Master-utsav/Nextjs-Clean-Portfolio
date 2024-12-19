@@ -36,6 +36,9 @@ export default function LoginPage() {
             "Content-Type": "application/json",
           }
         })
+        if(response.data.success){
+          router.push("/posts")
+        }
         console.log(response.data)
     } catch (error) {
       console.error("Error logging in:", error);
