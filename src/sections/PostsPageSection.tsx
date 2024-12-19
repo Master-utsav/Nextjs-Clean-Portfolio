@@ -173,6 +173,7 @@ const PostsPageSection = () => {
             Let&apos;s{" "}
             <LinkHoverPreview
               url={"https://masterutsav.in/images/linkedin.png"}
+              actualUrl="https://linkedin.com/in/master-utsav"
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
             >
               connect
