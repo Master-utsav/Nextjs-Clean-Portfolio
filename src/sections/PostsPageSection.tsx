@@ -171,13 +171,12 @@ const PostsPageSection = () => {
             to uncover a{" "}
             <span className="italic">treasure trove of wisdom.</span>
             Let&apos;s{" "}
-            <Link
-              href={"https://www.linkedin.com/in/master-utsav"}
-              target="_blank"
+            <LinkHoverPreview
+              url={"https://masterutsav.in/images/linkedin.png"}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
             >
               connect
-            </Link>{" "}
+            </LinkHoverPreview>{" "}
             through words!
           </motion.span>
         </div>

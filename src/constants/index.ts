@@ -157,13 +157,38 @@ export const Backend = [
 ];
 
 export const blogCardImageUrl = [
-  "https://images.ctfassets.net/k42vp4yl2q3q/4L0AO4abO0PkUrghNorEpi/bd80de15858197e86b8b6f7ffca3cd8f/AI_Blog_Post_Generator.jpg?w=1792&h=1024&q=50&fm=webp",
-  "https://cdn.prod.website-files.com/61620f12e76c36d88622ad22/62c7e9f6debd3c37eba85626_MAIN%20Blogpost%20How%20to%20write%20a%20blogpost%20with%20Jasper.jpg",
-  "https://landen.imgix.net/blog_wsUYqIvIgIieZgkz/assets/EODSkeanwHsAiTXB.jpg?w=880",
-  "https://cdn.prod.website-files.com/5f7ece8a7da656e8a25402bc/6361645301c6343647118ddc_blog-posts.png",
-  "https://cdn.prod.website-files.com/655741af3f04e006606d26ad/66fbe27fe148c7f914e9ec42_72670fd5-c8c1-4026-964c-3b2de4ad884dmastering-modern-branding-how-to-make-logos-with-ai-effortlessly-193475.webp",
-  "https://cdn.prod.website-files.com/622611a2b23d0e6b270fba81/62be2a4705fdd442e26e8cba_how-to-ai-write-google-friendly-blog-post.jpg"
+  {
+    src: "https://images.ctfassets.net/k42vp4yl2q3q/4L0AO4abO0PkUrghNorEpi/bd80de15858197e86b8b6f7ffca3cd8f/AI_Blog_Post_Generator.jpg?w=1792&h=1024&q=50&fm=webp",
+    title: "AI Blog Post Generator",
+    alt: "Card number 1"
+  },
+  {
+    src: "https://cdn.prod.website-files.com/61620f12e76c36d88622ad22/62c7e9f6debd3c37eba85626_MAIN%20Blogpost%20How%20to%20write%20a%20blogpost%20with%20Jasper.jpg",
+    title: "How to Write a Blogpost with Jasper",
+    alt: "Card number 2"
+  },
+  {
+    src: "https://landen.imgix.net/blog_wsUYqIvIgIieZgkz/assets/EODSkeanwHsAiTXB.jpg?w=880",
+    title: "Boost Your Blog Engagement",
+    alt: "Card number 3"
+  },
+  {
+    src: "https://cdn.prod.website-files.com/5f7ece8a7da656e8a25402bc/6361645301c6343647118ddc_blog-posts.png",
+    title: "The Ultimate Blog Post Guide",
+    alt: "Card number 4"
+  },
+  {
+    src: "https://cdn.prod.website-files.com/655741af3f04e006606d26ad/66fbe27fe148c7f914e9ec42_72670fd5-c8c1-4026-964c-3b2de4ad884dmastering-modern-branding-how-to-make-logos-with-ai-effortlessly-193475.webp",
+    title: "Mastering Modern Branding with AI",
+    alt: "Card number 5"
+  },
+  {
+    src: "https://cdn.prod.website-files.com/622611a2b23d0e6b270fba81/62be2a4705fdd442e26e8cba_how-to-ai-write-google-friendly-blog-post.jpg",
+    title: "Google-Friendly AI Blog Writing",
+    alt: "Card number 6"
+  }
 ];
+
 
 export interface TechStackItem {
   name: string;
