@@ -38,7 +38,7 @@ export default function SignPage() {
         })
         console.log(response.data)
         if(response.data.success){
-          router.push("/posts/login")
+          router.replace("/posts/login")
         }
     } catch (error) {
       console.error("Error logging in:", error);

@@ -48,7 +48,7 @@ export default function SignModal() {
       console.log(response.data);
       if(response.data.success){
         setIsOpen(!isOpen)
-        router.push("/posts/login")
+        router.replace("/posts/login")
       }
     } catch (error) {
       console.error("Error signing up:", error);

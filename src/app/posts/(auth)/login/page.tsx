@@ -37,7 +37,7 @@ export default function LoginPage() {
           }
         })
         if(response.data.success){
-          router.push("/posts")
+          router.replace("/posts")
         }
         console.log(response.data)
     } catch (error) {

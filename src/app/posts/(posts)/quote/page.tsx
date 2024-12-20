@@ -1,3 +1,4 @@
+import QuoteCards from "@/components/cards/QuoteCards";
 import PostsNavbar from "@/components/PostsNavbar";
 import PostsSecondNavbar from "@/components/PostsSecondNavbar";
 
@@ -7,6 +8,9 @@ export default function QuotesPage() {
       <main className="w-full flex flex-col gap-2 items-center">
         <PostsNavbar />
         <PostsSecondNavbar />
+        <div className="w-full flex flex-col gap-3 relative px-3 py-4">
+            <QuoteCards type={"all"}/>
+        </div>
       </main>
     </div>
   );
