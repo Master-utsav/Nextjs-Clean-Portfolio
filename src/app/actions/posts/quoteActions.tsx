@@ -8,9 +8,6 @@ export async function getposts() {
   try {
     const filePath = path.join(process.cwd(), "src", "posts", "quotes", "days.quote.md");
 
-    // Log the file path for debugging
-    console.log("Resolved Path:", filePath);
-
     if (!fs.existsSync(filePath)) {
       throw new Error(`File not found: ${filePath}`);
     }

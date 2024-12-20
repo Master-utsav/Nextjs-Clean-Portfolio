@@ -1,7 +1,8 @@
 "use client";
 
-import { getposts } from "@/app/actions/posts/quoteActions";
+// import { getposts } from "@/app/actions/posts/quoteActions";
 import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
 
 interface Quote {
   name: string;
@@ -13,11 +14,11 @@ const QuoteCards = ({ type }: { type: "all" | "" }) => {
 
   const getData = useCallback(async () => {
     try {
-      const result = await getposts();
-      if(!result.success){
-        throw new Error(result.message)
+      const result = await axios.get("/api/vi/post/quote");
+      if(!result.data.success){
+        throw new Error(result.data.message)
       }
-      const transformedData = result.data.map((item: Quote) => ({
+      const transformedData = result.data.data.map((item: Quote) => ({
         name: item.name,
         content: item.content,
       }));
