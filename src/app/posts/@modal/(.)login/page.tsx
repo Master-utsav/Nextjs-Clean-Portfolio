@@ -1,9 +1,5 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema } from "@/schema/zodSchema";
 import { motion } from "framer-motion";
 import {
   Input,
@@ -13,67 +9,58 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@nextui-org/react";
-import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/ThemeBtn";
 import { useTheme } from "@/context/ThemeProvider";
-import { IoSend } from "react-icons/io5";
-import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import CloseButton from "@/components/ui/CloseButton";
 import Link from "next/link";
-
-type loginFormInputs = z.infer<typeof loginSchema>;
+import AuthFormButton from "@/components/ui/AuthFormButton";
+import { login } from "@/app/actions/authActions";
 
 export default function LoginModal() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<loginFormInputs>({
-    resolver: zodResolver(loginSchema),
-  });
-
   const router = useRouter();
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [userData, setUserData] = useState<{
+    [key: string]: { value: string };
+  }>({
+    identity: { value: "" },
+    password: { value: "" },
+  });
+  const [state, loginAction] = useActionState(login, undefined);
 
-  const onSubmit = async (data: loginFormInputs) => {
-    try {
-      const response = await axios.post("/api/v1/user/login", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(response.data);
-      if(response.data.success){
-        setIsOpen(!isOpen)
-        router.replace("/posts")
-      }
-    } catch (error) {
-      console.error("Error logging in:", error);
+  useEffect(() => {
+    if (state && state?.success) {
+      setIsOpen(!isOpen);
+      router.push("/");
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state?.success]);
 
   return (
-      <motion.div
-        initial={{ scale: 0.9, x: 500, opacity: 0 }}
-        animate={{ scale: 1, x: 0, opacity: 1 }}
-        exit={{ scale: 0.9, x: 500, opacity: 0 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
+    <motion.div
+      initial={{ scale: 0.9, x: 500, opacity: 0 }}
+      animate={{ scale: 1, x: 0, opacity: 1 }}
+      exit={{ scale: 0.9, x: 500, opacity: 0 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
+    >
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={() => {
+          setIsOpen(!isOpen);
+          router.back();
+        }}
+        placement="center"
+        className="rounded-lg electric-lightning-effect bg-white/80 backdrop-blur-xl dark:bg-black/10 sm:p-8 p-3 shadow-md w-full max-w-md  transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 overflow-hidden relative"
+        closeButton={CloseButton}
+        classNames={{
+          closeButton:
+            "dark:hover:bg-transparent hover:bg-transparent dark:bg-transparent bg-transparent",
+        }}
       >
-        <Modal
-          isOpen={isOpen}
-          onOpenChange={() => {
-            setIsOpen(!isOpen)
-            router.back();
-          }}
-          placement="center"
-          className="rounded-lg electric-lightning-effect bg-white/80 backdrop-blur-xl dark:bg-black/10 sm:p-8 p-3 shadow-md w-full max-w-md  transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 overflow-hidden relative"
-          closeButton={CloseButton}
-          classNames={{closeButton: "dark:hover:bg-transparent hover:bg-transparent dark:bg-transparent bg-transparent"}}
-        >
-          <ModalContent>
+        <ModalContent>
+          <form action={loginAction}>
             <div className="absolute top-2 left-2">
               <ModeToggle />
             </div>
@@ -102,64 +89,82 @@ export default function LoginModal() {
             </ModalHeader>
 
             <ModalBody>
-              <div className="mb-4">
+              <div className="mb-4 text-gray-900 dark:text-gray-100">
                 <Input
                   variant="underlined"
                   type="text"
+                  value={userData["identity"].value}
+                  name="identity"
                   label="Username or Email"
-                  id="username"
-                  {...register("identity")}
+                  onChange={(e) =>
+                    setUserData((prev) => ({
+                      ...prev,
+                      [e.target.name]: { value: e.target.value },
+                    }))
+                  }
                   color={theme === "dark" ? "primary" : "default"}
+                  classNames={{ errorMessage: "text-red-500 text-sm mt-1" }}
                   className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
-                    errors.identity ? "border-red-500" : "border-gray-300"
+                    state?.errors.identity
+                      ? "border-red-500"
+                      : "border-gray-300"
                   }`}
                 />
-                {errors.identity && (
+                {state && state.errors.identity?.[0] && (
                   <p className="text-red-500 text-xs mt-1">
-                    {errors.identity.message}
+                    {state.errors.identity?.[0]}
                   </p>
                 )}
               </div>
 
               {/* Password Field */}
-              <div className="mb-2">
+              <div className="mb-2 text-gray-900 dark:text-gray-100">
                 <Input
                   variant="underlined"
                   type="password"
+                  value={userData["password"].value}
                   label="Password"
+                  name="password"
                   id="password"
-                  {...register("password")}
                   color={theme === "dark" ? "primary" : "default"}
+                  classNames={{ errorMessage: "text-red-500 text-sm mt-1", input: "text-gray-900 dark:text-gray-100"}}
                   className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
-                    errors.password ? "border-red-500" : "border-gray-300"
+                    state?.errors.password
+                      ? "border-red-500"
+                      : "border-gray-300"
                   }`}
+                  onChange={(e) =>
+                    setUserData((prev) => ({
+                      ...prev,
+                      [e.target.name]: { value: e.target.value },
+                    }))
+                  }
                 />
-                {errors.password && (
+                {state && state.errors.password?.[0] && (
                   <p className="text-red-500 text-xs mt-1">
-                    {errors.password.message}
+                    {state.errors.password?.[0]}
                   </p>
                 )}
               </div>
             </ModalBody>
 
             <ModalFooter className="flex flex-col gap-2">
-            <Link href={"/posts/signup"} className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]">
+              <Link
+                href={"/posts/signup"}
+                className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]"
+              >
                 {"Don't have an account?"}
               </Link>
-              <Button
-                variant={"expandIcon"}
-                type="submit"
-                iconPlacement="right"
-                className="w-full dark:bg-blue-600/50  bg-blue-600/60  text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:hover:bg-blue-700 transition disabled:opacity-30"
-                disabled={isSubmitting}
-                onClick={handleSubmit(onSubmit)}
-                Icon={IoSend}
-              >
-                {isSubmitting ? "Logging in..." : "Login"}
-              </Button>
+              <AuthFormButton pendingText="Logging in..." text="Login" />
+              {state && state?.serverError && (
+                <p className="text-red-500 text-xs mt-1">
+                  {state?.serverError}
+                </p>
+              )}
             </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </motion.div>
+          </form>
+        </ModalContent>
+      </Modal>
+    </motion.div>
   );
 }

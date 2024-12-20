@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import PersonalBadge from "@/components/ui/PersonalBadge";
 import {
   AnimatePresence,
@@ -13,11 +13,13 @@ import MyName from "@/components/MyName";
 import { FaHome } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./ui/ThemeBtn";
-import { AiOutlineLogin } from "react-icons/ai";
+import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
+import { isUserAuthenticated } from "@/app/actions/authActions";
 
 const PostsNavbar: React.FC = () => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(false);
   const prevScrollY = React.useRef(0);
 
   useMotionValueEvent(scrollY, "change", (current) => {
@@ -29,6 +31,15 @@ const PostsNavbar: React.FC = () => {
       prevScrollY.current = current;
     }
   });
+
+  const loggedInCallBack = useCallback(async () => {
+    const val = await isUserAuthenticated();
+    setIsLoggedIn(val);
+  }, []);
+
+  useEffect(() => {
+    loggedInCallBack();
+  }, [loggedInCallBack]);
 
   return (
     <AnimatePresence>
@@ -63,23 +74,44 @@ const PostsNavbar: React.FC = () => {
               iconPlacement="fixed-icon"
             ></Button>
           </Link>
-          <Link href={"/posts/login"}>
-            <Button
-              variant="expandIcon"
-              className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 sm:flex hidden font-[family-name:var(--font-assistant)]"
-              iconPlacement="right"
-              Icon={AiOutlineLogin}
-            >
-              Login
-            </Button>
-            <Button
-              variant="expandIcon"
-              className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
-              Icon={AiOutlineLogin}
-              iconButtonName="Login"
-              iconPlacement="fixed-icon"
-            ></Button>
-          </Link>
+          {!isLoggedIn ? (
+            <Link href={"/posts/login"}>
+              <Button
+                variant="expandIcon"
+                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 sm:flex hidden font-[family-name:var(--font-assistant)]"
+                iconPlacement="right"
+                Icon={AiOutlineLogin}
+              >
+                Login
+              </Button>
+              <Button
+                variant="expandIcon"
+                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
+                Icon={AiOutlineLogin}
+                iconButtonName="Login"
+                iconPlacement="fixed-icon"
+              ></Button>
+            </Link>
+          ) : (
+            <Link href={"/posts/logout"}>
+              <Button
+                variant="expandIcon"
+                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 sm:flex hidden font-[family-name:var(--font-assistant)]"
+                iconPlacement="right"
+                Icon={AiOutlineLogout}
+              >
+                Logout
+              </Button>
+              <Button
+                variant="expandIcon"
+                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
+                Icon={AiOutlineLogout}
+                iconButtonName="Logout"
+                iconPlacement="fixed-icon"
+              ></Button>
+            </Link>
+          )}
+
           <ModeToggle />
         </div>
       </motion.nav>

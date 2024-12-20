@@ -1,9 +1,5 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { signupSchema } from "@/schema/zodSchema";
 import { motion } from "framer-motion";
 import {
   Modal,
@@ -13,47 +9,34 @@ import {
   ModalFooter,
   Input,
 } from "@nextui-org/react";
-import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/ThemeBtn";
 import { useTheme } from "@/context/ThemeProvider";
-import { IoSend } from "react-icons/io5";
-import axios from "axios";
-import { useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import CloseButton from "@/components/ui/CloseButton";
-// import Link from "next/link";
+import { signup } from "@/app/actions/authActions";
+import AuthFormButton from "@/components/ui/AuthFormButton";
 
-type signupFormInputs = z.infer<typeof signupSchema>;
-
-export default function SignModal() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<signupFormInputs>({
-    resolver: zodResolver(signupSchema),
-  });
-
+export default function SignupModal() {
   const router = useRouter();
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState<boolean>(true);
-  const onSubmit = async (data: signupFormInputs) => {
-    console.log(data);
-    try {
-      const response = await axios.post("/api/v1/user/signup", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(response.data);
-      if(response.data.success){
-        setIsOpen(!isOpen)
-        router.replace("/posts/login")
-      }
-    } catch (error) {
-      console.error("Error signing up:", error);
+  const [state, signupAction] = useActionState(signup, undefined);
+  const [userData, setUserData] = useState<{
+    [key: string]: { value: string };
+  }>({
+    username: { value: "" },
+    email: { value: "" },
+    password: { value: "" },
+  });
+  
+  useEffect(() => {
+    if (state?.success) {
+      setIsOpen(!isOpen);
+      router.push("/posts/login");
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state?.success]);
 
   return (
       <motion.div
@@ -75,6 +58,7 @@ export default function SignModal() {
           classNames={{closeButton: "dark:hover:bg-transparent hover:bg-transparent dark:bg-transparent bg-transparent"}}
         >
           <ModalContent>
+          <form action={signupAction}>
             <div className="absolute top-2 left-2">
               <ModeToggle />
             </div>
@@ -103,80 +87,95 @@ export default function SignModal() {
             </ModalHeader>
 
             <ModalBody>
-              <div className="mb-4">
-                <Input
-                  variant="underlined"
-                  type="text"
-                  label="Username"
-                  id="username"
-                  {...register("username")}
-                  color={theme === "dark" ? "primary" : "default"}
-                  className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
-                    errors.username ? "border-red-500" : "border-gray-300"
-                  }`}
-                />
-                {errors.username && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.username.message}
-                  </p>
-                )}
-              </div>
+          {/* Username Field */}
+          <div className="mb-2">
+            <Input
+              variant="underlined"
+              type="text"
+              label="Username"
+              id="username"
+              name="username"
+              value={userData["username"].value}
+              color={theme === "dark" ? "primary" : "default"}
+              className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
+                state?.errors.username ? "border-red-500" : "border-gray-300"
+              }`}
+              onChange={(e) =>
+                setUserData((prev) => ({
+                  ...prev,
+                  [e.target.name]: { value: e.target.value },
+                }))
+              }
+            />
+            {state && state?.errors?.username?.[0] && (
+              <p className="text-red-500 text-xs mt-1">
+                {state?.errors?.username?.[0]}
+              </p>
+            )}
+          </div>
 
-              <div className="mb-4">
-                <Input
-                  variant="underlined"
-                  type="email"
-                  label="Email"
-                  id="email"
-                  {...register("email")}
-                  color={theme === "dark" ? "primary" : "default"}
-                  className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
-                    errors.email ? "border-red-500" : "border-gray-300"
-                  }`}
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
+          {/* Email Field */}
+          <div className="mb-2">
+            <Input
+              variant="underlined"
+              type="email"
+              label="Email"
+              id="email"
+              name="email"
+              value={userData["email"].value}
+              color={theme === "dark" ? "primary" : "default"}
+              className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
+                state?.errors.email ? "border-red-500" : "border-gray-300"
+              }`}
+              onChange={(e) =>
+                setUserData((prev) => ({
+                  ...prev,
+                  [e.target.name]: { value: e.target.value },
+                }))
+              }
+            />
+            {state && state?.errors?.email?.[0] && (
+              <p className="text-red-500 text-xs mt-1">
+                {state?.errors?.email?.[0]}
+              </p>
+            )}
+          </div>
 
-              <div className="mb-2">
-                <Input
-                  variant="underlined"
-                  type="password"
-                  label="Password"
-                  id="password"
-                  {...register("password")}
-                  color={theme === "dark" ? "primary" : "default"}
-                  className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
-                    errors.password ? "border-red-500" : "border-gray-300"
-                  }`}
-                />
-                {errors.password && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.password.message}
-                  </p>
-                )}
-              </div>
+          {/* Password Field */}
+          <div className="mb-2">
+            <Input
+              variant="underlined"
+              type="password"
+              label="Password"
+              id="password"
+              name="password"
+              value={userData["password"].value}
+              color={theme === "dark" ? "primary" : "default"}
+              className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
+                state?.errors.password ? "border-red-500" : "border-gray-300"
+              }`}
+              onChange={(e) =>
+                setUserData((prev) => ({
+                  ...prev,
+                  [e.target.name]: { value: e.target.value },
+                }))
+              }
+            />
+            {state && state?.errors?.password?.[0] && (
+              <p className="text-red-500 text-xs mt-1">
+                {state?.errors?.email?.[0]}
+              </p>
+            )}
+          </div>
             </ModalBody>
 
             <ModalFooter className="flex flex-col gap-2">
-            {/* <Link href={"/posts/login"}  className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]">
-                {"Already have an account?"}
-              </Link> */}
-              <Button
-                variant={"expandIcon"}
-                type="submit"
-                iconPlacement="right"
-                 className="w-full dark:bg-blue-600/50  bg-blue-600/60  text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:hover:bg-blue-700 transition disabled:opacity-30"
-                disabled={isSubmitting}
-                onClick={handleSubmit(onSubmit)}
-                Icon={IoSend}
-              >
-                {isSubmitting ? "Signing up..." : "Sign Up"}
-              </Button>
+            <AuthFormButton pendingText="Signing in..." text="Sign up" />
+            {state && state?.serverError && (
+              <p className="text-red-500 text-xs mt-1">{state?.serverError}</p>
+            )}
             </ModalFooter>
+          </form>
           </ModalContent>
         </Modal>
       </motion.div>

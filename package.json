@@ -33,6 +33,7 @@
     "gray-matter": "^4.0.3",
     "gsap": "^3.12.5",
     "i": "^0.3.7",
+    "jose": "^5.9.6",
     "lenis": "^1.1.16",
     "lucide-react": "^0.454.0",
     "mini-svg-data-uri": "^1.4.4",

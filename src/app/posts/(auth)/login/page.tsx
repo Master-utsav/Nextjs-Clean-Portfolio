@@ -1,54 +1,40 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema } from "@/schema/zodSchema";
 import { motion } from "framer-motion";
 import { Input } from "@nextui-org/react";
-import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/ThemeBtn";
 import { useTheme } from "@/context/ThemeProvider";
-import { IoSend } from "react-icons/io5";
-import axios from "axios"
-import  BackButton from "@/components/ui/BackButton";
+import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
-
-type loginFormInputs = z.infer<typeof loginSchema>;
+import { useActionState, useEffect, useState } from "react";
+import { login } from "@/app/actions/authActions";
+import AuthFormButton from "@/components/ui/AuthFormButton";
 
 export default function LoginPage() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<loginFormInputs>({
-    resolver: zodResolver(loginSchema),
-  });
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   const router = useRouter();
+  const [userData, setUserData] = useState<{
+    [key: string]: { value: string };
+  }>({
+    identity: { value: "" },
+    password: { value: "" },
+  });
+  const [state, loginAction] = useActionState(login, undefined);
 
-  const onSubmit = async (data: loginFormInputs) => {
-    try {
-        const response = await axios.post("/api/v1/user/login" , data , {
-          headers:{
-            "Content-Type": "application/json",
-          }
-        })
-        if(response.data.success){
-          router.replace("/posts")
-        }
-        console.log(response.data)
-    } catch (error) {
-      console.error("Error logging in:", error);
+  useEffect(() => {
+    if (state && state?.success) {
+      router.push("/");
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state?.success]);
 
   return (
     <section className="flex items-center justify-center bg-[#F5F5F5] dark:bg-[#121212] relative w-full min-h-screen dark:bg-grid-white-500/[0.2] bg-grid-black-500/[0.2]">
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white 
-       dark:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] [mask-image:radial-gradient(ellipse_at_center,transparent_0%,_#F5F5F5)]"></div>
+      <div
+        className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white 
+       dark:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] [mask-image:radial-gradient(ellipse_at_center,transparent_0%,_#F5F5F5)]"
+      ></div>
       <motion.div
         initial={{ scale: 0.9, y: -100 }}
         animate={{ scale: 1, y: 0 }}
@@ -58,10 +44,10 @@ export default function LoginPage() {
         ransition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 relative"
       >
         <div className="absolute top-2 right-2">
-          <ModeToggle/>
+          <ModeToggle />
         </div>
         <div className="absolute top-2 left-2">
-          <BackButton onBtnClick={() => router.push("/posts")}/>
+          <BackButton onBtnClick={() => router.push("/posts")} />
         </div>
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -85,61 +71,73 @@ export default function LoginPage() {
           now
         </motion.h1>
 
-        {/* Username Field */}
-        <div className="mb-2">
-          <Input
-            variant="underlined"
-            type="text"
-            label="Username or Email"
-            id="username"
-            {...register("identity")}
-            color={theme === "dark" ? "primary" : "default"}
-            className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
-              errors.identity ? "border-red-500" : "border-gray-300"
-            }`}
-          />
-          {errors.identity && (
-            <p className="text-red-500 text-xs mt-1">
-              {errors.identity.message}
-            </p>
-          )}
-        </div>
+        <form action={loginAction}>
+          {/* Username Field */}
+          <div className="mb-2">
+            <Input
+              variant="underlined"
+              type="text"
+              label="Username or Email"
+              id="username"
+              value={userData["identity"].value}
+              name="identity"
+              color={theme === "dark" ? "primary" : "default"}
+              className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
+                state?.errors.identity ? "border-red-500" : "border-gray-300"
+              }`}
+              onChange={(e) =>
+                setUserData((prev) => ({
+                  ...prev,
+                  [e.target.name]: { value: e.target.value },
+                }))
+              }
+            />
+            {state && state?.errors.identity?.[0] && (
+              <p className="text-red-500 text-xs mt-1">
+                {state?.errors.identity?.[0]}
+              </p>
+            )}
+          </div>
 
-        {/* Password Field */}
-        <div className="mb-2">
-          <Input
-            variant="underlined"
-            type="password"
-            label="Password"
-            id="password"
-            {...register("password")}
-            color={theme === "dark" ? "primary" : "default"}
-            className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
-              errors.password ? "border-red-500" : "border-gray-300"
-            }`}
-          />
-          {errors.password && (
-            <p className="text-red-500 text-xs mt-1">
-              {errors.password.message}
-            </p>
-          )}
-        </div>
-        <div className="flex flex-col gap-2">
-          <Link href={"/posts/signup"}  className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]">
-                  {"Don't have an account?"}
-          </Link>
-        <Button
-          variant={"expandIcon"}
-          type="submit"
-          iconPlacement="right"
-           className="w-full dark:bg-blue-600/50  bg-blue-600/60  text-white py-2 px-4 rounded-md hover:bg-blue-700 dark:hover:bg-blue-700 transition disabled:opacity-30"
-          disabled={isSubmitting}
-          onClick={handleSubmit(onSubmit)}
-          Icon={IoSend}
-        >
-          {isSubmitting ? "Logging in..." : "Login"}
-        </Button>
-        </div>
+          {/* Password Field */}
+          <div className="mb-2">
+            <Input
+              variant="underlined"
+              type="password"
+              label="Password"
+              id="password"
+              name="password"
+              value={userData["password"].value}
+              color={theme === "dark" ? "primary" : "default"}
+              className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
+                state?.errors.password ? "border-red-500" : "border-gray-300"
+              }`}
+              onChange={(e) =>
+                setUserData((prev) => ({
+                  ...prev,
+                  [e.target.name]: { value: e.target.value },
+                }))
+              }
+            />
+            {state && state?.errors.identity?.[0] && (
+              <p className="text-red-500 text-xs mt-1">
+                {state?.errors.identity?.[0]}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col gap-2">
+            <Link
+              href={"/posts/signup"}
+              className="w-full text-end text-sm text-blue-700 dark:text-blue-300 hover:underline hover:text-blue-900 dark:hover:text-blue-500 font-[family-name:var(--font-accent)]"
+            >
+              {"Don't have an account?"}
+            </Link>
+            <AuthFormButton pendingText="Logging in..." text="Login" />
+            {state && state?.serverError && (
+              <p className="text-red-500 text-xs mt-1">{state?.serverError}</p>
+            )}
+          </div>
+        </form>
       </motion.div>
     </section>
   );
