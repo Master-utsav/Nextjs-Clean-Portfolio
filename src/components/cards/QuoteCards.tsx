@@ -14,7 +14,7 @@ const QuoteCards = ({ type }: { type: "all" | "" }) => {
 
   const getData = useCallback(async () => {
     try {
-      const result = await axios.get("/api/vi/post/quote");
+      const result = await axios.get("/api/v1/posts/quote");
       if(!result.data.success){
         throw new Error(result.data.message)
       }
