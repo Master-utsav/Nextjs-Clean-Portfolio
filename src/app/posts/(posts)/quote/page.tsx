@@ -1,7 +1,7 @@
 import QuoteCards from "@/components/cards/QuoteCards";
 import PostsSecondNavbar from "@/components/PostsSecondNavbar";
 
-export default async function QuotesPage() {
+export default function QuotesPage() {
   return (
     <>
       <PostsSecondNavbar />
