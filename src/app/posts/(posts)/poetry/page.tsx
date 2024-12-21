@@ -1,10 +1,3 @@
-import PostsSecondNavbar from "@/components/PostsSecondNavbar";
-import { isAdminSessionCookie } from "@/lib/session";
-
-export default async function PoetryPage() {
-  return (
-    <>
-      <PostsSecondNavbar isAdmin={await isAdminSessionCookie()} />
-    </>
-  );
+export default function PoetryPage() {
+  return <div>this is the poetry page</div>;
 }

@@ -1,5 +1,3 @@
-import PostsAddSecondNavbar from "@/components/PostsAddSecondNavbar";
-
 export default async function AddPostsFormPage({
   params,
 }: {
@@ -8,9 +6,6 @@ export default async function AddPostsFormPage({
   const slug = (await params).name;
   return (
     <>
-      <div className="max-w-7xl">
-        <PostsAddSecondNavbar />
-      </div>
       <div className="pt-20">This is the {slug} page.</div>
     </>
   );

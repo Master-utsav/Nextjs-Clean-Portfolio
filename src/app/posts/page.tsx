@@ -2,10 +2,10 @@ import { PostsSecondNavItems } from "@/constants";
 import PostsCardSection from "@/sections/PostsCardSection";
 import PostsPageSection from "@/sections/PostsPageSection";
 
-export default async function Post() {
+export default function Post() {
   return (
     <>
-      <PostsPageSection />
+      <PostsPageSection screen="post"/>
       <div id="posts">
         {PostsSecondNavItems.map((item, idx) => (
           <div key={idx} className="w-full space-y-2 py-4">

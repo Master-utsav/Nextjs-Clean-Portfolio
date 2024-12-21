@@ -253,6 +253,26 @@ body {
   animation: introTextAnimate 2s ease-in-out 1 forwards;
 }
 
+.loadingSection {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  animation: loadingHide 4s ease-in-out forwards;
+}
+
+@keyframes loadingHide {
+  0%, 90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+
 @keyframes introTextAnimate {
   0% {
     stroke-dashoffset: 1000;
@@ -274,7 +294,6 @@ body {
   stroke-dasharray: 100;
   animation: svg-stroke-animation 2s forwards ease-in-out,
              waveFloat 2s ease-in-out 1s infinite alternate; 
-
 }
 
 @keyframes svg-stroke-animation {

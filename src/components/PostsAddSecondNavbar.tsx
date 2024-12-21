@@ -2,13 +2,14 @@
 
 import React from "react";
 import BackButton from "./ui/BackButton";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AddPostsNavItems} from "@/constants";
 import PostsButton from "./ui/PostsButton";
 import { motion } from "framer-motion";
 
 const PostsAddSecondNavbar = () => {
   const router = useRouter();
+  const pathname = usePathname();
   return (
     <div className="flex sm:justify-between justify-center w-full items-center pt-24 pb-8 px-3 space-y-3 flex-col">
       <motion.h1
@@ -68,6 +69,7 @@ const PostsAddSecondNavbar = () => {
                 buttonName={item.name}
                 target={item.target}
                 icon={item.icon}
+                isActive={pathname === item.target}
               />
             </div>
           ))}

@@ -4,7 +4,7 @@ import PostsButton from "@/components/ui/PostsButton";
 import ViewMoreButton from "@/components/ui/ViewMoreButton";
 import { blogCardImageUrl, PostsSecondNavItems } from "@/constants";
 import { Image } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
+import { useRouter ,  usePathname} from "next/navigation";
 import React from "react";
 
 const PostsCardSection = ({ typeName }: { typeName: string }) => {
@@ -15,8 +15,9 @@ const PostsCardSection = ({ typeName }: { typeName: string }) => {
   const name = PostsSectionName.name;
   const icon = PostsSectionName.icon;
   const router = useRouter();
+  const pathname = usePathname();
   return (
-    <div className="w-full flex flex-col gap-4 sm:px-0 px-2">
+    <div className="max-w-7xl flex flex-col gap-4 sm:px-0 px-2">
       <div className="w-full justify-between items-center flex">
         <div className="w-fit">
           <PostsButton
@@ -24,6 +25,7 @@ const PostsCardSection = ({ typeName }: { typeName: string }) => {
             target={target}
             icon={icon}
             type="fixed"
+            isActive={pathname === target}
           />
         </div>
         <div className="w-fit">

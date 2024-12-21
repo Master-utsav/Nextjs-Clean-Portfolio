@@ -8,7 +8,7 @@ import ScrollDown from "@/components/ScollDown";
 import { LinkHoverPreview } from "@/components/ui/LinkHoverPreview";
 import { PostsLinks, PostsSecondNavItems } from "@/constants";
 
-const PostsPageSection = () => {
+const PostsPageSection = ({ screen }: { screen: "post" | "home" }) => {
   return (
     <section
       id="postspage"
@@ -69,11 +69,11 @@ const PostsPageSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.3 }}
           >
-            Dive into a {" "}
+            Dive into a{" "}
             <span className="font-semibold text-blue-600 dark:text-blue-300">
               world
-            </span>
-            {" "} where{" "}
+            </span>{" "}
+            where{" "}
             <span className="font-semibold text-blue-600 dark:text-blue-300">
               tech
             </span>
@@ -102,7 +102,7 @@ const PostsPageSection = () => {
               url={PostsLinks.article}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
             >
-              articles 
+              articles
             </LinkHoverPreview>{" "}
             on technology,
           </motion.span>{" "}
@@ -111,7 +111,7 @@ const PostsPageSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.7 }}
           >
-            heartfelt {" "}
+            heartfelt{" "}
             <LinkHoverPreview
               url={PostsLinks.poetry}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
@@ -124,7 +124,8 @@ const PostsPageSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.8 }}
-          >captivating  {" "}
+          >
+            captivating{" "}
             <LinkHoverPreview
               url={PostsLinks.story}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
@@ -137,8 +138,8 @@ const PostsPageSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.9 }}
-          >profound {" "}
-            and{" "}
+          >
+            profound and{" "}
             <LinkHoverPreview
               url={PostsLinks.quote}
               className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
@@ -147,8 +148,8 @@ const PostsPageSection = () => {
             </LinkHoverPreview>
             .
           </motion.span>
-          </div>
-          <div className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed font-[family-name:var(--font-assistant)]">
+        </div>
+        <div className="sm:text-lg text-base text-center font-medium text-gray-800 dark:text-gray-200 sm:max-w-2xl w-full leading-relaxed font-[family-name:var(--font-assistant)]">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -156,17 +157,18 @@ const PostsPageSection = () => {
           >
             {" "}
             <span className="italic">
-                Looking for structured knowledge?{"  "}
+              Looking for structured knowledge?{"  "}
             </span>
             Head over to the
             <span className="italic">
-            {" "}
+              {" "}
               <LinkHoverPreview
                 url={PostsLinks.notes}
                 className="underline decoration-blue-500 dark:decoration-blue-400 font-semibold"
               >
-                notes 
-              </LinkHoverPreview>{" "}section{" "}
+                notes
+              </LinkHoverPreview>{" "}
+              section{" "}
             </span>
             to uncover a{" "}
             <span className="italic">treasure trove of wisdom.</span>
@@ -184,21 +186,27 @@ const PostsPageSection = () => {
       </div>
 
       <div className="flex flex-row gap-4 justify-center items-center p-1">
-        {PostsSecondNavItems.map((item , idx) => (
+        {PostsSecondNavItems.map((item, idx) => (
           <Link
             key={idx}
             href={item.target}
             className="p-2 electric-lightning-effect rounded-md dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30  "
           >
             <NormalTooltip text={item.name} placement="bottom">
-              <item.icon className="size-5 dark:text-white text-black"/>
+              <item.icon className="size-5 dark:text-white text-black" />
             </NormalTooltip>
           </Link>
         ))}
       </div>
-      <NormalTooltip text="scroll down" placement="bottom">
-        <ScrollDown navigateTo="#posts" />
-      </NormalTooltip>
+      {screen === "post" ? (
+        <NormalTooltip text="scroll down" placement="bottom">
+          <ScrollDown navigateTo="#posts" />
+        </NormalTooltip>
+      ) : (
+        <NormalTooltip text="scroll down" placement="bottom">
+          <ScrollDown navigateTo="#about" />
+        </NormalTooltip>
+      )}
     </section>
   );
 };

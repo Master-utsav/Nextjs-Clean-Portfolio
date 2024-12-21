@@ -1,7 +1,6 @@
 import MyName from "@/components/MyName";
-import PostsNavbar from "@/components/PostsNavbar";
-import { isAdminSessionCookie, isSessionCookie } from "@/lib/session";
 import type { Metadata } from "next";
+import SSRPostNavbar from "@/components/SSRPostNavbar";
 
 export const metadata: Metadata = {
   title: "Master Utsav | Blog and Articles",
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function PostLayout({
+export default function PostLayout({
   children,
   modal,
 }: {
@@ -55,7 +54,7 @@ export default async function PostLayout({
     <div className={`antialiased scrollbar-custom overflow-x-hidden relative`}>
       <div className="flex items-center justify-center bg-[#F5F5F5] dark:bg-[#121212] relative w-full overflow-hidden">
         <main className="w-full flex flex-col gap-2 items-center">
-          <PostsNavbar isLoggedIn={await isSessionCookie()} isAdmin={await isAdminSessionCookie()} />
+          <SSRPostNavbar/>
           {children}
         </main>
         <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20 rounded-lg bg-transparent" />

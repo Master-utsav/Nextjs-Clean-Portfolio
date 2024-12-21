@@ -1,10 +1,7 @@
-
-import React from 'react';
-
 export const LoadingSection = () => {
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-[#121212]">
+      className={`flex items-center fixed inset-0 justify-center h-screen bg-[#121212] z-[999] loadingSection`}>
         <svg
         width="577"
         height="114"

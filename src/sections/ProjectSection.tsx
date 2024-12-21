@@ -172,7 +172,7 @@ const ProjectSection: React.FC = () => {
         <ProjectsContainer/>
       </div>
       <NormalTooltip text="scroll down" placement="bottom">
-        <ScrollDown navigateTo="#about" />
+        <ScrollDown navigateTo="#postspage" />
       </NormalTooltip>
     </section>
   );
