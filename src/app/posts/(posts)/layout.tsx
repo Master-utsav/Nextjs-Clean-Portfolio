@@ -1,7 +1,8 @@
-import SSRPostSecondNavbar from "@/components/SSRPostSecondNavbar";
+import PostsSecondNavbar from "@/components/PostsSecondNavbar";
+import { isAdminSessionCookie } from "@/lib/session";
 
 
-export default function PostsLayout({
+export default async function PostsLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -9,7 +10,7 @@ export default function PostsLayout({
   
   return (
     <>
-    <SSRPostSecondNavbar />
+    <PostsSecondNavbar isAdmin={await isAdminSessionCookie()} />
     {children}
     </>
   );
