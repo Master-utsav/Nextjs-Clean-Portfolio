@@ -49,4 +49,9 @@ days:
     content: |
       We keep chasing what we don't have.
       By doing that most of us forget to value what we already have.
+  - name: "Day 13"
+    content: |
+      Truth stands unshaken, even in silence, 
+      while a lie shouts loudly, 
+      only to crumble under the weight of its own deception.
 ---

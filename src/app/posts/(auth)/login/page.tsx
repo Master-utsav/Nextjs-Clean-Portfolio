@@ -25,10 +25,10 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (state && state?.success) {
-      router.prefetch("/");
+      router.prefetch("/posts");
 
       setTimeout(() => {
-        router.push("/");
+        router.push("/posts");
       }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,9 +124,9 @@ export default function LoginPage() {
                 }))
               }
             />
-            {state && state?.errors.identity?.[0] && (
+            {state && state?.errors.password?.[0] && (
               <p className="text-red-500 text-xs mt-1">
-                {state?.errors.identity?.[0]}
+                {state?.errors.password?.[0]}
               </p>
             )}
           </div>

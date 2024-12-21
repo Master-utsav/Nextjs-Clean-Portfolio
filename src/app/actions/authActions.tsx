@@ -9,7 +9,7 @@ import {
   checkSignUpConstraints,
   returnIdentity,
 } from "@/schema/validCheckSchema";
-import { createSession, deleteSession, isSessionCookie } from "@/lib/session";
+import { createSession, deleteSession } from "@/lib/session";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function login(prevState: any, formData: FormData) {
@@ -220,9 +220,4 @@ export async function logout() {
         message : "logout successfully"
     }
   }
-
-export async function isUserAuthenticated () {
-    const val = await isSessionCookie();
-    return val
-}
 

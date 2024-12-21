@@ -20,11 +20,11 @@ export default function LogoutModal() {
   async function handleLogout() {
     const response = await logout();
     if (response.success) {
-      router.prefetch("/");
+      router.prefetch("/posts");
 
       setTimeout(() => {
         setIsOpen(!isOpen);
-        router.push("/");
+        router.push("/posts");
       }, 1000);
 
     }

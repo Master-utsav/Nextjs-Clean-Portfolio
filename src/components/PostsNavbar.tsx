@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import React, { useCallback, useEffect } from "react";
 import PersonalBadge from "@/components/ui/PersonalBadge";
+import React from "react";
 import {
   AnimatePresence,
   motion,
@@ -14,12 +14,10 @@ import { FaHome } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./ui/ThemeBtn";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
-import axios from "axios"
 
-const PostsNavbar: React.FC = () => {
+const PostsNavbar = ({isLoggedIn}: {isLoggedIn: boolean}) => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = React.useState(true);
-  const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(false);
   const prevScrollY = React.useRef(0);
 
   useMotionValueEvent(scrollY, "change", (current) => {
@@ -31,19 +29,6 @@ const PostsNavbar: React.FC = () => {
       prevScrollY.current = current;
     }
   });
-
-  const loggedInCallBack = useCallback(async () => {
-    try {
-      const response = await axios.get("/api/v1/user/checkSession");
-      setIsLoggedIn(response.data.success);
-    } catch {
-      setIsLoggedIn(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loggedInCallBack();
-  }, [loggedInCallBack]);
 
   return (
     <AnimatePresence>

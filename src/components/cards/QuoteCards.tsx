@@ -23,7 +23,7 @@ const QuoteCards = ({ type }: { type: "all" | "" }) => {
         content: item.content,
       }));
       if (type === "all") {
-        setQuoteData(transformedData);
+        setQuoteData(transformedData.reverse());
       } else {
         setQuoteData(transformedData.slice(0, 4));
       }

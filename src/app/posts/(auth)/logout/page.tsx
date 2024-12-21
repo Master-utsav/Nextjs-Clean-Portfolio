@@ -12,10 +12,10 @@ export default function LogoutPage() {
   async function handleLogout() {
     const response = await logout();
     if (response.success) {
-      router.prefetch("/");
+      router.prefetch("/posts");
 
       setTimeout(() => {
-        router.push("/");
+        router.push("/posts");
       }, 1000);
     }
   }

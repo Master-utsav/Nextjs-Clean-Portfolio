@@ -1,3 +1,6 @@
+import MyName from "@/components/MyName";
+import PostsNavbar from "@/components/PostsNavbar";
+import { isSessionCookie } from "@/lib/session";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -40,16 +43,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PostLayout({
+export default async function PostLayout({
   children,
   modal,
 }: {
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
+  
   return (
     <div className={`antialiased scrollbar-custom overflow-x-hidden relative`}>
-      {children}
+      <div className="flex items-center justify-center bg-[#F5F5F5] dark:bg-[#121212] relative w-full overflow-hidden">
+        <main className="max-w-7xl w-full flex flex-col gap-2 items-center">
+          <PostsNavbar isLoggedIn={await isSessionCookie()} />
+          {children}
+        </main>
+        <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20 rounded-lg bg-transparent" />
+      </div>
       {modal}
     </div>
   );
