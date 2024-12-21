@@ -33,11 +33,11 @@ export default function LoginModal() {
 
   useEffect(() => {
     if (state && state?.success) {
-      router.prefetch("/posts");
+      router.prefetch("/");
 
       setTimeout(() => {
         setIsOpen(!isOpen);
-        router.push("/posts");
+        router.push("/");
       }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
