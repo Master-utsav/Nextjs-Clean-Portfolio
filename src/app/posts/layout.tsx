@@ -54,10 +54,10 @@ export default async function PostLayout({
   return (
     <div className={`antialiased scrollbar-custom overflow-x-hidden relative`}>
       <div className="flex items-center justify-center bg-[#F5F5F5] dark:bg-[#121212] relative w-full overflow-hidden">
-        <main className="max-w-7xl w-full flex flex-col gap-2 items-center">
+        <main className="w-full flex flex-col gap-2 items-center">
           <PostsNavbar isLoggedIn={await isSessionCookie()} isAdmin={await isAdminSessionCookie()} />
+          {children}
         </main>
-        {children}
         <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20 rounded-lg bg-transparent" />
       </div>
       {modal}
