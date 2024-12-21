@@ -4,8 +4,6 @@ import path from "path";
 import matter from "gray-matter";
 
 export async function GET() {
-    console.log("function is called");
-
     try {
         const filePath = path.join(process.cwd(), "src", "posts", "quotes", "days.quote.md");
 

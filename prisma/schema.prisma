@@ -99,6 +99,10 @@ model Poetry {
 
 model Notes {
   id     String @id @default(cuid())
+  title  String
+  description String?
+  link String
+  image String?
   postId String @unique
   post   Post   @relation(fields: [postId], references: [id])
   userId String

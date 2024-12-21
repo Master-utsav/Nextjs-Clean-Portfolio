@@ -41,7 +41,7 @@ const QuoteCards = ({ type }: { type: "all" | "" }) => {
       key={index}
       className="relative flex bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg w-full border-[1px] dark:border-blue-500/30 border-blue-800/30 electric-lightning-effect flex-col gap-2 justify-between"
     >
-      <blockquote className="text-lg border-l-4 pl-3 rounded-tl-md rounded-bl-md dark:border-l-blue-500/50 border-l-blue-800/50  font-[family-name:var(--font-maven-pro)] dark:text-white text-black text-pretty">
+      <blockquote className="sm:text-lg text-base border-l-4 pl-3 rounded-tl-md rounded-bl-md dark:border-l-blue-500/50 border-l-blue-800/50  font-[family-name:var(--font-maven-pro)] dark:text-white text-black text-pretty">
         {quote.content.split("\n").map((line, index) => (
           line.trim() !== "" && ( 
             <span key={index}>

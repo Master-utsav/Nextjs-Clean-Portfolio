@@ -59,6 +59,34 @@ export const PostsSecondNavItems = [
   },
 ];
 
+export const AddPostsNavItems = [
+  {
+    name: "article",
+    target: "/posts/add-posts/article",
+    icon: MdOutlineArticle,
+  },
+  {
+    name: "notes",
+    target: "/posts/add-posts/notes",
+    icon: FaRegNoteSticky,
+  },
+  {
+    name: "poetry",
+    target: "/posts/add-posts/poetry",
+    icon: GiMicrophone,
+  },
+  {
+    name: "quote",
+    target: "/posts/add-posts/quote",
+    icon: BsChatRightQuote,
+  },
+  {
+    name: "story",
+    target: "/posts/add-posts/story",
+    icon: BsVectorPen,
+  },
+];
+
 export const Frameworks = [
   {
     name: "Next.js",

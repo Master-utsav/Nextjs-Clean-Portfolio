@@ -18,7 +18,7 @@ const PostsButton = ({
 }) => {
   const [isActive, setIsActive] = useState<boolean>(true);
   useEffect(() => {
-    setIsActive(target === location.pathname);
+    setIsActive(target === location.pathname || (target.startsWith("/posts/add-posts") && target.split("/")[2] === buttonName));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 

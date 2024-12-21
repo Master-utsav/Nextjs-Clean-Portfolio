@@ -6,8 +6,11 @@ import SearchBar from "./SearchBar";
 import { useRouter } from "next/navigation";
 import { PostsSecondNavItems } from "@/constants";
 import PostsButton from "./ui/PostsButton";
+import { FiPlusCircle } from "react-icons/fi";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
-const PostsSecondNavbar = () => {
+const PostsSecondNavbar = ({isAdmin} : {isAdmin: boolean}) => {
   const router = useRouter();
   return (
     <div className="flex sm:justify-between justify-center w-full items-center pt-20 pb-2 px-3 sm:space-x-2 max-sm:space-y-2 sm:flex-row flex-col">
@@ -23,6 +26,17 @@ const PostsSecondNavbar = () => {
               />
             </div>
           ))}
+          { isAdmin && 
+           <Link href={"/posts/add-posts"}>
+            <Button
+              variant="expandIcon"
+              className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
+              Icon={FiPlusCircle}
+              iconButtonName="Add Posts"
+              iconPlacement="fixed-icon"
+              />
+            </Link>
+          }
         </div>
       </div>
       <SearchBar />

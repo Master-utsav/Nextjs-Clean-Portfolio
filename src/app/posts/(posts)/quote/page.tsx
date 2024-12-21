@@ -1,10 +1,11 @@
 import QuoteCards from "@/components/cards/QuoteCards";
 import PostsSecondNavbar from "@/components/PostsSecondNavbar";
+import { isAdminSessionCookie } from "@/lib/session";
 
-export default function QuotesPage() {
+export default async function QuotesPage() {
   return (
     <>
-      <PostsSecondNavbar />
+      <PostsSecondNavbar isAdmin={await isAdminSessionCookie()} />
       <div className="w-full flex flex-col gap-3 relative px-3 py-4">
         <QuoteCards type={"all"} />
       </div>

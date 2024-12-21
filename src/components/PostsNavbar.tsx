@@ -14,8 +14,15 @@ import { FaHome } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./ui/ThemeBtn";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
+import { FiPlusCircle } from "react-icons/fi";
 
-const PostsNavbar = ({isLoggedIn}: {isLoggedIn: boolean}) => {
+const PostsNavbar = ({
+  isLoggedIn,
+  isAdmin,
+}: {
+  isLoggedIn: boolean;
+  isAdmin: boolean;
+}) => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = React.useState(true);
   const prevScrollY = React.useRef(0);
@@ -98,6 +105,18 @@ const PostsNavbar = ({isLoggedIn}: {isLoggedIn: boolean}) => {
                 iconButtonName="Logout"
                 iconPlacement="fixed-icon"
               ></Button>
+            </Link>
+          )}
+          {isAdmin && (
+            <Link href={"/posts/add-posts"}>
+              <Button
+                variant="expandIcon"
+                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 sm:flex hidden font-[family-name:var(--font-assistant)]"
+                iconPlacement="right"
+                Icon={FiPlusCircle}
+              >
+                Add Posts
+              </Button>
             </Link>
           )}
 

@@ -1,9 +1,10 @@
 import PostsSecondNavbar from "@/components/PostsSecondNavbar";
+import { isAdminSessionCookie } from "@/lib/session";
 
 export default async function StoriesPage() {
   return (
     <>
-      <PostsSecondNavbar />
+      <PostsSecondNavbar isAdmin={await isAdminSessionCookie()}/>
     </>
   );
 }

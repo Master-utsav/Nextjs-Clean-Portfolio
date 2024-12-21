@@ -1,9 +1,10 @@
 import PostsSecondNavbar from "@/components/PostsSecondNavbar";
+import { isAdminSessionCookie } from "@/lib/session";
 
-export default function ArticlePage() {
+export default async function ArticlePage() {
   return (
     <>
-      <PostsSecondNavbar />
+      <PostsSecondNavbar isAdmin={await isAdminSessionCookie()}/>
     </>
   );
 }

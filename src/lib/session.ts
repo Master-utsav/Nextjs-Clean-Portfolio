@@ -21,8 +21,14 @@ export async function deleteSession() {
 }
 
 export async function isSessionCookie() {
-  const cookie = (await cookies()).get("session");
-  return cookie ? true : false;
+  const cookie = (await cookies()).get("session")?.value;
+  const session = cookie ? await decrypt(cookie) : null;
+  return session?.userId ? true : false;
+}
+export async function isAdminSessionCookie() {
+  const cookie = (await cookies()).get("session")?.value;
+  const session = cookie ? await decrypt(cookie) : null;
+  return session?.role === "MASTER" ? true : false;
 }
 
 type SessionPayload = {
