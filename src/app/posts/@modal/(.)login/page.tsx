@@ -17,6 +17,7 @@ import CloseButton from "@/components/ui/CloseButton";
 import Link from "next/link";
 import AuthFormButton from "@/components/ui/AuthFormButton";
 import { login } from "@/app/actions/authActions";
+import FormToast from "@/components/ui/FormToast";
 
 export default function LoginModal() {
   const router = useRouter();
@@ -32,8 +33,12 @@ export default function LoginModal() {
 
   useEffect(() => {
     if (state && state?.success) {
-      setIsOpen(!isOpen);
-      router.push("/");
+      router.prefetch("/posts");
+
+      setTimeout(() => {
+        setIsOpen(!isOpen);
+        router.push("/posts");
+      }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state?.success]);
@@ -127,7 +132,10 @@ export default function LoginModal() {
                   name="password"
                   id="password"
                   color={theme === "dark" ? "primary" : "default"}
-                  classNames={{ errorMessage: "text-red-500 text-sm mt-1", input: "text-gray-900 dark:text-gray-100"}}
+                  classNames={{
+                    errorMessage: "text-red-500 text-sm mt-1",
+                    input: "text-gray-900 dark:text-gray-100",
+                  }}
                   className={`w-full rounded-md text-gray-900 dark:text-gray-100 ${
                     state?.errors.password
                       ? "border-red-500"
@@ -155,12 +163,11 @@ export default function LoginModal() {
               >
                 {"Don't have an account?"}
               </Link>
+              <FormToast
+                success={state && state?.success}
+                message={state && state?.message}
+              />
               <AuthFormButton pendingText="Logging in..." text="Login" />
-              {state && state?.serverError && (
-                <p className="text-red-500 text-xs mt-1">
-                  {state?.serverError}
-                </p>
-              )}
             </ModalFooter>
           </form>
         </ModalContent>

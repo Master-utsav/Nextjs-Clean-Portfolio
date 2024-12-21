@@ -12,7 +12,11 @@ export default function LogoutPage() {
   async function handleLogout() {
     const response = await logout();
     if (response.success) {
-      router.push("/posts");
+      router.prefetch("/");
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
     }
   }
 
@@ -27,8 +31,7 @@ export default function LogoutPage() {
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 100 }}
         transition={{ duration: 0.5 }}
-        className="bg-white/5 backdrop-blur-sm dark:bg-black/5 p-8 space-y-3 rounded-lg shadow-md w-full max-w-md electric-lightning-effect
-        ransition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 relative"
+        className="bg-white/5 backdrop-blur-sm dark:bg-black/5 p-8 space-y-3 rounded-lg shadow-md w-full max-w-md electric-lightning-effect transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 relativ"
       >
         <div className="absolute top-2 right-2">
           <ModeToggle />

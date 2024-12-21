@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import CloseButton from "@/components/ui/CloseButton";
 import { signup } from "@/app/actions/authActions";
 import AuthFormButton from "@/components/ui/AuthFormButton";
+import FormToast from "@/components/ui/FormToast";
 
 export default function SignupModal() {
   const router = useRouter();
@@ -32,8 +33,11 @@ export default function SignupModal() {
   
   useEffect(() => {
     if (state?.success) {
-      setIsOpen(!isOpen);
-      router.push("/posts/login");
+      router.prefetch("/posts/login");
+      setTimeout(() => {
+        setIsOpen(!isOpen);
+        router.push("/posts/login");
+      }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state?.success]);
@@ -170,10 +174,8 @@ export default function SignupModal() {
             </ModalBody>
 
             <ModalFooter className="flex flex-col gap-2">
+            <FormToast success={state && state?.success} message={state && state?.message}/>
             <AuthFormButton pendingText="Signing in..." text="Sign up" />
-            {state && state?.serverError && (
-              <p className="text-red-500 text-xs mt-1">{state?.serverError}</p>
-            )}
             </ModalFooter>
           </form>
           </ModalContent>

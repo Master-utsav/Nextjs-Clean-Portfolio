@@ -14,7 +14,7 @@ import { FaHome } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./ui/ThemeBtn";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
-import { isUserAuthenticated } from "@/app/actions/authActions";
+import axios from "axios"
 
 const PostsNavbar: React.FC = () => {
   const { scrollY } = useScroll();
@@ -33,8 +33,12 @@ const PostsNavbar: React.FC = () => {
   });
 
   const loggedInCallBack = useCallback(async () => {
-    const val = await isUserAuthenticated();
-    setIsLoggedIn(val);
+    try {
+      const response = await axios.get("/api/v1/user/checkSession");
+      setIsLoggedIn(response.data.success);
+    } catch {
+      setIsLoggedIn(false);
+    }
   }, []);
 
   useEffect(() => {

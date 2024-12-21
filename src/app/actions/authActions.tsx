@@ -20,7 +20,7 @@ export async function login(prevState: any, formData: FormData) {
     return {
       success : false,
       errors: result.error.flatten().fieldErrors,
-      serverError : ""
+      message : "Login validation failed"
     };
   }
 
@@ -33,7 +33,7 @@ export async function login(prevState: any, formData: FormData) {
         identity: !validIdentity ? ["Identity is required"] : undefined,
         password: !validPassword ? ["Password is required"] : undefined,
       },
-      serverError : ""
+      message : "All fields are required"
     };
   }
 
@@ -47,7 +47,7 @@ export async function login(prevState: any, formData: FormData) {
       return {
         success : false,
         errors: { identity: ["Invalid username or password"] },
-        serverError : ""
+        message : "Invalid Credentials"
       };
     }
     userIdentity = validIdentity;
@@ -57,7 +57,7 @@ export async function login(prevState: any, formData: FormData) {
       return {
         success : false,
         errors: { identity: ["Invalid email or password"] },
-        serverError : ""
+        message : "Invalid Credentials"
       };
     }
     userIdentity = validIdentity.toLowerCase();
@@ -65,7 +65,7 @@ export async function login(prevState: any, formData: FormData) {
     return {
       success : false,
       errors: { identity: ["Invalid identity format"] },
-      serverError : ""
+      message : "Invalid Credentials"
     };
   }
 
@@ -78,7 +78,7 @@ export async function login(prevState: any, formData: FormData) {
       return {
         success : false,
         errors: { identity: ["User not found"] },
-        serverError : ""
+        message : "Invalid Credentials"
       };
     }
 
@@ -88,7 +88,7 @@ export async function login(prevState: any, formData: FormData) {
       return {
         success : false,
         errors: { password: ["Incorrect password"] },
-        serverError : ""
+        message : "Invalid Credentials"
       };
     }
 
@@ -97,7 +97,7 @@ export async function login(prevState: any, formData: FormData) {
     return {
         success : true,
         errors: { password: [""] , identity: [""]},
-        serverError : ""
+        message : "User Signuped Successfully"
     }
 
   } catch (error) {
@@ -107,7 +107,7 @@ export async function login(prevState: any, formData: FormData) {
         identity: [""],
         password: [""]
       },
-      serverError : `Internal server error : ${error}`
+      message : `Internal server error : ${error}`
     };
   }
 }
@@ -121,7 +121,7 @@ export async function signup(prevState: any, formData: FormData) {
     return {
       success : false,
       errors: result.error.flatten().fieldErrors,
-      serverError : ""
+      message : "Signup validation failed"
     };
   }
 
@@ -137,7 +137,7 @@ export async function signup(prevState: any, formData: FormData) {
               email: ["Email is required"],
               password: ["Password is required"],
             },
-            serverError : ""
+            message : "All Fields are Required"
           };
       }
       
@@ -149,7 +149,7 @@ export async function signup(prevState: any, formData: FormData) {
               email: ["Not a  valid email"],
               password: ["Not a valid password"],
             },
-            serverError : ""
+            message : "Invalid Credentials"
           };
       }
   
@@ -161,9 +161,9 @@ export async function signup(prevState: any, formData: FormData) {
       })
       if(isUserEmail){
         return {
-           success: false ,
+           success: false,
            errors : {email : ["Email already exists"]},
-           serverError : ""
+           message : "Email already exists"
         }
       }
   
@@ -176,7 +176,7 @@ export async function signup(prevState: any, formData: FormData) {
         return {
             success: false ,
             errors : {email : ["Username already exists"]},
-            serverError : ""
+            message : "Username already exists"
          }
       }
   
@@ -197,7 +197,7 @@ export async function signup(prevState: any, formData: FormData) {
             username : [""],
             password : [""],
         },
-        serverError : ""
+        message : "Login Successfully"
       }
     }
     catch (error) {
@@ -208,7 +208,7 @@ export async function signup(prevState: any, formData: FormData) {
                 username : [""],
                 password : [""],
             },
-            serverError : `Internal server error : ${error}`
+            message : `Internal server error : ${error}`
           }
     }
 }
@@ -221,7 +221,7 @@ export async function logout() {
     }
   }
 
- export async function isUserAuthenticated () {
+export async function isUserAuthenticated () {
     const val = await isSessionCookie();
     return val
 }

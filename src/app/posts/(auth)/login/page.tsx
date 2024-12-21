@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { login } from "@/app/actions/authActions";
 import AuthFormButton from "@/components/ui/AuthFormButton";
+import FormToast from "@/components/ui/FormToast";
 
 export default function LoginPage() {
   const { theme } = useTheme();
@@ -24,7 +25,11 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (state && state?.success) {
-      router.push("/");
+      router.prefetch("/posts");
+
+      setTimeout(() => {
+        router.push("/posts");
+      }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state?.success]);
@@ -132,10 +137,8 @@ export default function LoginPage() {
             >
               {"Don't have an account?"}
             </Link>
+            <FormToast success={state && state?.success} message={state && state?.message}/>
             <AuthFormButton pendingText="Logging in..." text="Login" />
-            {state && state?.serverError && (
-              <p className="text-red-500 text-xs mt-1">{state?.serverError}</p>
-            )}
           </div>
         </form>
       </motion.div>

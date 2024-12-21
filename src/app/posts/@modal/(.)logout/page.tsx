@@ -20,7 +20,13 @@ export default function LogoutModal() {
   async function handleLogout() {
     const response = await logout();
     if (response.success) {
-      router.push("/posts");
+      router.prefetch("/");
+
+      setTimeout(() => {
+        setIsOpen(!isOpen);
+        router.push("/");
+      }, 1000);
+
     }
   }
   return (
@@ -54,7 +60,7 @@ export default function LogoutModal() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: [0.68, -0.6, 0.32, 1.6] }}
-              className="sm:max-w-3xl w-full sm:text-4xl text-3xl font-bold text-center transition-colors duration-500 ease-in-out dark:text-blue-300 text-blue-800 leading-tight font-[family-name:var(--font-accent)] px-2"
+              className="sm:max-w-3xl w-full sm:text-4xl text-3xl font-bold text-center transition-colors duration-500 ease-in-out dark:text-blue-300 text-blue-800 leading-tight font-[family-name:var(--font-accent)] px-2 "
             >are you{" "}
               <motion.span className="relative dark:text-white-700 text-black-500 inline-block font-[family-name:var(--font-salsa)]">
                 <motion.div
