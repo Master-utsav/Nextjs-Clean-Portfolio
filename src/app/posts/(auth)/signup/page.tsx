@@ -25,10 +25,8 @@ export default function SignupPage() {
 
   useEffect(() => {
     if (state?.success) {
-      router.prefetch("/posts/login");
-
       setTimeout(() => {
-        router.push("/posts/login");
+        router.replace("/posts/login");
       }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

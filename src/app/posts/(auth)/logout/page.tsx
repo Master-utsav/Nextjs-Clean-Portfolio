@@ -15,11 +15,9 @@ export default function LogoutPage() {
       setIsPending(true);
       const response = await logout();
       if (response.success) {
-        router.prefetch("/posts");
- 
         setIsPending(false);
         setTimeout(() => {
-          router.push("/posts");
+          router.replace("/posts");
         }, 1000);
       }else{
         setIsPending(false);

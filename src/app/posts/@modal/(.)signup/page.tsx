@@ -33,11 +33,10 @@ export default function SignupModal() {
   
   useEffect(() => {
     if (state?.success) {
-      router.prefetch("/posts/login");
       setTimeout(() => {
-        router.push("/posts/login");
+        setIsOpen(!isOpen);
+        router.replace("/posts/login");
       }, 1000);
-      setIsOpen(!isOpen);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state?.success]);

@@ -25,10 +25,8 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (state && state?.success) {
-      router.prefetch("/posts");
-
       setTimeout(() => {
-        router.push("/posts");
+        router.replace("/posts");
       }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

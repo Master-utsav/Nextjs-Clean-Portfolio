@@ -22,12 +22,11 @@ export default function LogoutModal() {
     setIsPending(true);
     const response = await logout();
     if (response.success) {
-      router.prefetch("/posts");
       setIsPending(false);
       setTimeout(() => {
-        router.push("/posts");
+        setIsOpen(!isOpen);
+        router.replace("/posts");
       }, 1000);
-      setIsOpen(!isOpen);
     }else{
       setIsPending(false);
     }
