@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "programming tutorials",
   ],
   openGraph: {
-    title: "Master Utsav - Web Development Blog",
+    title: "Master Utsav - Blog and Articles",
     description:
       "Dive into a collection of blog posts and articles covering React.js, TypeScript, Node.js, web development tips, and full-stack development tutorials by Utsav Jaiswal.",
     url: "https://masterutsav.in",

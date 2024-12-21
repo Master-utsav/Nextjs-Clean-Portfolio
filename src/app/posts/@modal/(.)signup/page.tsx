@@ -35,9 +35,9 @@ export default function SignupModal() {
     if (state?.success) {
       router.prefetch("/posts/login");
       setTimeout(() => {
-        setIsOpen(!isOpen);
         router.push("/posts/login");
       }, 1000);
+      setIsOpen(!isOpen);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state?.success]);

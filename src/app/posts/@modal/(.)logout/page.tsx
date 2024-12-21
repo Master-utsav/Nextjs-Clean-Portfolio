@@ -16,17 +16,20 @@ import { useState } from "react";
 
 export default function LogoutModal() {
   const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isPending , setIsPending] = useState<boolean>(false);
   const router = useRouter();
   async function handleLogout() {
+    setIsPending(true);
     const response = await logout();
     if (response.success) {
       router.prefetch("/posts");
-
+      setIsPending(false);
       setTimeout(() => {
-        setIsOpen(!isOpen);
         router.push("/posts");
       }, 1000);
-
+      setIsOpen(!isOpen);
+    }else{
+      setIsPending(false);
     }
   }
   return (
@@ -97,6 +100,7 @@ export default function LogoutModal() {
               variant={"gooeyLeft"}
               className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50"
               onClick={handleLogout}
+              disabled={isPending}
             >
               Logout
             </Button>

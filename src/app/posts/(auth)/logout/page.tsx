@@ -6,19 +6,25 @@ import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import { logout } from "@/app/actions/authActions";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export default function LogoutPage() {
-  const router = useRouter();
-  async function handleLogout() {
-    const response = await logout();
-    if (response.success) {
-      router.prefetch("/posts");
-
-      setTimeout(() => {
-        router.push("/posts");
-      }, 1000);
+  const [isPending , setIsPending] = useState<boolean>(false);
+    const router = useRouter();
+    async function handleLogout() {
+      setIsPending(true);
+      const response = await logout();
+      if (response.success) {
+        router.prefetch("/posts");
+ 
+        setIsPending(false);
+        setTimeout(() => {
+          router.push("/posts");
+        }, 1000);
+      }else{
+        setIsPending(false);
+      }
     }
-  }
 
   return (
     <section className="flex items-center justify-center bg-[#F5F5F5] dark:bg-[#121212] relative w-full min-h-screen dark:bg-grid-white-500/[0.2] bg-grid-black-500/[0.2]">
@@ -80,6 +86,7 @@ export default function LogoutPage() {
             variant={"gooeyLeft"}
             className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50"
             onClick={handleLogout}
+            disabled={isPending}
           >
             Logout
           </Button>
