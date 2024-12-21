@@ -23,8 +23,8 @@ export default function LogoutModal() {
     const response = await logout();
     if (response.success) {
       setIsPending(false);
+      setIsOpen(!isOpen);
       setTimeout(() => {
-        setIsOpen(!isOpen);
         router.replace("/posts");
       }, 1000);
     }else{
