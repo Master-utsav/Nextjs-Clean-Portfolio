@@ -54,4 +54,13 @@ days:
       Truth stands unshaken, even in silence, 
       while a lie shouts loudly, 
       only to crumble under the weight of its own deception.
+  - name: "Day 14"
+    content: |
+      When you're obsessed with growing, 
+      mediocrity is never an option 
+      — you strive for excellence and embrace every challenge.
+  - name: "Day 15"
+    content: |
+      Everyone owns something that stems from privilege,
+      be grateful for it, not egotistical.
 ---
