@@ -1,28 +1,18 @@
-import { POSTS_API } from "@/lib/env";
-import axios from "axios";
+"use client";
 
-interface Quote {
-  name: string;
-  content: string;
-}
+import { Quote } from "@/actions/getPostsData";
 
-const QuoteCards = async ({ type }: { type: "all" | "" }) => {
-  let quoteData: Quote[] = [];
-  const result = await axios.get(`${POSTS_API}/quote`);
-  if (!result.data.success) {
-    throw new Error(result.data.message);
-  }
-  const transformedData = result.data.data.map((item: Quote) => ({
-    name: item.name,
-    content: item.content,
-  }));
-  if (type === "all") {
-    quoteData = transformedData.reverse();
-  } else {
-    quoteData = transformedData.slice(0, 4);
-  }
+const QuoteCards = ({
+  type,
+  quoteData,
+}: {
+  type: "all" | "";
+  quoteData: Quote[];
+}) => {
+  
+  const data = type === "all" ? quoteData.reverse() : quoteData.slice(0, 4);
 
-  return quoteData.map((quote, index) => (
+  return data.map((quote, index) => (
     <div
       key={index}
       className="relative flex bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg  w-full border-[1px] dark:border-blue-500/30 border-blue-800/30 electric-lightning-effect flex-col gap-2 justify-between"

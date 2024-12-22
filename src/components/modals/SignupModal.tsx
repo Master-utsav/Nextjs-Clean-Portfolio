@@ -110,9 +110,9 @@ export function SignupModal() {
                 }))
               }
             />
-            {state && state?.errors?.username?.[0] && (
+            {state && state.errors.username?.[0] && (
               <p className="text-red-500 text-xs mt-1">
-                {state?.errors?.username?.[0]}
+                {state.errors.username?.[0]}
               </p>
             )}
           </div>
@@ -137,9 +137,9 @@ export function SignupModal() {
                 }))
               }
             />
-            {state && state?.errors?.email?.[0] && (
+            {state && state.errors.email?.[0] && (
               <p className="text-red-500 text-xs mt-1">
-                {state?.errors?.email?.[0]}
+                {state.errors.email?.[0]}
               </p>
             )}
           </div>
@@ -164,9 +164,9 @@ export function SignupModal() {
                 }))
               }
             />
-            {state && state?.errors?.password?.[0] && (
+            {state && state.errors.password?.[0] && (
               <p className="text-red-500 text-xs mt-1">
-                {state?.errors?.email?.[0]}
+                {state.errors.password?.[0]}
               </p>
             )}
           </div>

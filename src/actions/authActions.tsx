@@ -4,6 +4,9 @@ import { loginSchema, signupSchema } from "@/schema/zodSchema";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/prisma";
 import {
+  checkConstraintsAsEmail,
+  checkConstraintsAsPassword,
+  checkConstraintsAsUserName,
   checkLoginConstraintsAsEmail,
   checkLoginConstraintsAsUserName,
   checkSignUpConstraints,
@@ -13,14 +16,14 @@ import { createSession, deleteSession } from "@/lib/session";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function login(prevState: any, formData: FormData) {
-  // Parse and validate form data using Zod schema
+
   const result = loginSchema.safeParse(Object.fromEntries(formData));
 
   if (!result.success) {
     return {
-      success : false,
+      success: false,
       errors: result.error.flatten().fieldErrors,
-      message : "Login validation failed"
+      message: "Login validation failed",
     };
   }
 
@@ -28,26 +31,25 @@ export async function login(prevState: any, formData: FormData) {
 
   if (!validIdentity || !validPassword) {
     return {
-      success : false,
+      success: false,
       errors: {
-        identity: !validIdentity ? ["Identity is required"] : undefined,
-        password: !validPassword ? ["Password is required"] : undefined,
+        identity: !validIdentity ? ["Identity is required"] : [],
+        password: !validPassword ? ["Password is required"] : [],
       },
-      message : "All fields are required"
+      message: "All fields are required",
     };
   }
 
   const returnedIdentity = returnIdentity(validIdentity);
-
   let userIdentity: string | null = null;
 
   if (returnedIdentity === "username") {
     const isValidUsername = checkLoginConstraintsAsUserName(validIdentity, validPassword);
     if (!isValidUsername) {
       return {
-        success : false,
+        success: false,
         errors: { identity: ["Invalid username or password"] },
-        message : "Invalid Credentials"
+        message: "Invalid credentials",
       };
     }
     userIdentity = validIdentity;
@@ -55,17 +57,17 @@ export async function login(prevState: any, formData: FormData) {
     const isValidEmail = checkLoginConstraintsAsEmail(validIdentity, validPassword);
     if (!isValidEmail) {
       return {
-        success : false,
+        success: false,
         errors: { identity: ["Invalid email or password"] },
-        message : "Invalid Credentials"
+        message: "Invalid credentials",
       };
     }
     userIdentity = validIdentity.toLowerCase();
   } else {
     return {
-      success : false,
+      success: false,
       errors: { identity: ["Invalid identity format"] },
-      message : "Invalid Credentials"
+      message: "Invalid credentials",
     };
   }
 
@@ -76,9 +78,9 @@ export async function login(prevState: any, formData: FormData) {
 
     if (!user) {
       return {
-        success : false,
+        success: false,
         errors: { identity: ["User not found"] },
-        message : "Invalid Credentials"
+        message: "Invalid credentials",
       };
     }
 
@@ -86,131 +88,121 @@ export async function login(prevState: any, formData: FormData) {
 
     if (!isMatch) {
       return {
-        success : false,
+        success: false,
         errors: { password: ["Incorrect password"] },
-        message : "Invalid Credentials"
+        message: "Invalid credentials",
       };
     }
 
     await createSession(user.id, user.role);
-    
-    return {
-        success : true,
-        errors: { password: [""] , identity: [""]},
-        message : "User Signuped Successfully"
-    }
 
-  } catch (error) {
     return {
-      success : false,
+      success: true,
       errors: {
-        identity: [""],
-        password: [""]
+        identity: [],
+        password: [],
       },
-      message : `Internal server error : ${error}`
+      message: "User logged in successfully",
+    };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return {
+      success: false,
+      errors: {
+        identity: [],
+        password: [],
+      },
+      message: `Internal server error: ${error.message || "Unknown error"}`,
     };
   }
 }
 
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function signup(prevState: any, formData: FormData) {
-  // Parse and validate form data using Zod schema
+
   const result = signupSchema.safeParse(Object.fromEntries(formData));
 
   if (!result.success) {
     return {
-      success : false,
+      success: false,
       errors: result.error.flatten().fieldErrors,
-      message : "Signup validation failed"
+      message: "Signup validation failed",
     };
   }
 
+  const { username, email, password } = result.data;
 
-  const {username, email, password } = result.data;
+  if (!username || !email || !password) {
+    return {
+      success: false,
+      errors: {
+        username: !username ? ["Username is required"] : [],
+        email: !email ? ["Email is required"] : [],
+        password: !password ? ["Password is required"] : [],
+      },
+      message: "All fields are required",
+    };
+  }
 
-  
-      if (!username || !email || !password) {
-        return {
-            success : false,
-            errors: {
-              username: ["Username is required"],
-              email: ["Email is required"],
-              password: ["Password is required"],
-            },
-            message : "All Fields are Required"
-          };
-      }
-      
-      if(!checkSignUpConstraints(username , email , password)){
-        return {
-            success : false,
-            errors: {
-              username: ["Not a valid username"],
-              email: ["Not a  valid email"],
-              password: ["Not a valid password"],
-            },
-            message : "Invalid Credentials"
-          };
-      }
-  
-      try{
-      const isUserEmail = await db.user.findFirst({
-        where: {
-          email
-          }
-      })
-      if(isUserEmail){
-        return {
-           success: false,
-           errors : {email : ["Email already exists"]},
-           message : "Email already exists"
-        }
-      }
-  
-      const isUserUsername = await db.user.findFirst({
-        where: {
-          username
-          }
-      })
-      if(isUserUsername){
-        return {
-            success: false ,
-            errors : {email : ["Username already exists"]},
-            message : "Username already exists"
-         }
-      }
-  
-      const hashedPassword = await bcrypt.hash(password, 10);
-  
-      await db.user.create({
-        data: {
-          username: String(username),
-          email: String(email.toLowerCase()),
-          password: hashedPassword,
-        },
-      });
-  
+  if (!checkSignUpConstraints(username, email, password)) {
+    return {
+      success: false,
+      errors: {
+        username: !checkConstraintsAsUserName(username) ? ["Invalid username"] : [],
+        email: !checkConstraintsAsEmail(email) ? ["Invalid email address"] : [],
+        password: !checkConstraintsAsPassword(password) ? ["Invalid password format"] : [],
+      },
+      message: "Invalid credentials",
+    };
+  }
+
+  try {
+    const isUserEmail = await db.user.findFirst({
+      where: { email },
+    });
+    if (isUserEmail) {
       return {
-        success: true ,
-        errors : {
-            email : [""],
-            username : [""],
-            password : [""],
-        },
-        message : "Login Successfully"
-      }
+        success: false,
+        errors: { email: ["Email already exists"] },
+        message: "Email already exists",
+      };
     }
-    catch (error) {
-        return {
-            success: false ,
-            errors : {
-                email : [""],
-                username : [""],
-                password : [""],
-            },
-            message : `Internal server error : ${error}`
-          }
+
+    const isUserUsername = await db.user.findFirst({
+      where: { username },
+    });
+    if (isUserUsername) {
+      return {
+        success: false,
+        errors: { username: ["Username already exists"] },
+        message: "Username already exists",
+      };
     }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    await db.user.create({
+      data: {
+        username: String(username),
+        email: String(email.toLowerCase()),
+        password: hashedPassword,
+      },
+    });
+
+    return {
+      success: true,
+      errors: {},
+      message: "Signup successful",
+    };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return {
+      success: false,
+      errors: {},
+      message: `Internal server error: ${error.message || "Unknown error"}`,
+    };
+  }
 }
 
 export async function logout() {

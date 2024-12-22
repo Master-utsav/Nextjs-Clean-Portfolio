@@ -1,13 +1,15 @@
 "use client";
+import { getQuoteData, Quote } from "@/actions/getPostsData";
 import QuoteCards from "@/components/cards/QuoteCards";
 import PostsButton from "@/components/ui/PostsButton";
 import ViewMoreButton from "@/components/ui/ViewMoreButton";
 import { blogCardImageUrl, PostsSecondNavItems } from "@/constants";
 import { Image } from "@nextui-org/react";
 import { useRouter ,  usePathname} from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const PostsCardSection = ({ typeName }: { typeName: string }) => {
+  const [quoteData , setQuoteData] = useState<Quote []>([]);
   const PostsSectionName = PostsSecondNavItems.filter(
     (item) => item.name === typeName
   )[0];
@@ -16,6 +18,14 @@ const PostsCardSection = ({ typeName }: { typeName: string }) => {
   const icon = PostsSectionName.icon;
   const router = useRouter();
   const pathname = usePathname();
+
+  useEffect(() => {
+    const fetchPostsData = async () => {
+      setQuoteData(await getQuoteData());
+    }
+    fetchPostsData();
+  }, [typeName])
+  
   return (
     <div className="max-w-7xl flex flex-col gap-4 sm:px-0 px-2">
       <div className="w-full justify-between items-center flex">
@@ -88,7 +98,7 @@ const PostsCardSection = ({ typeName }: { typeName: string }) => {
               </h1>
             </div>
           ))}
-        {name === "quote" && <QuoteCards type=""/>}
+        {name === "quote" && <QuoteCards type="" quoteData={quoteData}/>}
         {name === "story" &&
           blogCardImageUrl.map((item, idx) => (
             <div

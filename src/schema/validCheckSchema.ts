@@ -12,6 +12,11 @@ export function checkConstraintsAsUserName(username: string) {
   return isValidUserName;
 }
 
+export function checkConstraintsAsPassword(password: string) {
+  const isValidPassword = passwordRegex.test(password);
+  return isValidPassword;
+}
+
 export function checkLoginConstraintsAsEmail(email: string, password: string) {
   const isValidEmail = emailRegex.test(email);
   const isValidPassword = passwordRegex.test(password);

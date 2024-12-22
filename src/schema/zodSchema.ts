@@ -7,18 +7,17 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$
 export const signupSchema = z.object({
   username: z
     .string()
-    .regex(usernameRegex, "only number, _, a-z, A-Z allowed")
-    .min(3, { message: "Username must be at least 3 characters long" }),
+    .regex(usernameRegex, "Username can only contain letters, numbers, and underscores")
+    .max(16, { message: "Username must not exceed 16 characters" }),
   email: z
     .string()
-    .regex(emailRegex, "invalid email")
     .email({ message: "Please enter a valid email address" }),
   password: z
     .string()
     .min(8, { message: "Password must be at least 8 characters long" })
     .regex(
       passwordRegex,
-      "Password must contain at least one uppercase, one lowercase, one digit, and one special character"
+      "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character"
     ),
 });
 
