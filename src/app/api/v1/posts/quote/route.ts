@@ -1,14 +1,14 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { cors } from "@/lib/cors";
+// import { cors } from "@/lib/cors";
 
-export async function GET(req: NextRequest) {
-  const corsResponse = cors(req);
-  if (corsResponse) {
-    return corsResponse;
-  }
+export async function GET() {
+//   const corsResponse = cors(req);
+//   if (corsResponse) {
+//     return corsResponse;
+//   }
   try {
     const filePath = path.join(
       process.cwd(),
