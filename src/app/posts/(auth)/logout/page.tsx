@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ModeToggle } from "@/components/ui/ThemeBtn";
 import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
-import { logout } from "@/app/actions/authActions";
+import { logout } from "@/actions/authActions";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 

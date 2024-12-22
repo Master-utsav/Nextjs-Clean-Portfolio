@@ -1,0 +1,1 @@
+export const POSTS_API = process.env.NEXT_PUBLIC_POSTS_API_URL!

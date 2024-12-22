@@ -7,7 +7,7 @@ import { useTheme } from "@/context/ThemeProvider";
 import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useState } from "react";
-import { signup } from "@/app/actions/authActions";
+import { signup } from "@/actions/authActions";
 import AuthFormButton from "@/components/ui/AuthFormButton";
 import FormToast from "@/components/ui/FormToast";
 

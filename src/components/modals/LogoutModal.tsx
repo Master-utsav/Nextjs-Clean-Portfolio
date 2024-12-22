@@ -1,6 +1,6 @@
 "use client";
 
-import { logout } from "@/app/actions/authActions";
+import { logout } from "@/actions/authActions";
 import { Button } from "@/components/ui/button";
 import CloseButton from "@/components/ui/CloseButton";
 import { ModeToggle } from "@/components/ui/ThemeBtn";

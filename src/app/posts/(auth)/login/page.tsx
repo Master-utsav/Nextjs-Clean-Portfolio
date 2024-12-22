@@ -8,7 +8,7 @@ import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
-import { login } from "@/app/actions/authActions";
+import { login } from "@/actions/authActions";
 import AuthFormButton from "@/components/ui/AuthFormButton";
 import FormToast from "@/components/ui/FormToast";
 

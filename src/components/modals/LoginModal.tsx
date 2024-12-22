@@ -16,7 +16,7 @@ import { useActionState, useEffect, useState } from "react";
 import CloseButton from "@/components/ui/CloseButton";
 import Link from "next/link";
 import AuthFormButton from "@/components/ui/AuthFormButton";
-import { login } from "@/app/actions/authActions";
+import { login } from "@/actions/authActions";
 import FormToast from "@/components/ui/FormToast";
 
 export function LoginModal() {

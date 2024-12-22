@@ -14,7 +14,7 @@ import { useTheme } from "@/context/ThemeProvider";
 import { useActionState, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import CloseButton from "@/components/ui/CloseButton";
-import { signup } from "@/app/actions/authActions";
+import { signup } from "@/actions/authActions";
 import AuthFormButton from "@/components/ui/AuthFormButton";
 import FormToast from "@/components/ui/FormToast";
 
