@@ -59,7 +59,6 @@ export const authOptions: NextAuthOptions = {
                 role: "USER",
               },
             });
-
             await createSession(newUser.id, newUser.role);
           } else {
             await createSession(existingUser.id, existingUser.role);
