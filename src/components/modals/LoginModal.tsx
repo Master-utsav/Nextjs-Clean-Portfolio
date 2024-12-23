@@ -19,13 +19,11 @@ import AuthFormButton from "@/components/ui/AuthFormButton";
 import { login } from "@/actions/authActions";
 import FormToast from "@/components/ui/FormToast";
 import { GitHubLoginButton } from "../ui/GithubLoginButton";
-import { useSession } from "next-auth/react";
 import { GoogleLoginButton } from "../ui/GoogleLoginButton";
 
 export function LoginModal() {
   const router = useRouter();
   const { theme } = useTheme();
-  const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [userData, setUserData] = useState<{
     [key: string]: { value: string };
@@ -40,13 +38,11 @@ export function LoginModal() {
       setTimeout(() => {
         setIsOpen(!isOpen);
         router.replace("/posts");
+        window.location.reload();
       }, 1000);
     }
-    if (session) {
-      router.push("/posts");
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router, session, state?.success]);
+  }, [state?.success]);
 
   return (
     <motion.div

@@ -1,5 +1,5 @@
 import PostsSecondNavbar from "@/components/PostsSecondNavbar";
-import { isAdminSessionCookie } from "@/lib/session";
+import { getServerSession } from "next-auth";
 
 
 export default async function PostsLayout({
@@ -7,13 +7,11 @@ export default async function PostsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  
+  const session = await getServerSession();
   return (
     <>
-    <PostsSecondNavbar isAdmin={await isAdminSessionCookie()} />
-    {children}
+      <PostsSecondNavbar session={session} />
+      {children}
     </>
   );
 }
-
-

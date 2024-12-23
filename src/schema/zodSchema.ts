@@ -1,13 +1,13 @@
 import { z } from "zod";
 
-const usernameRegex = /^[a-zA-Z0-9_]{3,16}$/;
+const usernameRegex = /^[a-zA-Z0-9-]{3,16}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 export const signupSchema = z.object({
   username: z
     .string()
-    .regex(usernameRegex, "Username can only contain letters, numbers, and underscores")
+    .regex(usernameRegex, "Username can only contain letters, numbers, and hyphen")
     .max(16, { message: "Username must not exceed 16 characters" }),
   email: z
     .string()

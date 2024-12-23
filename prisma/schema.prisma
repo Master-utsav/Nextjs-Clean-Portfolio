@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id         String @id @default(cuid())
+  id         Int    @id @default(autoincrement())
   username   String @unique
   email      String @unique
   password   String
@@ -16,35 +16,39 @@ model User {
   posts      Post[]
   likedPosts Post[] @relation("LikedPosts")
 
-  Story Story[]
+  Story    Story[]
+  Quote    Quote[]
+  Poetry   Poetry[]
+  Notes    Notes[]
+  Article  Article[]
+  sessions Session[] @relation("UserSessions")
+  Session  Session[]
+}
 
-  Quote Quote[]
-
-  Poetry Poetry[]
-
-  Notes Notes[]
-
-  Article Article[]
+model Session {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User[]   @relation("UserSessions")
 }
 
 model Post {
-  id          String   @id @default(cuid())
+  id          Int      @id @default(autoincrement())
   title       String
   content     String
   description String
   contentType PostType
-  userId      String
+  userId      Int
   user        User     @relation(fields: [userId], references: [id])
   likedBy     User[]   @relation("LikedPosts")
 
-  Story Story[]
-
-  Quote Quote[]
-
-  Poetry Poetry[]
-
-  Notes Notes[]
-
+  Story   Story[]
+  Quote   Quote[]
+  Poetry  Poetry[]
+  Notes   Notes[]
   Article Article[]
 }
 
@@ -57,54 +61,54 @@ enum PostType {
 }
 
 model Article {
-  id          String   @id @default(cuid())
+  id          Int      @id @default(autoincrement())
   title       String
   subTitle    String[]
   description String?
   content     String[]
   image       String[]
   link        String[]
-  postId      String   @unique
+  postId      Int      @unique
   post        Post     @relation(fields: [postId], references: [id])
-  userId      String
+  userId      Int
   user        User     @relation(fields: [userId], references: [id])
 }
 
 model Story {
-  id     String @id @default(cuid())
-  postId String @unique
-  post   Post   @relation(fields: [postId], references: [id])
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
+  id     Int  @id @default(autoincrement())
+  postId Int  @unique
+  post   Post @relation(fields: [postId], references: [id])
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
 }
 
 model Quote {
-  id          String  @id @default(cuid())
+  id          Int     @id @default(autoincrement())
   title       String
   description String?
   content     String
-  postId      String  @unique
+  postId      Int     @unique
   post        Post    @relation(fields: [postId], references: [id])
-  userId      String
+  userId      Int
   user        User    @relation(fields: [userId], references: [id])
 }
 
 model Poetry {
-  id     String @id @default(cuid())
-  postId String @unique
-  post   Post   @relation(fields: [postId], references: [id])
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
+  id     Int  @id @default(autoincrement())
+  postId Int  @unique
+  post   Post @relation(fields: [postId], references: [id])
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
 }
 
 model Notes {
-  id     String @id @default(cuid())
-  title  String
+  id          Int     @id @default(autoincrement())
+  title       String
   description String?
-  link String
-  image String?
-  postId String @unique
-  post   Post   @relation(fields: [postId], references: [id])
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
+  link        String
+  image       String?
+  postId      Int     @unique
+  post        Post    @relation(fields: [postId], references: [id])
+  userId      Int
+  user        User    @relation(fields: [userId], references: [id])
 }

@@ -1,28 +1,24 @@
+// import { getServerSession } from "next-auth";
 "use client";
 
-import Link from "next/link";
-import PersonalBadge from "@/components/ui/PersonalBadge";
-import React from "react";
 import {
+  useScroll,
+  useMotionValueEvent,
   AnimatePresence,
   motion,
-  useMotionValueEvent,
-  useScroll,
 } from "framer-motion";
-import MyName from "@/components/MyName";
-import { FaHome } from "react-icons/fa";
-import { Button } from "./ui/button";
-import { ModeToggle } from "./ui/ThemeBtn";
+import Link  from "next/link";
+import React from "react";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
+import { FaHome } from "react-icons/fa";
 import { FiPlusCircle } from "react-icons/fi";
+import MyName from "./MyName";
+import PersonalBadge from "./ui/PersonalBadge";
+import { ModeToggle } from "./ui/ThemeBtn";
+import { Button } from "./ui/button";
+import { Session } from "next-auth";
 
-const PostsNavbar = ({
-  isLoggedIn,
-  isAdmin,
-}: {
-  isLoggedIn: boolean;
-  isAdmin: boolean;
-}) => {
+const PostsNavbar = ({session} : {session: Session | null}) => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = React.useState(true);
   const prevScrollY = React.useRef(0);
@@ -70,25 +66,7 @@ const PostsNavbar = ({
               iconPlacement="fixed-icon"
             ></Button>
           </Link>
-          {!isLoggedIn ? (
-            <Link href={"/posts/login"}>
-              <Button
-                variant="expandIcon"
-                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 sm:flex hidden font-[family-name:var(--font-assistant)]"
-                iconPlacement="right"
-                Icon={AiOutlineLogin}
-              >
-                Login
-              </Button>
-              <Button
-                variant="expandIcon"
-                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
-                Icon={AiOutlineLogin}
-                iconButtonName="Login"
-                iconPlacement="fixed-icon"
-              ></Button>
-            </Link>
-          ) : (
+          {!!session?.user ? (
             <Link href={"/posts/logout"}>
               <Button
                 variant="expandIcon"
@@ -106,8 +84,26 @@ const PostsNavbar = ({
                 iconPlacement="fixed-icon"
               ></Button>
             </Link>
+          ) : (
+            <Link href={"/posts/login"}>
+              <Button
+                variant="expandIcon"
+                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 sm:flex hidden font-[family-name:var(--font-assistant)]"
+                iconPlacement="right"
+                Icon={AiOutlineLogin}
+              >
+                Login
+              </Button>
+              <Button
+                variant="expandIcon"
+                className="electric-lightning-effect rounded-md dark:text-white text-black dark:bg-black-200 bg-white-600/30  text-base transition-all delay-100 duration-500 ease-in-out border-[1px] dark:border-blue-500/30 border-blue-800/30 dark:hover:bg-black-100 hover:bg-white-600/50 block sm:hidden p-2"
+                Icon={AiOutlineLogin}
+                iconButtonName="Login"
+                iconPlacement="fixed-icon"
+              ></Button>
+            </Link>
           )}
-          {isAdmin && (
+          {!!session?.user && session.user.role === "MASTER" && (
             <Link href={"/posts/add-posts"}>
               <Button
                 variant="expandIcon"
@@ -126,5 +122,9 @@ const PostsNavbar = ({
     </AnimatePresence>
   );
 };
-
+// export default (() => (
+//   <AuthProvider>
+//     <PostsNavbar />
+//   </AuthProvider>
+// )) as typeof PostsNavbar;
 export default PostsNavbar;

@@ -1,18 +1,12 @@
-"use server";
+"use client"
 
-import { loginSchema, signupSchema } from "@/schema/zodSchema";
-import bcrypt from "bcryptjs";
-import { db } from "@/lib/prisma";
+import { loginSchema } from "@/schema/zodSchema";
 import {
-  checkConstraintsAsEmail,
-  checkConstraintsAsPassword,
-  checkConstraintsAsUserName,
   checkLoginConstraintsAsEmail,
   checkLoginConstraintsAsUserName,
-  checkSignUpConstraints,
   returnIdentity,
 } from "@/schema/validCheckSchema";
-import { createSession, deleteSession } from "@/lib/session";
+import { signIn , signOut } from "next-auth/react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function login(prevState: any, formData: FormData) {
@@ -72,29 +66,21 @@ export async function login(prevState: any, formData: FormData) {
   }
 
   try {
-    const user = await db.user.findFirst({
-      where: { OR: [{ username: userIdentity }, { email: userIdentity }] },
+
+    // Instead of manually creating a session, call NextAuth's signIn method
+    const signInResult = await signIn("credentials", {
+      redirect: false, // Prevent automatic redirect
+      identity: userIdentity,
+      password: validPassword,
     });
 
-    if (!user) {
+    if (signInResult?.error) {
       return {
         success: false,
-        errors: { identity: ["User not found"] },
-        message: "Invalid credentials",
+        errors: { identity: [] , password: []},
+        message: "Sign-in failed / Invalid Credentials",
       };
     }
-
-    const isMatch = await bcrypt.compare(validPassword, user.password);
-
-    if (!isMatch) {
-      return {
-        success: false,
-        errors: { password: ["Incorrect password"] },
-        message: "Invalid credentials",
-      };
-    }
-
-    await createSession(user.id, user.role);
 
     return {
       success: true,
@@ -104,6 +90,7 @@ export async function login(prevState: any, formData: FormData) {
       },
       message: "User logged in successfully",
     };
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return {
@@ -117,99 +104,24 @@ export async function login(prevState: any, formData: FormData) {
   }
 }
 
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function signup(prevState: any, formData: FormData) {
-
-  const result = signupSchema.safeParse(Object.fromEntries(formData));
-
-  if (!result.success) {
-    return {
-      success: false,
-      errors: result.error.flatten().fieldErrors,
-      message: "Signup validation failed",
-    };
-  }
-
-  const { username, email, password } = result.data;
-
-  if (!username || !email || !password) {
-    return {
-      success: false,
-      errors: {
-        username: !username ? ["Username is required"] : [],
-        email: !email ? ["Email is required"] : [],
-        password: !password ? ["Password is required"] : [],
-      },
-      message: "All fields are required",
-    };
-  }
-
-  if (!checkSignUpConstraints(username, email, password)) {
-    return {
-      success: false,
-      errors: {
-        username: !checkConstraintsAsUserName(username) ? ["Invalid username"] : [],
-        email: !checkConstraintsAsEmail(email) ? ["Invalid email address"] : [],
-        password: !checkConstraintsAsPassword(password) ? ["Invalid password format"] : [],
-      },
-      message: "Invalid credentials",
-    };
-  }
-
+export async function logout() {
   try {
-    const isUserEmail = await db.user.findFirst({
-      where: { email },
-    });
-    if (isUserEmail) {
-      return {
-        success: false,
-        errors: { email: ["Email already exists"] },
-        message: "Email already exists",
-      };
-    }
 
-    const isUserUsername = await db.user.findFirst({
-      where: { username },
-    });
-    if (isUserUsername) {
-      return {
-        success: false,
-        errors: { username: ["Username already exists"] },
-        message: "Username already exists",
-      };
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    await db.user.create({
-      data: {
-        username: String(username),
-        email: String(email.toLowerCase()),
-        password: hashedPassword,
-      },
+    await signOut({
+      redirect: false,
     });
 
     return {
       success: true,
-      errors: {},
-      message: "Signup successful",
+      message: "Logged out successfully",
     };
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return {
       success: false,
-      errors: {},
-      message: `Internal server error: ${error.message || "Unknown error"}`,
+      message: `Logout failed: ${error.message || "Unknown error"}`,
     };
   }
 }
-
-export async function logout() {
-    await deleteSession();
-    return {
-        success : true,
-        message : "logout successfully"
-    }
-  }
 

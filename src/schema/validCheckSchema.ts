@@ -1,6 +1,6 @@
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-const usernameRegex =  /^[a-zA-Z0-9_]{3,16}$/
+const usernameRegex =  /^[a-zA-Z0-9-]{3,16}$/
 
 export function checkConstraintsAsEmail(email: string) {
   const isValidEmail = emailRegex.test(email);

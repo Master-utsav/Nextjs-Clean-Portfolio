@@ -7,7 +7,7 @@ import { useTheme } from "@/context/ThemeProvider";
 import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useState } from "react";
-import { signup } from "@/actions/authActions";
+import { signup } from "@/actions/signupActions";
 import AuthFormButton from "@/components/ui/AuthFormButton";
 import FormToast from "@/components/ui/FormToast";
 
@@ -33,11 +33,7 @@ export default function SignupPage() {
   }, [state?.success]);
 
   return (
-    <section className="flex items-center justify-center bg-[#F5F5F5] dark:bg-[#121212] relative w-full min-h-screen dark:bg-grid-white-500/[0.2] bg-grid-black-500/[0.2]">
-      <div
-        className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white 
-       dark:[mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] [mask-image:radial-gradient(ellipse_at_center,transparent_0%,_#F5F5F5)]"
-      ></div>
+  
       <motion.div
         initial={{ scale: 0.9, y: -100 }}
         animate={{ scale: 1, y: 0 }}
@@ -163,6 +159,5 @@ export default function SignupPage() {
           </div>
         </form>
       </motion.div>
-    </section>
   );
 }

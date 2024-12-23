@@ -26,6 +26,7 @@ export function LogoutModal() {
       setIsOpen(!isOpen);
       setTimeout(() => {
         router.replace("/posts");
+        window.location.reload();
       }, 1000);
     }else{
       setIsPending(false);
