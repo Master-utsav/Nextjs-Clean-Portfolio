@@ -18,6 +18,8 @@ export async function createSession(userId: string , role: string) {
 
 export async function deleteSession() {
   (await cookies()).delete("session");
+  (await cookies()).delete("next-auth.state");
+  (await cookies()).delete("next-auth.session-token");
 }
 
 export async function isSessionCookie() {

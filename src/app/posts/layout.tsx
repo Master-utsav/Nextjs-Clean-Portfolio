@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import PostsNavbar from "@/components/PostsNavbar";
 import { isAdminSessionCookie, isSessionCookie } from "@/lib/session";
 import { PostLayoutMetadata } from "@/metaData/postLayout.metadata";
+import AuthProvider from "@/components/providers/AuthProvider";
 
 export const metadata: Metadata = PostLayoutMetadata;
 
@@ -22,7 +23,9 @@ export default async function PostLayout({
         </main>
         <MyName className="sm:inline-block hidden fixed bottom-0 right-2 w-20 rounded-lg bg-transparent" />
       </div>
+      <AuthProvider>
       {modal}
+    </AuthProvider>
     </div>
   );
 }

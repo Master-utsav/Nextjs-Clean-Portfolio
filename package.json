@@ -38,6 +38,7 @@
     "lucide-react": "^0.454.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "15.0.2",
+    "next-auth": "^4.24.11",
     "npm": "^10.9.0",
     "prisma": "^6.0.1",
     "qss": "^3.0.0",

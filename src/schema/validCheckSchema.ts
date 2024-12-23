@@ -39,3 +39,41 @@ export function checkSignUpConstraints(username: string , email : string , passw
   const isValidPassword = passwordRegex.test(password);
   return isValidUserName && isValidEmail && isValidPassword;
 }
+
+export function generateRandomPassword(): string {
+
+  const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+  const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numbers = '0123456789';
+  const specialChars = '@$!%*?&';
+  
+  const getRandomChar = (charset: string) => charset[Math.floor(Math.random() * charset.length)];
+  
+  const password = [
+    getRandomChar(lowercase), // at least one lowercase
+    getRandomChar(uppercase), // at least one uppercase
+    getRandomChar(numbers),   // at least one number
+    getRandomChar(specialChars), // at least one special character
+  ];
+  
+  // Add additional random characters to reach minimum length of 8
+  const allChars = lowercase + uppercase + numbers + specialChars;
+  const remainingLength = 4 + Math.floor(Math.random() * 5); 
+  
+  for (let i = 0; i < remainingLength; i++) {
+    password.push(getRandomChar(allChars));
+  }
+  
+  for (let i = password.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [password[i], password[j]] = [password[j], password[i]];
+  }
+  
+  const finalPassword = password.join('');
+  
+  if (!passwordRegex.test(finalPassword)) {
+    return generateRandomPassword();
+  }
+  
+  return finalPassword;
+}
