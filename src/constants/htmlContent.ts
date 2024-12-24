@@ -16,7 +16,7 @@ export const sendMailForPasswordHTMLContent = ({
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #121212; /* Dark theme background */
+            background-color: #121212; 
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -24,14 +24,14 @@ export const sendMailForPasswordHTMLContent = ({
         .container {
             max-width: 600px;
             margin: 40px auto;
-            background-color: #1e1e1e; /* Slightly lighter black for contrast */
-            border: 1px solid #1a73e8; /* Blue border */
+            background-color: #1e1e1e; 
+            border: 1px solid #1a73e8; 
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             overflow: hidden;
         }
         .header {
-            background-color: #1a73e824; /* Blue accent */
+            background-color: #1a73e824; 
             color: #ffffff;
             padding: 10px;
             display: flex;
@@ -151,7 +151,6 @@ export const sendMailForPasswordHTMLContent = ({
             <p>Your temporary password is:</p>
             <div class="password-container">
                 <span class="password" id="password">${password}</span>
-                <button class="copy-button" onclick="copyToClipboard()">Copy</button>
             </div>
             <p>Explore insightful blog posts, and articles on web development, React.js, TypeScript, Node.js, and more. Master the skills to build full-stack applications with Utsav Jaiswal.</p>
             <a href="${domain}/posts" class="button">View Blogs</a>
@@ -165,12 +164,14 @@ export const sendMailForPasswordHTMLContent = ({
         </div>
     </div>
 
-    <script>
-        function copyToClipboard() {
-            const password = document.getElementById('password').textContent;
-            navigator.clipboard.writeText(password);
-        }
-    </script>
+   
 </body>
 </html>
 `;
+// <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+// <script>
+// function copyToClipboard() {
+//     const password = document.getElementById('password').textContent;
+//     navigator.clipboard.writeText(password);
+// }
+// </script>
