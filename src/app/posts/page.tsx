@@ -8,7 +8,7 @@ export default function Post() {
       <PostsPageSection screen="post"/>
       <div id="posts">
         {PostsSecondNavItems.map((item, idx) => (
-          <div key={idx} className="w-full space-y-2 py-4">
+          <div key={idx} className="w-full space-y-2 py-4 ">
             <PostsCardSection typeName={item.name} />
           </div>
         ))}
