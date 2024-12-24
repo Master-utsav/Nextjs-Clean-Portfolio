@@ -4,8 +4,12 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
-import { generateRandomPassword, returnIdentity } from "@/schema/validCheckSchema";
+import {
+  generateRandomPassword,
+  returnIdentity,
+} from "@/schema/validCheckSchema";
 import { v4 } from "uuid";
+import { sendPasswordMail } from "./mailer";
 
 declare module "next-auth" {
   interface User {
@@ -18,7 +22,7 @@ declare module "next-auth" {
     user: {
       id: number;
       role: string;
-      token?: string; 
+      token?: string;
     } & DefaultSession["user"];
   }
 }
@@ -58,35 +62,57 @@ export const authOptions: NextAuthOptions = {
         });
 
         if (user && (await bcrypt.compare(password, user.password))) {
-          return { id: user.id, name: user.username, email: user.email, role: user.role };
-        }
+          const existingSession = await db.session.findFirst({
+            where: {
+              userId: Number(user.id),
+            },
+          });
 
+          if (existingSession) {
+            return { ...user, token: existingSession.token };
+          }
+
+          const sessionToken = v4();
+          await db.session.create({
+            data: {
+              userId: Number(user.id),
+              token: sessionToken,
+            },
+          });
+          
+          return { ...user, token: sessionToken };
+        }
         return null;
       },
     }),
   ],
 
   pages: {
-    signIn: "/posts/login", // Custom sign-in page
-    error: "/", // Redirect to homepage on error
+    signIn: "/posts/login", 
+    error: "/posts", 
   },
 
   callbacks: {
     async signIn({ user, account, profile }) {
+
       if (account?.provider === "github" || account?.provider === "google") {
         try {
           const email = user.email?.toLowerCase();
           if (!email) {
-            console.error("No email returned from provider.");
             return false;
           }
 
           let dbUser = await db.user.findUnique({ where: { email } });
 
+          const randomPassword = generateRandomPassword();
           if (!dbUser) {
-            const randomPassword = generateRandomPassword();
             const hashedPassword = await bcrypt.hash(randomPassword, 10);
-            const username = (profile?.name || user.name || email.split("@")[0]).trim().replace(/\s+/g, "-");
+            const username = (profile?.name || user.name || email.split("@")[0])
+              .trim()
+              .replace(/\s+/g, "-");
+            // const providerId = Number(
+            //   account?.providerAccountId || profile?.sub || null
+            // );
             dbUser = await db.user.create({
               data: {
                 username,
@@ -97,48 +123,60 @@ export const authOptions: NextAuthOptions = {
             });
           }
 
-          const sessionToken = v4(); 
-          console.log(sessionToken);
-          await db.session.create({
-            data: {
-              userId: dbUser.id,
-              token: sessionToken,
+          const existingSession = await db.session.findFirst({
+            where: {
+              userId: Number(dbUser.id),
             },
           });
 
-          user.token = sessionToken; 
+          if (existingSession) {
+            user.token = existingSession.token;
+          } else {
+            const sessionToken = v4();
+            await db.session.create({
+              data: {
+                userId: Number(dbUser.id),
+                token: sessionToken,
+              },
+            });
+            user.token = sessionToken;
+          }
+          const provider = account.provider.charAt(0).toUpperCase() + account.provider.slice(1);
+          await sendPasswordMail(dbUser.email, randomPassword , provider )
           return true;
         } catch (error) {
           console.error(`Error during ${account.provider} sign-in:`, error);
           return false;
         }
       }
+
       return true;
     },
 
     async session({ session, token }) {
-      if (session.user && token.uid) {
+      if (session.user && token.uid && session.user.email) {
         const dbUser = await db.user.findUnique({
-          where: { id: token.uid as number },
+          where: { email: session.user.email },
         });
 
         if (dbUser) {
           session.user.id = dbUser.id;
           session.user.role = dbUser.role;
-          session.user.token = token.sessionToken as string; 
+          session.user.token = token.sessionToken as string;
         }
       }
+
       return session;
     },
 
     async jwt({ token, user }) {
       if (user) {
-        token.uid = user.id;
-        token.sessionToken = user.token; 
+        token.uid = Number(user.id);
+        token.sessionToken = user.token;
       }
       return token;
     },
   },
-
+   
   secret: process.env.NEXTAUTH_SECRET!,
 };

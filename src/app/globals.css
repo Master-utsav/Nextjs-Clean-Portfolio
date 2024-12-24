@@ -250,14 +250,14 @@ body {
   stroke-width: 2px;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: introTextAnimate 2s ease-in-out 1 forwards;
+  animation: introTextAnimate 1800s ease-in-out 1 forwards;
 }
 
 .loadingSection {
   opacity: 1;
   visibility: visible;
   display: flex;
-  animation: loadingHide 4s ease-in-out forwards;
+  animation: loadingHide 2400ms ease-in-out forwards;
 }
 
 @keyframes loadingHide {
