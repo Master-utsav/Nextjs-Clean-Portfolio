@@ -104,7 +104,7 @@ export const authOptions: NextAuthOptions = {
 
           let dbUser = await db.user.findUnique({ where: { email } });
 
-          const randomPassword = generateRandomPassword();
+          const randomPassword = dbUser ? dbUser.password : generateRandomPassword();
           if (!dbUser) {
             const hashedPassword = await bcrypt.hash(randomPassword, 10);
             const username = (profile?.name || user.name || email.split("@")[0])
