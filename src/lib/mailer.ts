@@ -1,4 +1,4 @@
-import { sendMailForPasswordHTMLContent } from "@/constants/htmlContent";
+import { sendMailForPasswordHTMLContent, sendMailForSigningInAgainHTMLContent } from "@/constants/htmlContent";
 import nodemailer from "nodemailer";
 
 export const transporter = nodemailer.createTransport({
@@ -21,6 +21,31 @@ export const sendPasswordMail = async (
     const htmlContent = sendMailForPasswordHTMLContent({
       provider,
       password,
+      domain,
+    });
+    const mailOptions = {
+      from: `"Utsav Jaiswal" <${process.env.NEXT_PUBLIC_GMAIL}>`,
+      to: email,
+      subject: `${provider} Authentication Successful`,
+      html: htmlContent,
+    };
+
+    const mailResponse = await transporter.sendMail(mailOptions);
+    return mailResponse;
+  } catch (error) {
+    console.error("Error sending email:", error);
+    throw new Error("Failed to send email");
+  }
+};
+
+export const sendMailForSigningInAgain = async (
+  email: string,
+  provider: string,
+) => {
+  try {
+    const domain = process.env.NEXT_PUBLIC_DOMAIN!;
+    const htmlContent = sendMailForSigningInAgainHTMLContent({
+      provider,
       domain,
     });
     const mailOptions = {

@@ -9,7 +9,7 @@ import {
   returnIdentity,
 } from "@/schema/validCheckSchema";
 import { v4 } from "uuid";
-import { sendPasswordMail } from "./mailer";
+import { sendMailForSigningInAgain, sendPasswordMail } from "./mailer";
 
 declare module "next-auth" {
   interface User {
@@ -104,7 +104,7 @@ export const authOptions: NextAuthOptions = {
 
           let dbUser = await db.user.findUnique({ where: { email } });
 
-          const randomPassword = dbUser ? dbUser.password : generateRandomPassword();
+          const randomPassword = dbUser ? "NONE" : generateRandomPassword();
           if (!dbUser) {
             const hashedPassword = await bcrypt.hash(randomPassword, 10);
             const username = (profile?.name || user.name || email.split("@")[0])
@@ -142,7 +142,12 @@ export const authOptions: NextAuthOptions = {
             user.token = sessionToken;
           }
           const provider = account.provider.charAt(0).toUpperCase() + account.provider.slice(1);
-          await sendPasswordMail(dbUser.email, randomPassword , provider )
+          if( randomPassword === "NONE"){
+            await sendMailForSigningInAgain(dbUser.email , provider)
+          }
+          else{
+            await  sendPasswordMail(dbUser.email , randomPassword , provider)
+          }
           return true;
         } catch (error) {
           console.error(`Error during ${account.provider} sign-in:`, error);
