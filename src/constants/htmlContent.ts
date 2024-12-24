@@ -14,8 +14,8 @@ export const sendMailForPasswordHTMLContent = ({
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${provider} Authentication Success</title>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #121212; color: #ffffff; margin: 0; padding: 0;">
-    <div style="margin: 0; background-color: #1e1e1e; border: 1px solid #1a73e8; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); overflow: hidden;">
+<body style="font-family: Arial, sans-serif; background-color: #121212; color: #ffffff; margin: 0; padding: 0; width: fit-content;">
+    <div style="max-width: 600px; margin: 0; background-color: #1e1e1e; border: 1px solid #1a73e8; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); overflow: hidden;">
 
        <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #1a73e824; color: #ffffff; padding: 10px; text-align: center;">
             <tr>
@@ -83,8 +83,8 @@ export const sendMailForSigningInAgainHTMLContent = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>${provider} Authentication Success</title>
   </head>
-  <body style="font-family: Arial, sans-serif; background-color: #121212; color: #ffffff; margin: 0; padding: 0;">
-      <div style="max-width: 600px; margin: 40px auto; background-color: #1e1e1e; border: 1px solid #1a73e8; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); overflow: hidden;">
+  <body style="font-family: Arial, sans-serif; background-color: #121212; color: #ffffff; margin: 0; padding: 0; width: fit-content;">
+      <div style="max-width: 600px; margin: 0; background-color: #1e1e1e; border: 1px solid #1a73e8; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); overflow: hidden;">
   
             <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #1a73e824; color: #ffffff; padding: 10px; text-align: center;">
                 <tr>
