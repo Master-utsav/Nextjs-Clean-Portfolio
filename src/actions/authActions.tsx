@@ -69,7 +69,7 @@ export async function login(prevState: any, formData: FormData) {
 
     // Instead of manually creating a session, call NextAuth's signIn method
     const signInResult = await signIn("credentials", {
-      redirect: false, // Prevent automatic redirect
+      redirect: false, 
       identity: userIdentity,
       password: validPassword,
     });
@@ -107,8 +107,9 @@ export async function login(prevState: any, formData: FormData) {
 export async function logout() {
   try {
 
-    await signOut({
-      redirect: false,
+    await signOut({ 
+      callbackUrl: "/posts/login",
+      redirect: true 
     });
 
     return {

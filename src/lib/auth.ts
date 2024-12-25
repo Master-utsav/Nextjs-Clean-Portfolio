@@ -182,6 +182,24 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
-   
+
+  events: {
+    async signOut({ token }) {
+      // console.log(token)
+      try {
+        if (token.uid) {
+          await db.session.deleteMany({
+            where: {
+              token: String(token.sessionToken as string),
+            },
+          });
+          // console.log(`Session deleted for user ${token.uid}`);
+        }
+      } catch (error) {
+        console.error("Error deleting session:", error);
+      }
+    },
+  },
+
   secret: process.env.NEXTAUTH_SECRET!,
 };
