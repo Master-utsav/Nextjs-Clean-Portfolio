@@ -1,4 +1,4 @@
-import { DefaultSession, NextAuthOptions } from "next-auth";
+import { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -18,12 +18,25 @@ declare module "next-auth" {
     role: string;
   }
 
-  interface Session extends DefaultSession {
+  interface Session {
     user: {
       id: number;
       role: string;
       token?: string;
-    } & DefaultSession["user"];
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    };
+    expires: string;
+  }
+
+  interface JWT {
+    uid?: number;
+    role?: string;
+    sessionToken?: string;
+    name?: string | null;
+    email?: string | null;
+    picture?: string | null;
   }
 }
 
@@ -141,6 +154,7 @@ export const authOptions: NextAuthOptions = {
             });
             user.token = sessionToken;
           }
+          user.role = dbUser.role;
           const provider = account.provider.charAt(0).toUpperCase() + account.provider.slice(1);
           if( randomPassword === "NONE"){
             await sendMailForSigningInAgain(dbUser.email , provider)
@@ -158,34 +172,33 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
 
-    async session({ session, token }) {
-      if (session.user && token.uid && session.user.email) {
-        const dbUser = await db.user.findUnique({
-          where: { email: session.user.email },
-        });
-
-        if (dbUser) {
-          session.user.id = dbUser.id;
-          session.user.role = dbUser.role;
-          session.user.token = token.sessionToken as string;
-        }
-      }
-
-      return session;
-    },
-
     async jwt({ token, user }) {
       if (user) {
-        token.uid = Number(user.id);
-        token.sessionToken = user.token;
+        return {
+          ...token,
+          uid: Number(user.id),
+          role: user.role,
+          sessionToken: user.token
+        };
       }
       return token;
     },
+    
+    async session({ session, token }) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.uid as number,
+          role: token.role as string,
+          token: token.sessionToken as string
+        }
+      };
+    }
   },
 
   events: {
     async signOut({ token }) {
-      // console.log(token)
       try {
         if (token.uid) {
           await db.session.deleteMany({
@@ -193,7 +206,6 @@ export const authOptions: NextAuthOptions = {
               token: String(token.sessionToken as string),
             },
           });
-          // console.log(`Session deleted for user ${token.uid}`);
         }
       } catch (error) {
         console.error("Error deleting session:", error);

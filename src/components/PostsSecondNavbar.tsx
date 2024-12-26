@@ -32,7 +32,7 @@ const PostsSecondNavbar = ({session} : {session: Session | null}) => {
                 />
               </div>
             ))}
-            {!!session?.user && session.user.role === "MASTER"  && 
+            {!!session?.user && session.user.role === process.env.NEXT_PUBLIC_GMAIL  && 
              <Link href={"/posts/add-posts"}>
               <Button
                 variant="expandIcon"

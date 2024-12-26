@@ -1,3 +1,5 @@
+import EditAndAddPage from "@/components/Editor/EditAndAddPage";
+
 export default async function AddPostsFormPage({
   params,
 }: {
@@ -7,6 +9,7 @@ export default async function AddPostsFormPage({
   return (
     <>
       <div className="pt-20">This is the {slug} page.</div>
+      <EditAndAddPage type={slug}/>
     </>
   );
 }

@@ -15,6 +15,7 @@ export default async function PostLayout({
   modal: React.ReactNode;
 }) {
   const session = await getServerSession();
+
   return (
     <div className={`antialiased scrollbar-custom overflow-x-hidden relative`}>
       <div className="flex items-center justify-center bg-[#F5F5F5] dark:bg-[#121212] relative w-full overflow-hidden">

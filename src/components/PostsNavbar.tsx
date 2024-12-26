@@ -18,10 +18,12 @@ import { ModeToggle } from "./ui/ThemeBtn";
 import { Button } from "./ui/button";
 import { Session } from "next-auth";
 
+
 const PostsNavbar = ({session} : {session: Session | null}) => {
   const { scrollY } = useScroll();
   const [visible, setVisible] = React.useState(true);
   const prevScrollY = React.useRef(0);
+
 
   useMotionValueEvent(scrollY, "change", (current) => {
     if (current <= 10) {
@@ -103,7 +105,7 @@ const PostsNavbar = ({session} : {session: Session | null}) => {
               ></Button>
             </Link>
           )}
-          {!!session?.user && session.user.role === "MASTER" && (
+          {!!session?.user && session.user.email === process.env.NEXT_PUBLIC_GMAIL! && (
             <Link href={"/posts/add-posts"}>
               <Button
                 variant="expandIcon"
