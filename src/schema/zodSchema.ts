@@ -38,3 +38,18 @@ export const loginSchema = z.object({
       "Password must contain at least one uppercase, one lowercase, one digit, and one special character"
     ),
 });
+
+export const PostsSchema = z.object({
+  title: z.string().min(10, { message: "Title must be at least of 10 chars"}),
+  description: z.string().optional(),
+  image: z.union([z.string(), z.instanceof(File)]).optional(),
+  content: z.string().refine(
+    (val) =>
+      !/(\bfunction\b|\bvar\b|\blet\b|\bconst\b|\breturn\b|\bif\b|\belse\b|\bwhile\b|\bfor\b|\btry\b|\bcatch\b|<script>|<\/script>)/.test(
+        val
+      ),
+    {
+      message: "Content should not contain JavaScript code.",
+    }
+  ),
+})
