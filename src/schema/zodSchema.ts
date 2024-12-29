@@ -53,3 +53,10 @@ export const PostsSchema = z.object({
     }
   ),
 })
+
+export const quoteSchema = z.object({
+  day: z.string().refine((value) => /^\d+$/.test(value), {
+    message: "Day must contain only numeric characters",
+  }),
+  quote: z.string().min(10 , "minimum 10 chars required").max(726 , "quote is too lengthy")
+})

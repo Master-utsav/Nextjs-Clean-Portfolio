@@ -1,6 +1,6 @@
 "use client"
 
-import { PostsSchema } from "@/schema/zodSchema";
+import { PostsSchema, quoteSchema } from "@/schema/zodSchema";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function addNewPost(prevState: any, formData: FormData) {
@@ -34,4 +34,22 @@ export async function addNewPost(prevState: any, formData: FormData) {
           message: (error as Error).message,
         };
       }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function qouteForm(prevState: any , formData : FormData){
+  const result = quoteSchema.safeParse(Object.fromEntries(formData));
+  console.log("FormData Entries:");
+  for (const [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+  }
+
+  if (!result.success) {
+      return {
+        success: false,
+        errors: result.error.flatten().fieldErrors,
+        message: "form validation failed",
+      };
+    }
+
 }

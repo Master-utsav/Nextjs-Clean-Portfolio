@@ -6,6 +6,7 @@ import { useTheme } from "@/context/ThemeProvider";
 import { addNewPost } from "@/actions/formActions";
 import { Button } from "../ui/button";
 import AuthFormButton from "../ui/AuthFormButton";
+import QuoteForm from "../forms/QuoteForm";
 
 
 const EditAndAddPage = ({ type }: { type: string }) => {
@@ -33,6 +34,7 @@ const EditAndAddPage = ({ type }: { type: string }) => {
   return (
     <div className="w-full flex flex-col gap-4 justify-start items-start py-5">
       <p>Type of editor is {type}</p>
+      {type === "quote" && <QuoteForm/>}
       <form action={addFormAction} className="w-full flex flex-col gap-4">
         <Input
           variant="underlined"
