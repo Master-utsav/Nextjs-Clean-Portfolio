@@ -58,5 +58,20 @@ export const quoteSchema = z.object({
   day: z.string().refine((value) => /^\d+$/.test(value), {
     message: "Day must contain only numeric characters",
   }),
-  quote: z.string().min(10 , "minimum 10 chars required").max(726 , "quote is too lengthy")
+  quote: z.string().min(10 , "minimum 10 chars required").max(1024 , "quote is too lengthy")
+})
+
+export const articleSchema = z.object({
+  title: z.string().min(10 , "minimum 10 chars required").max(256 , "title is too lengthy"),
+  description: z.string().min(10 , "minimum 10 chars required").max(2048 , "quote is too lengthy"),
+  image: z.union([z.string(), z.instanceof(File)]),
+  content: z.string().refine(
+    (val) =>
+      !/(\bfunction\b|\bvar\b|\blet\b|\bconst\b|\breturn\b|\bif\b|\belse\b|\bwhile\b|\bfor\b|\btry\b|\bcatch\b|<script>|<\/script>)/.test(
+        val
+      ),
+    {
+      message: "Content should not contain JavaScript code.",
+    }
+  ),
 })

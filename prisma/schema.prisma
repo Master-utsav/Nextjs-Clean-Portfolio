@@ -63,11 +63,9 @@ enum PostType {
 model Article {
   id          Int      @id @default(autoincrement())
   title       String
-  subTitle    String[]
   description String?
   content     String[]
   image       String[]
-  link        String[]
   postId      Int      @unique
   post        Post     @relation(fields: [postId], references: [id])
   userId      Int
@@ -84,9 +82,8 @@ model Story {
 
 model Quote {
   id          Int     @id @default(autoincrement())
-  title       String
-  description String?
-  content     String
+  day       String
+  quote      String
   postId      Int     @unique
   post        Post    @relation(fields: [postId], references: [id])
   userId      Int

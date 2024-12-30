@@ -12,7 +12,7 @@ const QuoteForm = () => {
     [key: string]: { val: string };
   }>({
     day: { val: "1" },
-    quote: { val: "Nothing is impossible." },
+    quote: { val: "" },
   });
   const { theme } = useTheme();
   const [state, quoteStateActions] = useActionState(qouteForm, undefined);
@@ -20,7 +20,7 @@ const QuoteForm = () => {
     setQuoteFormData((prev) => ({ ...prev, quote: { val } }));
   }
   return (
-    <form action={quoteStateActions} className="w-full flex flex-col gap-2 justify-center items-center">
+    <form action={quoteStateActions} className="w-full flex flex-col gap-3 justify-center items-center">
       <Input
         variant="underlined"
         type="text"
