@@ -13,11 +13,6 @@ model User {
   email    String @unique
   password String
   role     String @default("USER")
-  Story    Story[]
-  Quote    Quote[]
-  Poetry   Poetry[]
-  Notes    Notes[]
-  Article  Article[]
   sessions Session[] @relation("UserSessions")
   Session  Session[]
 }
@@ -46,32 +41,20 @@ model Article {
   description String?
   content     String[]
   image       String[]
-
-  userId Int
-  user   User @relation(fields: [userId], references: [id])
 }
 
 model Story {
   id Int @id @default(autoincrement())
-
-  userId Int
-  user   User @relation(fields: [userId], references: [id])
 }
 
 model Quote {
   id    Int    @id @default(autoincrement())
   day   String
   quote String
-
-  userId Int
-  user   User @relation(fields: [userId], references: [id])
 }
 
 model Poetry {
   id Int @id @default(autoincrement())
-
-  userId Int
-  user   User @relation(fields: [userId], references: [id])
 }
 
 model Notes {
@@ -80,6 +63,4 @@ model Notes {
   description String?
   link        String
   image       String?
-  userId      Int
-  user        User    @relation(fields: [userId], references: [id])
 }

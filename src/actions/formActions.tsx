@@ -1,6 +1,6 @@
 "use client"
 
-// import { db } from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { articleSchema, PostsSchema, quoteSchema } from "@/schema/zodSchema";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -52,25 +52,25 @@ export async function qouteForm(prevState: any , formData : FormData){
         message: "form validation failed",
       };
     }
-  // const {day , quote} = result.data;
-  // try{
-  //   const Quote = await db.quote.create({
-  //     data: {
-  //       quote: String(quote),
-  //       day: String(day),
-  //     }
-  //   })
-  //   if(Quote){
-  //     return {
-  //       success: false,
-  //       errors: {day : [] , quote : []},
-  //       message: "quote created successfully",
-  //     };
-  //   }
-  // }
-  // catch(err){
-  //   console.log(err);
-  // }
+  const {day , quote} = result.data;
+  try{
+    const Quote = await db.quote.create({
+      data: {
+        quote: String(quote),
+        day: String(day),
+      }
+    })
+    if(Quote){
+      return {
+        success: false,
+        errors: {day : [] , quote : []},
+        message: "quote created successfully",
+      };
+    }
+  }
+  catch(err){
+    console.log(err);
+  }
 
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
