@@ -1,4 +1,4 @@
-"use client"
+"use server";
 
 import { db } from "@/lib/prisma";
 import { articleSchema, PostsSchema, quoteSchema } from "@/schema/zodSchema";
