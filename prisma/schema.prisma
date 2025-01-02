@@ -39,8 +39,8 @@ model Article {
   id          Int      @id @default(autoincrement())
   title       String
   description String?
-  content     String[]
-  image       String[]
+  content     String
+  image       String
 }
 
 model Story {

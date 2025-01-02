@@ -89,4 +89,25 @@ export async function articleForm(prevState: any, formData: FormData){
         message: "form validation failed",
       };
     }
+    // const {content , description , image , title} = result.data;
+    // try{
+    //   const Quote = await db.article.create({
+    //     data: {
+    //       title: String(title),
+    //       content: String(content),
+    //       description: String(description),
+    //       image: String(image),
+    //     }
+    //   })
+    //   if(Quote){
+    //     return {
+    //       success: false,
+    //       errors: {day : [] , quote : []},
+    //       message: "quote created successfully",
+    //     };
+    //   }
+    // }
+    // catch(err){
+    //   console.log(err);
+    // }
 }
