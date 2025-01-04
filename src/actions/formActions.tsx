@@ -44,7 +44,6 @@ export async function qouteForm(prevState: any , formData : FormData){
   for (const [key, value] of formData.entries()) {
     console.log(`${key}: ${value}`);
   }
-
   if (!result.success) {
       return {
         success: false,
