@@ -135,7 +135,6 @@ export const authOptions: NextAuthOptions = {
               },
             });
           }
-
           const existingSession = await db.session.findFirst({
             where: {
               userId: Number(dbUser.id),
