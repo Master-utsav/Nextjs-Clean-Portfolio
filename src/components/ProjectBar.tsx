@@ -6,6 +6,34 @@ const ProjectBar = () => {
   const links = [
     {
       id: 1,
+      title: "Code Spardha",
+      icon: (
+        <Image
+          src="/images/code_spardha_logo.png"
+          width={100}
+          height={100}
+          alt="code-spardha Logo"
+          loading="eager"
+          className="size-12 object-cover p-0 rounded-full"
+        />
+      ),
+    },
+    {
+      id: 2,
+      title: "Tejanta Lnct Fest",
+      icon: (
+        <Image
+          src="/images/tejanta_logo.png"
+          width={100}
+          height={100}
+          alt="tejanta-lnct-fest Logo"
+          loading="eager"
+          className="size-12 object-cover p-0 rounded-full"
+        />
+      ),
+    },
+    {
+      id: 3,
       title: "My Brain",
       icon: (
         <Image
@@ -19,7 +47,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 2,
+      id: 4,
       title: "Course Yuga",
       icon: (
         <Image
@@ -33,7 +61,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 3,
+      id: 5,
       title: "ThreeJs Portfolio",
       icon: (
         <Image
@@ -47,7 +75,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 4,
+      id: 6,
       title: "Master's Recipe an Expo App",
       icon: (
         <Image
@@ -61,7 +89,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 5,
+      id: 7,
       title: "Kronoskill ~ Skill learning platform",
       icon: (
         <Image
@@ -75,7 +103,7 @@ const ProjectBar = () => {
       ),
     },
     {
-      id: 6,
+      id: 8,
       title: "KM Solar Energy",
       icon: (
         <Image

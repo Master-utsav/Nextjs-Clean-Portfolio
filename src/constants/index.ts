@@ -236,6 +236,72 @@ export interface Project {
 export const ProjectsData: Project[] = [
   {
     id: 1,
+    title: "Code Spardha",
+    description:
+      "Code Spardha is the ultimate platform for college-level programming competitions. Participate in thrilling challenges like Code Clash, Bug Bash, and Code Mirage to test and enhance your coding skills. Designed for fairness and security, our platform ensures a cheat-proof environment for all participants.",
+    imageSrc: "/images/code_spardha_thumbnail.png",
+    gitLink: "https://github.com/master-utsav/spardha",
+    liveLink: "https://codespardha.vercel.app",
+    techStack: [
+      {
+        name: "Next Js",
+        src: "/images/nextjs.png",
+      },
+      {
+        name: "React",
+        src: "/images/color_react.png",
+      },
+      {
+        name: "TypeScript",
+        src: "/images/typescript.png",
+      },
+      {
+        name: "Tailwind CSS",
+        src: "/images/tailwind.png",
+      },
+      {
+        name: "Framer Motion",
+        src: "/images/framer.png",
+      },
+      {
+        name: "MongoDB",
+        src: "/images/mongo_db.png",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Tejanta LNCT Fest",
+    description:
+      "Experience the vibrant fusion of technology, art, and culture at Tejanta LNCT Fest. Join us for Tech Spardha, Rang Riwaaz, Fashion Show, and more.",
+    imageSrc: "/images/tejanta_lnct_fest_thumbnail.png",
+    gitLink: "https://github.com/master-utsav/spectract",
+    liveLink: "https://tejanta.vercel.app",
+    techStack: [
+      {
+        name: "Next JS",
+        src: "/images/nextjs.png",
+      },
+      {
+        name: "React",
+        src: "/images/color_react.png",
+      },
+      {
+        name: "TypeScript",
+        src: "/images/typescript.png",
+      },
+      {
+        name: "Tailwind CSS",
+        src: "/images/tailwind.png",
+      },
+      {
+        name: "Framer Motion",
+        src: "/images/framer.png",
+      },
+    ],
+  },
+  {
+    id: 3,
     title: "My Brain",
     description:
       "Transform your notes, images, and ideas into beautifully organized cards. My-Brain lets you create, share, and discover like never before—powered by cutting-edge AI.",
@@ -274,7 +340,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 4,
     title: "Course Yuga",
     description:
       "Courses are Required to master any skill in this yuga, we offer you all the most advance and cost effective courses.",
@@ -313,7 +379,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "ThreeJs Portfolio",
     description:
       "Explore my portfolio and reach out for remote collaborations to build websites and apps tailored to your needs.",
@@ -348,7 +414,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 4,
+    id: 6,
     title: "Master's Recipe an Expo App",
     description:
       "Basic Mobile App where you find the recipe, of your favourite dishes.",
@@ -371,7 +437,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 5,
+    id: 7,
     title: "Kronoskill ~ Skill learning platform",
     description:
       "A platform where you search or select any any skill and learn that from the best youtube playlist available. Site is not complete as of production level",
@@ -398,7 +464,7 @@ export const ProjectsData: Project[] = [
     ],
   },
   {
-    id: 6,
+    id: 8,
     title: "KM Solar Energy",
     description:
       "This was just a frontend project, using nextjs just for SEO and there are some framer and gsap usages.",
