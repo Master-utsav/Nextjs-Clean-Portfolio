@@ -10,7 +10,7 @@ export function gmailLink(){
 }
 
 export function resumeLink(){
-    return "/utsav_jaiswal_resume_hard_copy.pdf"
+    return "/utsav_jaiswal_res_edit_num.pdf"
 }
 
 export function pptLink(){
